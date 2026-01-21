@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>voicetest — Test your voice agents before production</title>
+  <meta name="description" content="Import from Retell, Vapi, LiveKit. Run autonomous simulations. Evaluate with LLM judges. Open source.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:title" content="voicetest — Test your voice agents before production">
+  <meta property="og:description" content="Import from Retell, Vapi, LiveKit. Run autonomous simulations. Evaluate with LLM judges. Open source.">
+  <meta property="og:image" content="https://voicetest.dev/icon-80.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://voicetest.dev">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="voicetest — Test your voice agents before production">
+  <meta name="twitter:description" content="Import from Retell, Vapi, LiveKit. Run autonomous simulations. Evaluate with LLM judges. Open source.">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .dark-section {
+      background: #1a1a1a;
+      color: #ffffff;
+    }
+    .light-section {
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    header {
+      padding: 20px 0;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 36px;
+      width: auto;
+    }
+    .github-link {
+      display: flex;
+      align-items: center;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .github-link:hover {
+      opacity: 1;
+    }
+    .github-link svg {
+      width: 28px;
+      height: 28px;
+      fill: #ffffff;
+    }
+    .hero {
+      padding: 80px 0 100px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .hero .subhead {
+      font-size: 1.25rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #00B4D8;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #00a0c0;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #444;
+    }
+    .btn-secondary:hover {
+      border-color: #666;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .code-block {
+      display: inline-block;
+      background: #0d0d0d;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 16px 32px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 1.1rem;
+      color: #00B4D8;
+    }
+    .code-block .prefix {
+      color: #666;
+      user-select: none;
+    }
+    .features {
+      padding: 80px 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .feature h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+    .feature ul {
+      list-style: none;
+    }
+    .feature li {
+      padding: 8px 0;
+      color: #6b7280;
+      font-size: 1.05rem;
+    }
+    .interfaces {
+      padding: 0 0 80px;
+    }
+    .interfaces h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .interfaces-list {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .interface-item {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      padding: 12px 24px;
+      background: #f5f5f5;
+      border-radius: 6px;
+    }
+    .waitlist {
+      padding: 100px 0;
+      text-align: center;
+    }
+    .waitlist h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .waitlist .subhead {
+      font-size: 1.15rem;
+      color: #a0a0a0;
+      margin-bottom: 40px;
+    }
+    .waitlist-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .waitlist-form input[type="email"] {
+      flex: 1;
+      min-width: 240px;
+      padding: 14px 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #0d0d0d;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+    .waitlist-form input[type="email"]::placeholder {
+      color: #666;
+    }
+    .waitlist-form input[type="email"]:focus {
+      outline: none;
+      border-color: #00B4D8;
+    }
+    .waitlist-form button {
+      padding: 14px 28px;
+      background: #00B4D8;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .waitlist-form button:hover {
+      background: #00a0c0;
+    }
+    #waitlist-success {
+      color: #22C55E;
+      font-size: 1.1rem;
+      margin-top: 16px;
+    }
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid #333;
+    }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-left {
+      display: flex;
+      gap: 24px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .footer-right a {
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .footer-right a:hover {
+      opacity: 1;
+    }
+    .footer-right svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 0 80px;
+      }
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      .hero .subhead {
+        font-size: 1.1rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .interfaces-list {
+        gap: 16px;
+      }
+      .interface-item {
+        padding: 10px 18px;
+        font-size: 1rem;
+      }
+      .waitlist h2 {
+        font-size: 1.75rem;
+      }
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="dark-section">
+    <div class="container">
+      <a href="/" aria-label="voicetest home">
+        <img src="/logo-dark.svg" alt="voicetest" class="logo">
+      </a>
+      <a href="https://github.com/voicetestdev/voicetest" class="github-link" aria-label="GitHub repository">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero dark-section">
+    <div class="container">
+      <h1>Test your voice agents before production</h1>
+      <p class="subhead">Import from Retell, Vapi, LiveKit. Run autonomous simulations. Evaluate with LLM judges. Open source.</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/voicetestdev/voicetest" class="btn btn-primary">Get started</a>
+        <a href="#waitlist" class="btn btn-secondary">Join waitlist</a>
+      </div>
+      <div class="code-block">
+        <span class="prefix">$ </span>pip install voicetest
+      </div>
+    </div>
+  </section>
+
+  <section class="features light-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature">
+          <h3>Import</h3>
+          <ul>
+            <li>Retell CF & LLM</li>
+            <li>Vapi</li>
+            <li>LiveKit</li>
+            <li>Custom Python</li>
+          </ul>
+        </div>
+        <div class="feature">
+          <h3>Simulate</h3>
+          <ul>
+            <li>Autonomous multi-turn</li>
+            <li>Configurable LLMs</li>
+            <li>Real-time streaming</li>
+          </ul>
+        </div>
+        <div class="feature">
+          <h3>Evaluate</h3>
+          <ul>
+            <li>LLM judges with reasoning</li>
+            <li>Pass/fail with scores</li>
+            <li>Global compliance metrics</li>
+            <li>Export results</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="interfaces light-section">
+    <div class="container">
+      <h2>Interfaces</h2>
+      <div class="interfaces-list">
+        <span class="interface-item">CLI</span>
+        <span class="interface-item">Web UI</span>
+        <span class="interface-item">REST API</span>
+        <span class="interface-item">DuckDB persistence</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="waitlist dark-section">
+    <div class="container">
+      <h2>voicetest Cloud — coming soon</h2>
+      <p class="subhead">Run tests without setup. Share results with your team.</p>
+      <form id="waitlist-form" class="waitlist-form">
+        <input type="email" name="email" placeholder="you@company.com" required>
+        <button type="submit">Join waitlist</button>
+      </form>
+      <p id="waitlist-success" hidden>Thanks! You're on the list.</p>
+    </div>
+  </section>
+
+  <script>
+  document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = '...';
+
+    const data = new URLSearchParams({ email: form.email.value });
+
+    await fetch('https://script.google.com/macros/s/AKfycbwzdc4-DCrhiD9YWH3w6IYUJSbGIiNnoot2AFNFjSynL6GKxNV1dUFAS1lSbXW4wzTY/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: data
+    });
+
+    form.hidden = true;
+    document.getElementById('waitlist-success').hidden = false;
+  });
+  </script>
+
+  <footer class="dark-section">
+    <div class="container">
+      <div class="footer-left">
+        <span>Apache 2.0</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/voicetestdev/voicetest" aria-label="GitHub repository">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
