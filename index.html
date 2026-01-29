@@ -108,29 +108,25 @@
     /* Hero */
     .hero {
       padding: 80px 0 60px;
-      text-align: center;
     }
-    
+
     .hero h1 {
       font-size: 48px;
       font-weight: 700;
       margin-bottom: 16px;
       letter-spacing: -0.02em;
     }
-    
+
     .hero .subtitle {
       font-size: 20px;
       color: var(--text-muted);
       margin-bottom: 40px;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
-    
+
     .hero-cta {
       display: flex;
       gap: 16px;
-      justify-content: center;
       flex-wrap: wrap;
       margin-bottom: 48px;
     }
@@ -172,36 +168,61 @@
       padding: 60px 0;
       border-top: 1px solid var(--border);
     }
-    
+
     .demo h2 {
       font-size: 28px;
       margin-bottom: 24px;
-      text-align: center;
     }
-    
+
     .demo-code {
+      position: relative;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 24px;
+      padding-right: 48px;
       font-family: 'SF Mono', Monaco, 'Courier New', monospace;
       font-size: 14px;
       max-width: 600px;
-      margin: 0 auto 32px;
+      margin-bottom: 24px;
       overflow-x: auto;
     }
-    
+
     .demo-code .comment {
       color: var(--text-muted);
     }
-    
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+      color: var(--text-muted);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .copy-btn:hover {
+      color: var(--text);
+      background: var(--border);
+    }
+
+    .copy-btn.copied {
+      color: var(--success);
+    }
+
     .demo-note {
-      text-align: center;
       color: var(--text-muted);
       font-size: 14px;
       margin-bottom: 48px;
     }
-    
+
     .demo-note a {
       color: var(--accent);
     }
@@ -244,11 +265,10 @@
       padding: 60px 0;
       border-top: 1px solid var(--border);
     }
-    
+
     .features h2 {
       font-size: 28px;
       margin-bottom: 40px;
-      text-align: center;
     }
     
     .features-grid {
@@ -291,33 +311,39 @@
       padding: 60px 0;
       border-top: 1px solid var(--border);
     }
-    
+
     .platforms h2 {
       font-size: 28px;
-      margin-bottom: 16px;
-      text-align: center;
+      margin-bottom: 12px;
     }
-    
+
     .platforms-subtitle {
-      text-align: center;
       color: var(--text-muted);
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
-    
-    .platforms-grid {
+
+    .platforms-list {
       display: flex;
-      justify-content: center;
-      gap: 32px;
+      gap: 24px;
       flex-wrap: wrap;
+      align-items: center;
     }
-    
-    .platform {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 24px;
-      font-size: 16px;
+
+    .platforms-list span {
+      font-size: 18px;
       font-weight: 500;
+      color: var(--text);
+    }
+
+    .platforms-list span::after {
+      content: "·";
+      margin-left: 24px;
+      color: var(--text-muted);
+    }
+
+    .platforms-list span:last-child::after {
+      content: "";
+      margin-left: 0;
     }
     
     /* Interfaces */
@@ -325,63 +351,134 @@
       padding: 60px 0;
       border-top: 1px solid var(--border);
     }
-    
+
     .interfaces h2 {
       font-size: 28px;
       margin-bottom: 32px;
-      text-align: center;
     }
-    
+
     .interfaces-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      text-align: center;
     }
-    
+
     @media (max-width: 768px) {
       .interfaces-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-    
+
     .interface {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 20px 16px;
     }
-    
+
     .interface-name {
       font-weight: 600;
       margin-bottom: 4px;
     }
-    
+
     .interface-desc {
       font-size: 13px;
       color: var(--text-muted);
     }
-    
+
+    /* CI/CD */
+    .cicd {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cicd h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .cicd-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .cicd-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .cicd-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cicd-code {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+
+    .cicd-code .comment {
+      color: var(--text-muted);
+    }
+
+    .cicd-code .key {
+      color: var(--accent);
+    }
+
+    .cicd-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cicd-benefit {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .cicd-benefit svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--success);
+    }
+
+    .cicd-benefit-text h4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .cicd-benefit-text p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
     /* Community */
     .community {
       padding: 60px 0;
       border-top: 1px solid var(--border);
-      text-align: center;
     }
-    
+
     .community h2 {
       font-size: 28px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
-    
+
     .community p {
       color: var(--text-muted);
       margin-bottom: 24px;
     }
-    
+
     .community-links {
       display: flex;
-      justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
     }
@@ -390,30 +487,25 @@
     .cloud {
       padding: 60px 0;
       border-top: 1px solid var(--border);
-      text-align: center;
       background: var(--bg-secondary);
     }
-    
+
     .cloud h2 {
       font-size: 24px;
       margin-bottom: 12px;
     }
-    
+
     .cloud p {
       color: var(--text-muted);
       margin-bottom: 24px;
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
     }
-    
+
     .waitlist-form {
       display: flex;
       gap: 12px;
-      justify-content: center;
       flex-wrap: wrap;
       max-width: 400px;
-      margin: 0 auto;
     }
     
     .waitlist-form input[type="email"] {
@@ -456,11 +548,10 @@
     footer {
       padding: 40px 0;
       border-top: 1px solid var(--border);
-      text-align: center;
       color: var(--text-muted);
       font-size: 14px;
     }
-    
+
     footer a {
       color: var(--text-muted);
     }
@@ -508,7 +599,32 @@
     <div class="container">
       <h2>Try it now</h2>
       <div class="demo-code">
+        <button class="copy-btn" data-copy="pip install voicetest" aria-label="Copy to clipboard">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"/>
+            <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"/>
+          </svg>
+        </button>
         <div>pip install voicetest</div>
+      </div>
+      <div class="demo-code">
+        <button class="copy-btn" data-copy="voicetest serve" aria-label="Copy to clipboard">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"/>
+            <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"/>
+          </svg>
+        </button>
+        <div class="comment"># serve the local web ui</div>
+        <div>voicetest serve</div>
+      </div>
+      <div class="demo-code">
+        <button class="copy-btn" data-copy="voicetest demo --serve" aria-label="Copy to clipboard">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"/>
+            <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"/>
+          </svg>
+        </button>
+        <div class="comment"># or autoload a demo into it</div>
         <div>voicetest demo --serve</div>
       </div>
       <p class="demo-note">
@@ -569,11 +685,11 @@
     <div class="container">
       <h2>Platform Integration</h2>
       <p class="platforms-subtitle">Import from and push agents to your platform via API</p>
-      <div class="platforms-grid">
-        <div class="platform">Retell</div>
-        <div class="platform">VAPI</div>
-        <div class="platform">Bland</div>
-        <div class="platform">LiveKit</div>
+      <div class="platforms-list">
+        <span>Retell</span>
+        <span>VAPI</span>
+        <span>Bland</span>
+        <span>LiveKit</span>
       </div>
     </div>
   </section>
@@ -597,6 +713,59 @@
         <div class="interface">
           <div class="interface-name">DuckDB</div>
           <div class="interface-desc">Query your results</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cicd">
+    <div class="container">
+      <h2>CI/CD Integration</h2>
+      <p class="cicd-subtitle">Catch regressions before they reach production</p>
+      <div class="cicd-content">
+        <div class="cicd-code">
+          <div><span class="comment"># .github/workflows/voice-tests.yml</span></div>
+          <div><span class="key">name:</span> Voice Agent Tests</div>
+          <div><span class="key">on:</span> [push, pull_request]</div>
+          <div></div>
+          <div><span class="key">jobs:</span></div>
+          <div>  <span class="key">test:</span></div>
+          <div>    <span class="key">runs-on:</span> ubuntu-latest</div>
+          <div>    <span class="key">steps:</span></div>
+          <div>      - <span class="key">uses:</span> actions/checkout@v4</div>
+          <div>      - <span class="key">run:</span> pip install voicetest</div>
+          <div>      - <span class="key">run:</span> voicetest run --ci</div>
+          <div>        <span class="key">env:</span></div>
+          <div>          <span class="key">GROQ_API_KEY:</span> ${{ secrets.GROQ_API_KEY }}</div>
+        </div>
+        <div class="cicd-benefits">
+          <div class="cicd-benefit">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <div class="cicd-benefit-text">
+              <h4>Test on every PR</h4>
+              <p>Run voice agent simulations automatically before merging changes.</p>
+            </div>
+          </div>
+          <div class="cicd-benefit">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <div class="cicd-benefit-text">
+              <h4>Block bad deploys</h4>
+              <p>Fail the build when agents don't meet evaluation criteria.</p>
+            </div>
+          </div>
+          <div class="cicd-benefit">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <div class="cicd-benefit-text">
+              <h4>Track quality over time</h4>
+              <p>Export results to monitor agent performance across releases.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -646,19 +815,36 @@
       e.preventDefault();
       const form = e.target;
       const data = new URLSearchParams({ email: form.email.value });
-      
+
       try {
         await fetch('https://script.google.com/macros/s/AKfycbwzdc4-DCrhiD9YWH3w6IYUJSbGIiNnoot2AFNFjSynL6GKxNV1dUFAS1lSbXW4wzTY/exec', {
           method: 'POST',
           mode: 'no-cors',
           body: data
         });
-        
+
         form.style.display = 'none';
         document.getElementById('waitlist-success').style.display = 'block';
       } catch (err) {
         console.error(err);
       }
+    });
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.dataset.copy;
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.classList.add('copied');
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"/></svg>';
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"/></svg>';
+          }, 2000);
+        } catch (err) {
+          console.error(err);
+        }
+      });
     });
   </script>
 </body>
