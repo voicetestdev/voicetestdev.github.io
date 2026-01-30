@@ -423,6 +423,7 @@
       font-family: 'SF Mono', Monaco, 'Courier New', monospace;
       font-size: 13px;
       overflow-x: auto;
+      white-space: pre;
     }
 
     .cicd-code .comment {
@@ -723,21 +724,19 @@
       <h2>CI/CD Integration</h2>
       <p class="cicd-subtitle">Catch regressions before they reach production</p>
       <div class="cicd-content">
-        <div class="cicd-code">
-          <div><span class="comment"># .github/workflows/voice-tests.yml</span></div>
-          <div><span class="key">name:</span> Voice Agent Tests</div>
-          <div><span class="key">on:</span> [push, pull_request]</div>
-          <div></div>
-          <div><span class="key">jobs:</span></div>
-          <div>  <span class="key">test:</span></div>
-          <div>    <span class="key">runs-on:</span> ubuntu-latest</div>
-          <div>    <span class="key">steps:</span></div>
-          <div>      - <span class="key">uses:</span> actions/checkout@v4</div>
-          <div>      - <span class="key">run:</span> pip install voicetest</div>
-          <div>      - <span class="key">run:</span> voicetest run --ci</div>
-          <div>        <span class="key">env:</span></div>
-          <div>          <span class="key">GROQ_API_KEY:</span> ${{ secrets.GROQ_API_KEY }}</div>
-        </div>
+        <div class="cicd-code"><span class="comment"># .github/workflows/voice-tests.yml</span>
+<span class="key">name:</span> Voice Agent Tests
+<span class="key">on:</span> [push, pull_request]
+
+<span class="key">jobs:</span>
+  <span class="key">test:</span>
+    <span class="key">runs-on:</span> ubuntu-latest
+    <span class="key">steps:</span>
+      - <span class="key">uses:</span> actions/checkout@v4
+      - <span class="key">run:</span> pip install voicetest
+      - <span class="key">run:</span> voicetest run --ci
+        <span class="key">env:</span>
+          <span class="key">GROQ_API_KEY:</span> ${{ secrets.GROQ_API_KEY }}</div>
         <div class="cicd-benefits">
           <div class="cicd-benefit">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
