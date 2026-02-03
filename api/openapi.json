@@ -1540,6 +1540,96 @@
         }
       }
     },
+    "/api/agents/{agent_id}/sync-status": {
+      "get": {
+        "summary": "Get Sync Status",
+        "description": "Check if an agent can be synced to its source platform.",
+        "operationId": "get_sync_status_api_agents__agent_id__sync_status_get",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SyncStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/sync": {
+      "post": {
+        "summary": "Sync To Platform",
+        "description": "Sync an agent to its source platform.",
+        "operationId": "sync_to_platform_api_agents__agent_id__sync_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SyncToPlatformRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SyncToPlatformResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/{path}": {
       "get": {
         "summary": "Serve Spa",
@@ -1675,9 +1765,9 @@
             "type": "string",
             "title": "Id"
           },
-          "instructions": {
+          "state_prompt": {
             "type": "string",
-            "title": "Instructions"
+            "title": "State Prompt"
           },
           "tools": {
             "items": {
@@ -1702,10 +1792,10 @@
         "type": "object",
         "required": [
           "id",
-          "instructions"
+          "state_prompt"
         ],
         "title": "AgentNode",
-        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nsystem instructions, available tools, and possible transitions."
+        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
       },
       "AgentNode-Output": {
         "properties": {
@@ -1713,9 +1803,9 @@
             "type": "string",
             "title": "Id"
           },
-          "instructions": {
+          "state_prompt": {
             "type": "string",
-            "title": "Instructions"
+            "title": "State Prompt"
           },
           "tools": {
             "items": {
@@ -1740,10 +1830,10 @@
         "type": "object",
         "required": [
           "id",
-          "instructions"
+          "state_prompt"
         ],
         "title": "AgentNode",
-        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nsystem instructions, available tools, and possible transitions."
+        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
       },
       "Body_create_agent_from_file_api_agents_upload_post": {
         "properties": {
@@ -2493,6 +2583,11 @@
             "title": "Test Model Precedence",
             "default": false
           },
+          "cot_transitions": {
+            "type": "boolean",
+            "title": "Cot Transitions",
+            "default": false
+          },
           "agent_model": {
             "anyOf": [
               {
@@ -2561,6 +2656,12 @@
             "type": "boolean",
             "title": "Test Model Precedence",
             "description": "When enabled, test-specific llm_model overrides global settings",
+            "default": false
+          },
+          "cot_transitions": {
+            "type": "boolean",
+            "title": "Cot Transitions",
+            "description": "Use Chain-of-Thought reasoning for state transitions (debugging)",
             "default": false
           }
         },
@@ -2677,6 +2778,100 @@
         "type": "object",
         "title": "StartRunRequest",
         "description": "Request to start a test run."
+      },
+      "SyncStatusResponse": {
+        "properties": {
+          "can_sync": {
+            "type": "boolean",
+            "title": "Can Sync"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "platform": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform"
+          },
+          "remote_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Remote Id"
+          },
+          "needs_configuration": {
+            "type": "boolean",
+            "title": "Needs Configuration",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "can_sync"
+        ],
+        "title": "SyncStatusResponse",
+        "description": "Response from sync status check."
+      },
+      "SyncToPlatformRequest": {
+        "properties": {
+          "graph": {
+            "$ref": "#/components/schemas/AgentGraph-Input"
+          }
+        },
+        "type": "object",
+        "required": [
+          "graph"
+        ],
+        "title": "SyncToPlatformRequest",
+        "description": "Request to sync an agent to its source platform."
+      },
+      "SyncToPlatformResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "platform": {
+            "type": "string",
+            "title": "Platform"
+          },
+          "synced": {
+            "type": "boolean",
+            "title": "Synced"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "platform",
+          "synced"
+        ],
+        "title": "SyncToPlatformResponse",
+        "description": "Response from syncing an agent to a platform."
       },
       "TestCase": {
         "properties": {
@@ -3067,6 +3262,17 @@
               }
             ],
             "title": "Default Model"
+          },
+          "graph_json": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Graph Json"
           }
         },
         "type": "object",
