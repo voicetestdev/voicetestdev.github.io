@@ -1,0 +1,21 @@
+title: voicetest
+description: Open source voice agent testing. Test agents from Retell, VAPI, Bland, LiveKit.
+url: https://voicetest.dev
+baseurl: ""
+
+permalink: /blog/:slug/
+future: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - README.md
