@@ -608,7 +608,7 @@
     "/api/agents/{agent_id}/graph": {
       "get": {
         "summary": "Get Agent Graph",
-        "description": "Get the AgentGraph for an agent.",
+        "description": "Get the AgentGraph for an agent.\n\nFor linked agents (source_path), uses file mtime for ETag-based caching.\nReturns 304 Not Modified if the file hasn't changed.",
         "operationId": "get_agent_graph_api_agents__agent_id__graph_get",
         "parameters": [
           {
@@ -619,6 +619,22 @@
               "type": "string",
               "title": "Agent Id"
             }
+          },
+          {
+            "name": "if-none-match",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "If-None-Match"
+            }
           }
         ],
         "responses": {
@@ -626,9 +642,7 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
-                }
+                "schema": {}
               }
             }
           },
@@ -815,7 +829,7 @@
     "/api/agents/{agent_id}/tests": {
       "get": {
         "summary": "List Tests For Agent",
-        "description": "List all test cases for an agent.",
+        "description": "List all test cases for an agent, including file-based linked tests.",
         "operationId": "list_tests_for_agent_api_agents__agent_id__tests_get",
         "parameters": [
           {
@@ -858,7 +872,7 @@
       },
       "post": {
         "summary": "Create Test Case",
-        "description": "Create a test case for an agent.",
+        "description": "Create a test case for an agent.\n\nIf the agent has linked test files, the test is appended to the first file.\nOtherwise it is stored in the database.",
         "operationId": "create_test_case_api_agents__agent_id__tests_post",
         "parameters": [
           {
@@ -965,7 +979,7 @@
     "/api/tests/{test_id}": {
       "put": {
         "summary": "Update Test Case",
-        "description": "Update a test case.",
+        "description": "Update a test case (DB or linked file).",
         "operationId": "update_test_case_api_tests__test_id__put",
         "parameters": [
           {
@@ -1015,7 +1029,7 @@
       },
       "delete": {
         "summary": "Delete Test Case",
-        "description": "Delete a test case.",
+        "description": "Delete a test case (DB or linked file).",
         "operationId": "delete_test_case_api_tests__test_id__delete",
         "parameters": [
           {
@@ -1267,6 +1281,147 @@
                   "type": "object",
                   "additionalProperties": true,
                   "title": "Response Delete Run Api Runs  Run Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/livekit/status": {
+      "get": {
+        "summary": "Get Livekit Status",
+        "description": "Check if LiveKit server is reachable.",
+        "operationId": "get_livekit_status_api_livekit_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveKitStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/calls/start": {
+      "post": {
+        "summary": "Start Call",
+        "description": "Start a live voice call with an agent.\n\nCreates a LiveKit room and spawns an agent worker subprocess.\nReturns connection info including a token for the browser to join.",
+        "operationId": "start_call_api_agents__agent_id__calls_start_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartCallResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/calls/{call_id}": {
+      "get": {
+        "summary": "Get Call",
+        "description": "Get call status and transcript.",
+        "operationId": "get_call_api_calls__call_id__get",
+        "parameters": [
+          {
+            "name": "call_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Call Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/calls/{call_id}/end": {
+      "post": {
+        "summary": "End Call",
+        "description": "End a live call and save the transcript as a run.",
+        "operationId": "end_call_api_calls__call_id__end_post",
+        "parameters": [
+          {
+            "name": "call_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Call Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response End Call Api Calls  Call Id  End Post"
                 }
               }
             }
@@ -1540,6 +1695,96 @@
         }
       }
     },
+    "/api/agents/{agent_id}/sync-status": {
+      "get": {
+        "summary": "Get Sync Status",
+        "description": "Check if an agent can be synced to its source platform.",
+        "operationId": "get_sync_status_api_agents__agent_id__sync_status_get",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SyncStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/sync": {
+      "post": {
+        "summary": "Sync To Platform",
+        "description": "Sync an agent to its source platform.",
+        "operationId": "sync_to_platform_api_agents__agent_id__sync_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SyncToPlatformRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SyncToPlatformResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/{path}": {
       "get": {
         "summary": "Serve Spa",
@@ -1675,9 +1920,9 @@
             "type": "string",
             "title": "Id"
           },
-          "instructions": {
+          "state_prompt": {
             "type": "string",
-            "title": "Instructions"
+            "title": "State Prompt"
           },
           "tools": {
             "items": {
@@ -1702,10 +1947,10 @@
         "type": "object",
         "required": [
           "id",
-          "instructions"
+          "state_prompt"
         ],
         "title": "AgentNode",
-        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nsystem instructions, available tools, and possible transitions."
+        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
       },
       "AgentNode-Output": {
         "properties": {
@@ -1713,9 +1958,9 @@
             "type": "string",
             "title": "Id"
           },
-          "instructions": {
+          "state_prompt": {
             "type": "string",
-            "title": "Instructions"
+            "title": "State Prompt"
           },
           "tools": {
             "items": {
@@ -1740,10 +1985,10 @@
         "type": "object",
         "required": [
           "id",
-          "instructions"
+          "state_prompt"
         ],
         "title": "AgentNode",
-        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nsystem instructions, available tools, and possible transitions."
+        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
       },
       "Body_create_agent_from_file_api_agents_upload_post": {
         "properties": {
@@ -1772,6 +2017,60 @@
           "file"
         ],
         "title": "Body_import_agent_file_api_agents_import_file_post"
+      },
+      "CallStatusResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id"
+          },
+          "room_name": {
+            "type": "string",
+            "title": "Room Name"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "transcript": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Transcript"
+          },
+          "started_at": {
+            "type": "string",
+            "title": "Started At"
+          },
+          "ended_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ended At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "agent_id",
+          "room_name",
+          "status",
+          "transcript",
+          "started_at"
+        ],
+        "title": "CallStatusResponse",
+        "description": "Response with call status."
       },
       "ConfigurePlatformRequest": {
         "properties": {
@@ -2167,6 +2466,31 @@
         "title": "ImporterInfo",
         "description": "Importer information for API response."
       },
+      "LiveKitStatusResponse": {
+        "properties": {
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          }
+        },
+        "type": "object",
+        "required": [
+          "available"
+        ],
+        "title": "LiveKitStatusResponse",
+        "description": "Response from LiveKit health check."
+      },
       "LoadDemoResponse": {
         "properties": {
           "agent_id": {
@@ -2493,6 +2817,11 @@
             "title": "Test Model Precedence",
             "default": false
           },
+          "split_transitions": {
+            "type": "boolean",
+            "title": "Split Transitions",
+            "default": false
+          },
           "agent_model": {
             "anyOf": [
               {
@@ -2561,6 +2890,12 @@
             "type": "boolean",
             "title": "Test Model Precedence",
             "description": "When enabled, test-specific llm_model overrides global settings",
+            "default": false
+          },
+          "split_transitions": {
+            "type": "boolean",
+            "title": "Split Transitions",
+            "description": "Evaluate transitions separately from response generation (debugging)",
             "default": false
           }
         },
@@ -2647,6 +2982,35 @@
         "title": "Settings",
         "description": "Voicetest settings."
       },
+      "StartCallResponse": {
+        "properties": {
+          "call_id": {
+            "type": "string",
+            "title": "Call Id"
+          },
+          "room_name": {
+            "type": "string",
+            "title": "Room Name"
+          },
+          "livekit_url": {
+            "type": "string",
+            "title": "Livekit Url"
+          },
+          "token": {
+            "type": "string",
+            "title": "Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "call_id",
+          "room_name",
+          "livekit_url",
+          "token"
+        ],
+        "title": "StartCallResponse",
+        "description": "Response from starting a call."
+      },
       "StartRunRequest": {
         "properties": {
           "test_ids": {
@@ -2677,6 +3041,100 @@
         "type": "object",
         "title": "StartRunRequest",
         "description": "Request to start a test run."
+      },
+      "SyncStatusResponse": {
+        "properties": {
+          "can_sync": {
+            "type": "boolean",
+            "title": "Can Sync"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "platform": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform"
+          },
+          "remote_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Remote Id"
+          },
+          "needs_configuration": {
+            "type": "boolean",
+            "title": "Needs Configuration",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "can_sync"
+        ],
+        "title": "SyncStatusResponse",
+        "description": "Response from sync status check."
+      },
+      "SyncToPlatformRequest": {
+        "properties": {
+          "graph": {
+            "$ref": "#/components/schemas/AgentGraph-Input"
+          }
+        },
+        "type": "object",
+        "required": [
+          "graph"
+        ],
+        "title": "SyncToPlatformRequest",
+        "description": "Request to sync an agent to its source platform."
+      },
+      "SyncToPlatformResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "platform": {
+            "type": "string",
+            "title": "Platform"
+          },
+          "synced": {
+            "type": "boolean",
+            "title": "Synced"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "platform",
+          "synced"
+        ],
+        "title": "SyncToPlatformResponse",
+        "description": "Response from syncing an agent to a platform."
       },
       "TestCase": {
         "properties": {
@@ -2776,7 +3234,14 @@
       "TestResult": {
         "properties": {
           "test_id": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Test Id"
           },
           "test_name": {
@@ -2873,7 +3338,6 @@
         },
         "type": "object",
         "required": [
-          "test_id",
           "test_name",
           "status"
         ],
@@ -3067,6 +3531,17 @@
               }
             ],
             "title": "Default Model"
+          },
+          "graph_json": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Graph Json"
           }
         },
         "type": "object",
@@ -3116,6 +3591,13 @@
           "type": {
             "type": "string",
             "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
           }
         },
         "type": "object",
