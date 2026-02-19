@@ -1298,6 +1298,48 @@
         }
       }
     },
+    "/api/results/{result_id}/audio-eval": {
+      "post": {
+        "summary": "Audio Eval Result",
+        "description": "Run audio evaluation on an existing test result.\n\nPerforms TTS\u2192STT round-trip on assistant messages and re-evaluates\nmetrics using the \"heard\" text.",
+        "operationId": "audio_eval_result_api_results__result_id__audio_eval_post",
+        "parameters": [
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Result Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Audio Eval Result Api Results  Result Id  Audio Eval Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/livekit/status": {
       "get": {
         "summary": "Get Livekit Status",
@@ -1989,6 +2031,23 @@
         ],
         "title": "AgentNode",
         "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
+      },
+      "AudioSettings": {
+        "properties": {
+          "tts_url": {
+            "type": "string",
+            "title": "Tts Url",
+            "default": "http://localhost:8002/v1"
+          },
+          "stt_url": {
+            "type": "string",
+            "title": "Stt Url",
+            "default": "http://localhost:8001/v1"
+          }
+        },
+        "type": "object",
+        "title": "AudioSettings",
+        "description": "TTS/STT service configuration for audio evaluation."
       },
       "Body_create_agent_from_file_api_agents_upload_post": {
         "properties": {
@@ -2822,6 +2881,11 @@
             "title": "Split Transitions",
             "default": false
           },
+          "audio_eval": {
+            "type": "boolean",
+            "title": "Audio Eval",
+            "default": false
+          },
           "agent_model": {
             "anyOf": [
               {
@@ -2897,6 +2961,12 @@
             "title": "Split Transitions",
             "description": "Evaluate transitions separately from response generation (debugging)",
             "default": false
+          },
+          "audio_eval": {
+            "type": "boolean",
+            "title": "Audio Eval",
+            "description": "Auto-run TTS\u2192STT audio evaluation on every test",
+            "default": false
           }
         },
         "type": "object",
@@ -2968,6 +3038,9 @@
           },
           "run": {
             "$ref": "#/components/schemas/RunSettings"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/AudioSettings"
           },
           "env": {
             "additionalProperties": {
@@ -3270,6 +3343,13 @@
             },
             "type": "array",
             "title": "Metric Results"
+          },
+          "audio_metric_results": {
+            "items": {
+              "$ref": "#/components/schemas/MetricResult"
+            },
+            "type": "array",
+            "title": "Audio Metric Results"
           },
           "nodes_visited": {
             "items": {
