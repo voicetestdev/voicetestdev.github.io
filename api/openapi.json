@@ -734,6 +734,56 @@
         }
       }
     },
+    "/api/agents/{agent_id}/prompts": {
+      "put": {
+        "summary": "Update Prompt",
+        "description": "Update a general or node-specific prompt.\n\nWhen node_id is None, updates source_metadata.general_prompt.\nWhen node_id is set, updates that node's state_prompt.\nFor linked-file agents, writes back to the source file on disk.",
+        "operationId": "update_prompt_api_agents__agent_id__prompts_put",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePromptRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentGraph-Output"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/agents/{agent_id}/metrics-config": {
       "get": {
         "summary": "Get Metrics Config",
@@ -904,6 +954,107 @@
                   "type": "object",
                   "additionalProperties": true,
                   "title": "Response Create Test Case Api Agents  Agent Id  Tests Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/tests-paths": {
+      "post": {
+        "summary": "Link Test File",
+        "description": "Link a JSON test file to an agent.\n\nThe file must exist, contain valid JSON, and be a JSON array.\nTests from the file will appear alongside DB tests via list_for_agent_with_linked.",
+        "operationId": "link_test_file_api_agents__agent_id__tests_paths_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkTestFileRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Link Test File Api Agents  Agent Id  Tests Paths Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Unlink Test File",
+        "description": "Unlink a test file from an agent.\n\nRemoves the path from tests_paths. The file itself is not deleted.",
+        "operationId": "unlink_test_file_api_agents__agent_id__tests_paths_delete",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Path"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Unlink Test File Api Agents  Agent Id  Tests Paths Delete"
                 }
               }
             }
@@ -1464,6 +1615,88 @@
                   "type": "object",
                   "additionalProperties": true,
                   "title": "Response End Call Api Calls  Call Id  End Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/chats/start": {
+      "post": {
+        "summary": "Start Chat",
+        "description": "Start a text chat session with an agent.\n\nCreates a ConversationEngine in-process (no LiveKit or subprocess needed).\nReturns a chat_id for WebSocket connection.",
+        "operationId": "start_chat_api_agents__agent_id__chats_start_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StartChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chats/{chat_id}/end": {
+      "post": {
+        "summary": "End Chat Session",
+        "description": "End a text chat session and save the transcript as a run.",
+        "operationId": "end_chat_session_api_chats__chat_id__end_post",
+        "parameters": [
+          {
+            "name": "chat_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Chat Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response End Chat Session Api Chats  Chat Id  End Post"
                 }
               }
             }
@@ -2525,6 +2758,20 @@
         "title": "ImporterInfo",
         "description": "Importer information for API response."
       },
+      "LinkTestFileRequest": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "Path"
+          }
+        },
+        "type": "object",
+        "required": [
+          "path"
+        ],
+        "title": "LinkTestFileRequest",
+        "description": "Request to link a test file to an agent."
+      },
       "LiveKitStatusResponse": {
         "properties": {
           "available": {
@@ -2886,6 +3133,11 @@
             "title": "Audio Eval",
             "default": false
           },
+          "pattern_engine": {
+            "type": "string",
+            "title": "Pattern Engine",
+            "default": "fnmatch"
+          },
           "agent_model": {
             "anyOf": [
               {
@@ -2967,6 +3219,12 @@
             "title": "Audio Eval",
             "description": "Auto-run TTS\u2192STT audio evaluation on every test",
             "default": false
+          },
+          "pattern_engine": {
+            "type": "string",
+            "title": "Pattern Engine",
+            "description": "Pattern engine: 'fnmatch' (wildcards) or 're2' (regex)",
+            "default": "fnmatch"
           }
         },
         "type": "object",
@@ -3083,6 +3341,20 @@
         ],
         "title": "StartCallResponse",
         "description": "Response from starting a call."
+      },
+      "StartChatResponse": {
+        "properties": {
+          "chat_id": {
+            "type": "string",
+            "title": "Chat Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "chat_id"
+        ],
+        "title": "StartChatResponse",
+        "description": "Response from starting a text chat."
       },
       "StartRunRequest": {
         "properties": {
@@ -3647,6 +3919,42 @@
         "type": "object",
         "title": "UpdateMetricsConfigRequest",
         "description": "Request to update an agent's metrics configuration."
+      },
+      "UpdatePromptRequest": {
+        "properties": {
+          "node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Id"
+          },
+          "prompt_text": {
+            "type": "string",
+            "title": "Prompt Text"
+          },
+          "transition_target_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transition Target Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt_text"
+        ],
+        "title": "UpdatePromptRequest",
+        "description": "Request to update a prompt (general, node, or transition).\n\n- node_id=None: updates source_metadata.general_prompt\n- node_id set, transition_target_id=None: updates node's state_prompt\n- node_id set, transition_target_id set: updates transition condition value"
       },
       "ValidationError": {
         "properties": {
