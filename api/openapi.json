@@ -659,6 +659,48 @@
         }
       }
     },
+    "/api/agents/{agent_id}/variables": {
+      "get": {
+        "summary": "Get Agent Variables",
+        "description": "Extract dynamic variable names from agent prompts.\n\nScans general_prompt and all node state_prompt values for {{var}} placeholders.\nReturns unique variable names in first-appearance order.",
+        "operationId": "get_agent_variables_api_agents__agent_id__variables_get",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Get Agent Variables Api Agents  Agent Id  Variables Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/agents/upload": {
       "post": {
         "summary": "Create Agent From File",
@@ -1526,6 +1568,23 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/StartCallRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Request"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -1648,6 +1707,23 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/StartChatRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Request"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -3313,6 +3389,19 @@
         "title": "Settings",
         "description": "Voicetest settings."
       },
+      "StartCallRequest": {
+        "properties": {
+          "dynamic_variables": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Dynamic Variables",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "title": "StartCallRequest",
+        "description": "Request to start a live voice call."
+      },
       "StartCallResponse": {
         "properties": {
           "call_id": {
@@ -3341,6 +3430,19 @@
         ],
         "title": "StartCallResponse",
         "description": "Response from starting a call."
+      },
+      "StartChatRequest": {
+        "properties": {
+          "dynamic_variables": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Dynamic Variables",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "title": "StartChatRequest",
+        "description": "Request to start a text chat session."
       },
       "StartChatResponse": {
         "properties": {
