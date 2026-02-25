@@ -1829,6 +1829,210 @@
         }
       }
     },
+    "/api/results/{result_id}/diagnose": {
+      "post": {
+        "summary": "Diagnose Result",
+        "description": "Diagnose why a test result failed and suggest a fix.\n\nAnalyzes the graph structure, transcript, and failed metrics to identify\nthe root cause and propose concrete prompt/transition changes.\n\nOptional body: {\"model\": \"provider/model-name\"} to override the judge model.",
+        "operationId": "diagnose_result_api_results__result_id__diagnose_post",
+        "parameters": [
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Result Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Diagnose Result Api Results  Result Id  Diagnose Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/results/{result_id}/apply-fix": {
+      "post": {
+        "summary": "Apply Fix",
+        "description": "Apply proposed changes to a copy of the graph and rerun the test.\n\nNon-destructive: does not persist changes.",
+        "operationId": "apply_fix_api_results__result_id__apply_fix_post",
+        "parameters": [
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Result Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Apply Fix Api Results  Result Id  Apply Fix Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/results/{result_id}/revise-fix": {
+      "post": {
+        "summary": "Revise Fix Endpoint",
+        "description": "Revise a previous fix attempt based on new metric results.\n\nGiven the original diagnosis and previous changes, produce a revised fix.\n\nOptional body field: \"model\" to override the judge model.",
+        "operationId": "revise_fix_endpoint_api_results__result_id__revise_fix_post",
+        "parameters": [
+          {
+            "name": "result_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Result Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Revise Fix Endpoint Api Results  Result Id  Revise Fix Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/save-fix": {
+      "post": {
+        "summary": "Save Fix",
+        "description": "Persist proposed changes to the agent graph.\n\nApplies changes and saves the modified graph.",
+        "operationId": "save_fix_api_agents__agent_id__save_fix_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Save Fix Api Agents  Agent Id  Save Fix Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/livekit/status": {
       "get": {
         "summary": "Get Livekit Status",
@@ -2962,13 +3166,18 @@
           "description": {
             "type": "string",
             "title": "Description"
+          },
+          "ext": {
+            "type": "string",
+            "title": "Ext"
           }
         },
         "type": "object",
         "required": [
           "id",
           "name",
-          "description"
+          "description",
+          "ext"
         ],
         "title": "ExportFormatInfo",
         "description": "Export format information for API response."
@@ -4235,6 +4444,17 @@
               }
             ],
             "title": "Url"
+          },
+          "tool_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Id"
           }
         },
         "type": "object",
