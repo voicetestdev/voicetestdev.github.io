@@ -701,6 +701,302 @@
         }
       }
     },
+    "/api/agents/{agent_id}/snippets": {
+      "get": {
+        "summary": "Get Snippets",
+        "description": "Get all snippets defined for an agent.",
+        "operationId": "get_snippets_api_agents__agent_id__snippets_get",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Get Snippets Api Agents  Agent Id  Snippets Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update All Snippets",
+        "description": "Replace all snippets for an agent.",
+        "operationId": "update_all_snippets_api_agents__agent_id__snippets_put",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Update All Snippets Api Agents  Agent Id  Snippets Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/snippets/{name}": {
+      "put": {
+        "summary": "Update Snippet",
+        "description": "Create or update a single snippet.",
+        "operationId": "update_snippet_api_agents__agent_id__snippets__name__put",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSnippetRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Update Snippet Api Agents  Agent Id  Snippets  Name  Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Snippet",
+        "description": "Delete a single snippet.",
+        "operationId": "delete_snippet_api_agents__agent_id__snippets__name__delete",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Delete Snippet Api Agents  Agent Id  Snippets  Name  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/analyze-dry": {
+      "post": {
+        "summary": "Analyze Dry",
+        "description": "Run auto-DRY analysis on an agent's prompts.",
+        "operationId": "analyze_dry_api_agents__agent_id__analyze_dry_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Analyze Dry Api Agents  Agent Id  Analyze Dry Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/apply-snippets": {
+      "post": {
+        "summary": "Apply Snippets",
+        "description": "Apply snippets: add them to graph and replace occurrences in prompts with {%name%} refs.",
+        "operationId": "apply_snippets_api_agents__agent_id__apply_snippets_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplySnippetsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentGraph-Output"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/agents/upload": {
       "post": {
         "summary": "Create Agent From File",
@@ -2199,6 +2495,14 @@
             "type": "object",
             "title": "Source Metadata"
           },
+          "snippets": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Snippets",
+            "description": "Named text snippets referenced via {%name%} in prompts"
+          },
           "default_model": {
             "anyOf": [
               {
@@ -2242,6 +2546,14 @@
             "additionalProperties": true,
             "type": "object",
             "title": "Source Metadata"
+          },
+          "snippets": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Snippets",
+            "description": "Named text snippets referenced via {%name%} in prompts"
           },
           "default_model": {
             "anyOf": [
@@ -2340,6 +2652,26 @@
         ],
         "title": "AgentNode",
         "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
+      },
+      "ApplySnippetsRequest": {
+        "properties": {
+          "snippets": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Snippets"
+          }
+        },
+        "type": "object",
+        "required": [
+          "snippets"
+        ],
+        "title": "ApplySnippetsRequest",
+        "description": "Request to apply snippets: add them to graph and replace occurrences in prompts."
       },
       "AudioSettings": {
         "properties": {
@@ -2649,6 +2981,11 @@
           "format": {
             "type": "string",
             "title": "Format"
+          },
+          "expanded": {
+            "type": "boolean",
+            "title": "Expanded",
+            "default": false
           }
         },
         "type": "object",
@@ -4057,6 +4394,20 @@
         ],
         "title": "UpdatePromptRequest",
         "description": "Request to update a prompt (general, node, or transition).\n\n- node_id=None: updates source_metadata.general_prompt\n- node_id set, transition_target_id=None: updates node's state_prompt\n- node_id set, transition_target_id set: updates transition condition value"
+      },
+      "UpdateSnippetRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "UpdateSnippetRequest",
+        "description": "Request to create or update a single snippet."
       },
       "ValidationError": {
         "properties": {
