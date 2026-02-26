@@ -1122,6 +1122,56 @@
         }
       }
     },
+    "/api/agents/{agent_id}/metadata": {
+      "put": {
+        "summary": "Update Metadata",
+        "description": "Merge updates into an agent's source_metadata.\n\nSupports linked-file agents via _load_agent_graph / _save_agent_graph.",
+        "operationId": "update_metadata_api_agents__agent_id__metadata_put",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMetadataRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentGraph-Output"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/agents/{agent_id}/metrics-config": {
       "get": {
         "summary": "Get Metrics Config",
@@ -4455,6 +4505,11 @@
               }
             ],
             "title": "Tool Id"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Metadata"
           }
         },
         "type": "object",
@@ -4558,6 +4613,21 @@
         "type": "object",
         "title": "UpdateAgentRequest",
         "description": "Request to update an agent."
+      },
+      "UpdateMetadataRequest": {
+        "properties": {
+          "updates": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Updates"
+          }
+        },
+        "type": "object",
+        "required": [
+          "updates"
+        ],
+        "title": "UpdateMetadataRequest",
+        "description": "Request to merge updates into an agent's source_metadata."
       },
       "UpdateMetricsConfigRequest": {
         "properties": {
