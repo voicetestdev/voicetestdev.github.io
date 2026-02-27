@@ -1125,7 +1125,7 @@
     "/api/agents/{agent_id}/metadata": {
       "put": {
         "summary": "Update Metadata",
-        "description": "Merge updates into an agent's source_metadata.\n\nSupports linked-file agents via _load_agent_graph / _save_agent_graph.",
+        "description": "Merge updates into an agent's source_metadata.",
         "operationId": "update_metadata_api_agents__agent_id__metadata_put",
         "parameters": [
           {
@@ -1840,7 +1840,7 @@
     "/api/results/{result_id}/audio-eval": {
       "post": {
         "summary": "Audio Eval Result",
-        "description": "Run audio evaluation on an existing test result.\n\nPerforms TTS\u2192STT round-trip on assistant messages and re-evaluates\nmetrics using the \"heard\" text.",
+        "description": "Run audio evaluation on an existing test result.\n\nPerforms TTS->STT round-trip on assistant messages and re-evaluates\nmetrics using the \"heard\" text.",
         "operationId": "audio_eval_result_api_results__result_id__audio_eval_post",
         "parameters": [
           {
@@ -3255,6 +3255,19 @@
         "title": "ExportRequest",
         "description": "Request to export an agent graph."
       },
+      "ExportSettings": {
+        "properties": {
+          "layout": {
+            "type": "boolean",
+            "title": "Layout",
+            "description": "Compute display positions for exported nodes",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "ExportSettings",
+        "description": "Export configuration."
+      },
       "ExportTestsRequest": {
         "properties": {
           "format": {
@@ -3971,6 +3984,9 @@
           },
           "audio": {
             "$ref": "#/components/schemas/AudioSettings"
+          },
+          "export": {
+            "$ref": "#/components/schemas/ExportSettings"
           },
           "env": {
             "additionalProperties": {
