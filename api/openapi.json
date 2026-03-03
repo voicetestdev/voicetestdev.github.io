@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.1.0"
+    "version": "0.27"
   },
   "paths": {
     "/api/health": {
@@ -2083,6 +2083,48 @@
         }
       }
     },
+    "/api/agents/{agent_id}/decompose": {
+      "post": {
+        "summary": "Decompose Agent",
+        "description": "Decompose an agent into sub-agents with orchestrator manifest.\n\nOptional body: {\"model\": \"provider/model-name\", \"num_agents\": 0}",
+        "operationId": "decompose_agent_api_agents__agent_id__decompose_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Decompose Agent Api Agents  Agent Id  Decompose Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/livekit/status": {
       "get": {
         "summary": "Get Livekit Status",
@@ -3816,6 +3858,11 @@
           "audio_eval": {
             "type": "boolean",
             "title": "Audio Eval",
+            "default": false
+          },
+          "no_cache": {
+            "type": "boolean",
+            "title": "No Cache",
             "default": false
           },
           "pattern_engine": {
