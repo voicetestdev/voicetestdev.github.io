@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.28"
+    "version": "0.29"
   },
   "paths": {
     "/api/health": {
@@ -3014,6 +3014,43 @@
         ],
         "title": "Body_import_agent_file_api_agents_import_file_post"
       },
+      "CacheSettings": {
+        "properties": {
+          "backend": {
+            "type": "string",
+            "title": "Backend",
+            "description": "Cache backend: 'disk' (default) or 's3'",
+            "default": "disk"
+          },
+          "s3_bucket": {
+            "type": "string",
+            "title": "S3 Bucket",
+            "description": "S3 bucket for cache storage",
+            "default": ""
+          },
+          "s3_prefix": {
+            "type": "string",
+            "title": "S3 Prefix",
+            "description": "S3 key prefix",
+            "default": "dspy-cache/"
+          },
+          "s3_region": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "S3 Region",
+            "description": "AWS region (uses default if unset)"
+          }
+        },
+        "type": "object",
+        "title": "CacheSettings",
+        "description": "DSPy cache backend configuration."
+      },
       "CallStatusResponse": {
         "properties": {
           "id": {
@@ -4034,6 +4071,9 @@
           },
           "export": {
             "$ref": "#/components/schemas/ExportSettings"
+          },
+          "cache": {
+            "$ref": "#/components/schemas/CacheSettings"
           },
           "env": {
             "additionalProperties": {
