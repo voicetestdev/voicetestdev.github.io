@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.29"
+    "version": "0.30"
   },
   "paths": {
     "/api/health": {
@@ -2892,7 +2892,7 @@
           },
           "transitions": {
             "items": {
-              "$ref": "#/components/schemas/Transition"
+              "$ref": "#/components/schemas/Transition-Input"
             },
             "type": "array",
             "title": "Transitions"
@@ -2930,7 +2930,7 @@
           },
           "transitions": {
             "items": {
-              "$ref": "#/components/schemas/Transition"
+              "$ref": "#/components/schemas/Transition-Output"
             },
             "type": "array",
             "title": "Transitions"
@@ -3016,9 +3016,9 @@
       },
       "CacheSettings": {
         "properties": {
-          "backend": {
+          "cache_backend": {
             "type": "string",
-            "title": "Backend",
+            "title": "Cache Backend",
             "description": "Cache backend: 'disk' (default) or 's3'",
             "default": "disk"
           },
@@ -3256,6 +3256,30 @@
         ],
         "title": "CreateTestCaseRequest",
         "description": "Request to create a test case."
+      },
+      "EquationClause": {
+        "properties": {
+          "left": {
+            "type": "string",
+            "title": "Left"
+          },
+          "operator": {
+            "type": "string",
+            "title": "Operator"
+          },
+          "right": {
+            "type": "string",
+            "title": "Right",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "left",
+          "operator"
+        ],
+        "title": "EquationClause",
+        "description": "Single comparison clause in a deterministic equation condition."
       },
       "EvaluateRequest": {
         "properties": {
@@ -4623,7 +4647,36 @@
         "title": "ToolDefinition",
         "description": "Definition of a tool/function available to the agent."
       },
-      "Transition": {
+      "Transition-Input": {
+        "properties": {
+          "target_node_id": {
+            "type": "string",
+            "title": "Target Node Id"
+          },
+          "condition": {
+            "$ref": "#/components/schemas/TransitionCondition"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_node_id",
+          "condition"
+        ],
+        "title": "Transition",
+        "description": "Edge from one node to another in the agent graph."
+      },
+      "Transition-Output": {
         "properties": {
           "target_node_id": {
             "type": "string",
@@ -4667,6 +4720,13 @@
           "value": {
             "type": "string",
             "title": "Value"
+          },
+          "equations": {
+            "items": {
+              "$ref": "#/components/schemas/EquationClause"
+            },
+            "type": "array",
+            "title": "Equations"
           }
         },
         "type": "object",
