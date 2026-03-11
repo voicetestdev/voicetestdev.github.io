@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.30"
+    "version": "0.31"
   },
   "paths": {
     "/api/health": {
@@ -2883,6 +2883,10 @@
             "type": "string",
             "title": "State Prompt"
           },
+          "node_type": {
+            "$ref": "#/components/schemas/NodeType",
+            "default": "conversation"
+          },
           "tools": {
             "items": {
               "$ref": "#/components/schemas/ToolDefinition"
@@ -2901,6 +2905,13 @@
             "additionalProperties": true,
             "type": "object",
             "title": "Metadata"
+          },
+          "variables_to_extract": {
+            "items": {
+              "$ref": "#/components/schemas/VariableExtraction"
+            },
+            "type": "array",
+            "title": "Variables To Extract"
           }
         },
         "type": "object",
@@ -2921,6 +2932,10 @@
             "type": "string",
             "title": "State Prompt"
           },
+          "node_type": {
+            "$ref": "#/components/schemas/NodeType",
+            "default": "conversation"
+          },
           "tools": {
             "items": {
               "$ref": "#/components/schemas/ToolDefinition"
@@ -2939,6 +2954,13 @@
             "additionalProperties": true,
             "type": "object",
             "title": "Metadata"
+          },
+          "variables_to_extract": {
+            "items": {
+              "$ref": "#/components/schemas/VariableExtraction"
+            },
+            "type": "array",
+            "title": "Variables To Extract"
           }
         },
         "type": "object",
@@ -3809,6 +3831,18 @@
         "title": "ModelsUsed",
         "description": "Models used during test execution."
       },
+      "NodeType": {
+        "type": "string",
+        "enum": [
+          "conversation",
+          "logic",
+          "extract",
+          "end",
+          "transfer"
+        ],
+        "title": "NodeType",
+        "description": "Type of node in the agent workflow graph."
+      },
       "PlatformInfo": {
         "properties": {
           "name": {
@@ -3884,11 +3918,11 @@
           "max_turns": {
             "type": "integer",
             "title": "Max Turns",
-            "default": 20
+            "default": 50
           },
-          "timeout_seconds": {
+          "turn_timeout_seconds": {
             "type": "number",
-            "title": "Timeout Seconds",
+            "title": "Turn Timeout Seconds",
             "default": 60.0
           },
           "verbose": {
@@ -3909,11 +3943,6 @@
           "test_model_precedence": {
             "type": "boolean",
             "title": "Test Model Precedence",
-            "default": false
-          },
-          "split_transitions": {
-            "type": "boolean",
-            "title": "Split Transitions",
             "default": false
           },
           "audio_eval": {
@@ -3975,7 +4004,13 @@
             "type": "integer",
             "title": "Max Turns",
             "description": "Maximum conversation turns",
-            "default": 20
+            "default": 50
+          },
+          "turn_timeout_seconds": {
+            "type": "number",
+            "title": "Turn Timeout Seconds",
+            "description": "Per-turn timeout in seconds (covers user simulator + agent response)",
+            "default": 60.0
           },
           "verbose": {
             "type": "boolean",
@@ -3999,12 +4034,6 @@
             "type": "boolean",
             "title": "Test Model Precedence",
             "description": "When enabled, test-specific llm_model overrides global settings",
-            "default": false
-          },
-          "split_transitions": {
-            "type": "boolean",
-            "title": "Split Transitions",
-            "description": "Evaluate transitions separately from response generation (debugging)",
             "default": false
           },
           "audio_eval": {
@@ -4727,6 +4756,15 @@
             },
             "type": "array",
             "title": "Equations"
+          },
+          "logical_operator": {
+            "type": "string",
+            "enum": [
+              "and",
+              "or"
+            ],
+            "title": "Logical Operator",
+            "default": "and"
           }
         },
         "type": "object",
@@ -4901,6 +4939,37 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "VariableExtraction": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "default": "string"
+          },
+          "choices": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Choices"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "description"
+        ],
+        "title": "VariableExtraction",
+        "description": "Variable to extract from conversation context via LLM."
       }
     }
   }
