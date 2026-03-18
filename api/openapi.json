@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.32"
+    "version": "0.33"
   },
   "paths": {
     "/api/health": {
@@ -96,7 +96,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
+                  "$ref": "#/components/schemas/AgentGraph"
                 }
               }
             }
@@ -153,7 +153,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
+                  "$ref": "#/components/schemas/AgentGraph"
                 }
               }
             }
@@ -979,7 +979,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
+                  "$ref": "#/components/schemas/AgentGraph"
                 }
               }
             }
@@ -1104,7 +1104,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
+                  "$ref": "#/components/schemas/AgentGraph"
                 }
               }
             }
@@ -1154,7 +1154,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
+                  "$ref": "#/components/schemas/AgentGraph"
                 }
               }
             }
@@ -2570,7 +2570,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AgentGraph-Output"
+                  "$ref": "#/components/schemas/AgentGraph"
                 }
               }
             }
@@ -2769,11 +2769,11 @@
   },
   "components": {
     "schemas": {
-      "AgentGraph-Input": {
+      "AgentGraph": {
         "properties": {
           "nodes": {
             "additionalProperties": {
-              "$ref": "#/components/schemas/AgentNode-Input"
+              "$ref": "#/components/schemas/AgentNode"
             },
             "type": "object",
             "title": "Nodes"
@@ -2821,146 +2821,55 @@
         "title": "AgentGraph",
         "description": "Complete agent workflow graph.\n\nThis is the unified internal representation (IR) that all importers\nconvert to. It captures the full structure of an agent's conversation\nflow including nodes, transitions, and metadata."
       },
-      "AgentGraph-Output": {
+      "AgentNode": {
         "properties": {
-          "nodes": {
-            "additionalProperties": {
-              "$ref": "#/components/schemas/AgentNode-Output"
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "state_prompt": {
+            "type": "string",
+            "title": "State Prompt"
+          },
+          "node_type": {
+            "$ref": "#/components/schemas/NodeType",
+            "default": "conversation"
+          },
+          "tools": {
+            "items": {
+              "$ref": "#/components/schemas/ToolDefinition"
             },
-            "type": "object",
-            "title": "Nodes"
+            "type": "array",
+            "title": "Tools"
           },
-          "entry_node_id": {
-            "type": "string",
-            "title": "Entry Node Id"
+          "transitions": {
+            "items": {
+              "$ref": "#/components/schemas/Transition"
+            },
+            "type": "array",
+            "title": "Transitions"
           },
-          "source_type": {
-            "type": "string",
-            "title": "Source Type"
-          },
-          "source_metadata": {
+          "metadata": {
             "additionalProperties": true,
             "type": "object",
-            "title": "Source Metadata"
+            "title": "Metadata"
           },
-          "snippets": {
-            "additionalProperties": {
-              "type": "string"
+          "variables_to_extract": {
+            "items": {
+              "$ref": "#/components/schemas/VariableExtraction"
             },
-            "type": "object",
-            "title": "Snippets",
-            "description": "Named text snippets referenced via {%name%} in prompts"
+            "type": "array",
+            "title": "Variables To Extract"
           },
-          "default_model": {
+          "global_node_setting": {
             "anyOf": [
               {
-                "type": "string"
+                "$ref": "#/components/schemas/GlobalNodeSetting"
               },
               {
                 "type": "null"
               }
-            ],
-            "title": "Default Model",
-            "description": "Default LLM model for this agent (from import)"
-          }
-        },
-        "type": "object",
-        "required": [
-          "nodes",
-          "entry_node_id",
-          "source_type"
-        ],
-        "title": "AgentGraph",
-        "description": "Complete agent workflow graph.\n\nThis is the unified internal representation (IR) that all importers\nconvert to. It captures the full structure of an agent's conversation\nflow including nodes, transitions, and metadata."
-      },
-      "AgentNode-Input": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id"
-          },
-          "state_prompt": {
-            "type": "string",
-            "title": "State Prompt"
-          },
-          "node_type": {
-            "$ref": "#/components/schemas/NodeType",
-            "default": "conversation"
-          },
-          "tools": {
-            "items": {
-              "$ref": "#/components/schemas/ToolDefinition"
-            },
-            "type": "array",
-            "title": "Tools"
-          },
-          "transitions": {
-            "items": {
-              "$ref": "#/components/schemas/Transition-Input"
-            },
-            "type": "array",
-            "title": "Transitions"
-          },
-          "metadata": {
-            "additionalProperties": true,
-            "type": "object",
-            "title": "Metadata"
-          },
-          "variables_to_extract": {
-            "items": {
-              "$ref": "#/components/schemas/VariableExtraction"
-            },
-            "type": "array",
-            "title": "Variables To Extract"
-          }
-        },
-        "type": "object",
-        "required": [
-          "id",
-          "state_prompt"
-        ],
-        "title": "AgentNode",
-        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
-      },
-      "AgentNode-Output": {
-        "properties": {
-          "id": {
-            "type": "string",
-            "title": "Id"
-          },
-          "state_prompt": {
-            "type": "string",
-            "title": "State Prompt"
-          },
-          "node_type": {
-            "$ref": "#/components/schemas/NodeType",
-            "default": "conversation"
-          },
-          "tools": {
-            "items": {
-              "$ref": "#/components/schemas/ToolDefinition"
-            },
-            "type": "array",
-            "title": "Tools"
-          },
-          "transitions": {
-            "items": {
-              "$ref": "#/components/schemas/Transition-Output"
-            },
-            "type": "array",
-            "title": "Transitions"
-          },
-          "metadata": {
-            "additionalProperties": true,
-            "type": "object",
-            "title": "Metadata"
-          },
-          "variables_to_extract": {
-            "items": {
-              "$ref": "#/components/schemas/VariableExtraction"
-            },
-            "type": "array",
-            "title": "Variables To Extract"
+            ]
           }
         },
         "type": "object",
@@ -3012,7 +2921,7 @@
         "properties": {
           "file": {
             "type": "string",
-            "format": "binary",
+            "contentMediaType": "application/octet-stream",
             "title": "File"
           }
         },
@@ -3026,7 +2935,7 @@
         "properties": {
           "file": {
             "type": "string",
-            "format": "binary",
+            "contentMediaType": "application/octet-stream",
             "title": "File"
           }
         },
@@ -3360,7 +3269,7 @@
       "ExportRequest": {
         "properties": {
           "graph": {
-            "$ref": "#/components/schemas/AgentGraph-Input"
+            "$ref": "#/components/schemas/AgentGraph"
           },
           "format": {
             "type": "string",
@@ -3422,7 +3331,7 @@
       "ExportToPlatformRequest": {
         "properties": {
           "graph": {
-            "$ref": "#/components/schemas/AgentGraph-Input"
+            "$ref": "#/components/schemas/AgentGraph"
           },
           "name": {
             "anyOf": [
@@ -3501,6 +3410,45 @@
         ],
         "title": "GlobalMetric",
         "description": "A metric that runs on all tests for an agent.\n\nGlobal metrics are evaluated against every test transcript,\nuseful for compliance checks that should always pass."
+      },
+      "GlobalNodeSetting": {
+        "properties": {
+          "condition": {
+            "type": "string",
+            "title": "Condition"
+          },
+          "go_back_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/GoBackCondition"
+            },
+            "type": "array",
+            "title": "Go Back Conditions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "condition"
+        ],
+        "title": "GlobalNodeSetting",
+        "description": "Settings for a global node reachable from any conversation node.\n\nGlobal nodes can be entered from any conversation node when\ntheir condition matches. Go-back conditions allow returning\nto the originating node."
+      },
+      "GoBackCondition": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "condition": {
+            "$ref": "#/components/schemas/TransitionCondition"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "condition"
+        ],
+        "title": "GoBackCondition",
+        "description": "Condition that returns from a global node to the originating node."
       },
       "HTTPValidationError": {
         "properties": {
@@ -4056,7 +4004,7 @@
       "RunTestRequest": {
         "properties": {
           "graph": {
-            "$ref": "#/components/schemas/AgentGraph-Input"
+            "$ref": "#/components/schemas/AgentGraph"
           },
           "test_case": {
             "$ref": "#/components/schemas/TestCase"
@@ -4083,7 +4031,7 @@
       "RunTestsRequest": {
         "properties": {
           "graph": {
-            "$ref": "#/components/schemas/AgentGraph-Input"
+            "$ref": "#/components/schemas/AgentGraph"
           },
           "test_cases": {
             "items": {
@@ -4296,7 +4244,7 @@
       "SyncToPlatformRequest": {
         "properties": {
           "graph": {
-            "$ref": "#/components/schemas/AgentGraph-Input"
+            "$ref": "#/components/schemas/AgentGraph"
           }
         },
         "type": "object",
@@ -4676,36 +4624,7 @@
         "title": "ToolDefinition",
         "description": "Definition of a tool/function available to the agent."
       },
-      "Transition-Input": {
-        "properties": {
-          "target_node_id": {
-            "type": "string",
-            "title": "Target Node Id"
-          },
-          "condition": {
-            "$ref": "#/components/schemas/TransitionCondition"
-          },
-          "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Description"
-          }
-        },
-        "type": "object",
-        "required": [
-          "target_node_id",
-          "condition"
-        ],
-        "title": "Transition",
-        "description": "Edge from one node to another in the agent graph."
-      },
-      "Transition-Output": {
+      "Transition": {
         "properties": {
           "target_node_id": {
             "type": "string",
