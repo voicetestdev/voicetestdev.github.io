@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.33"
+    "version": "0.34"
   },
   "paths": {
     "/api/health": {
@@ -1098,6 +1098,112 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentGraph"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/nodes/{node_id}/global-setting": {
+      "put": {
+        "summary": "Update Global Node Setting",
+        "description": "Set a node's global_node_setting (entry condition + go-back conditions).",
+        "operationId": "update_global_node_setting_api_agents__agent_id__nodes__node_id__global_setting_put",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGlobalNodeSettingRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentGraph"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Global Node Setting",
+        "description": "Remove a node's global_node_setting.",
+        "operationId": "delete_global_node_setting_api_agents__agent_id__nodes__node_id__global_setting_delete",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -3450,6 +3556,25 @@
         "title": "GoBackCondition",
         "description": "Condition that returns from a global node to the originating node."
       },
+      "GoBackConditionRequest": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "condition": {
+            "type": "string",
+            "title": "Condition"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "condition"
+        ],
+        "title": "GoBackConditionRequest",
+        "description": "A go-back condition in a global node setting update."
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -4733,6 +4858,28 @@
         "type": "object",
         "title": "UpdateAgentRequest",
         "description": "Request to update an agent."
+      },
+      "UpdateGlobalNodeSettingRequest": {
+        "properties": {
+          "condition": {
+            "type": "string",
+            "title": "Condition"
+          },
+          "go_back_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/GoBackConditionRequest"
+            },
+            "type": "array",
+            "title": "Go Back Conditions",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "condition"
+        ],
+        "title": "UpdateGlobalNodeSettingRequest",
+        "description": "Request to set a node's global_node_setting."
       },
       "UpdateMetadataRequest": {
         "properties": {
