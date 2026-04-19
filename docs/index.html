@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-docs" class="md-skip">
+        <a href="#voicetest-voice-agent-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -329,10 +329,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#feature-highlights" class="md-nav__link">
+  <a href="#what-you-can-do" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature highlights
+        What you can do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform support
       
     </span>
   </a>
@@ -585,10 +596,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#feature-highlights" class="md-nav__link">
+  <a href="#what-you-can-do" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Feature highlights
+        What you can do
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform support
       
     </span>
   </a>
@@ -626,8 +648,11 @@
   
 
 
-<h1 id="voicetest-docs">voicetest docs<a class="headerlink" href="#voicetest-docs" title="Permanent link">&para;</a></h1>
-<p>voicetest is an open-source test harness for voice agent workflows. Define agent graphs, simulate conversations with LLM-powered users, evaluate transcripts with LLM judges, and convert between platform formats (Retell, VAPI, LiveKit, Bland, Telnyx).</p>
+<h1 id="voicetest-voice-agent-testing">voicetest — Voice Agent Testing<a class="headerlink" href="#voicetest-voice-agent-testing" title="Permanent link">&para;</a></h1>
+<p>Voice agents break in ways unit tests can't catch: wrong transitions, bad prompts, numbers that TTS mangles into nonsense. voicetest simulates real multi-turn conversations against your agent, then judges the results with LLMs — so you find the problems before your users do.</p>
+<p>Open source. Apache 2.0. Free forever.</p>
+<p><strong>For teams building voice agents on Retell, VAPI, LiveKit, Bland, or Telnyx.</strong></p>
+<p><img alt="Web UI" src="demos/web-demo-light.gif" /></p>
 <h2 id="where-to-start">Where to start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -638,33 +663,82 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Get up and running</strong> — install, run the demo, first test in 5 minutes</td>
+<td><strong>Get your first test running in 5 minutes</strong> — install, run the demo, see results</td>
 <td><a href="getting-started/">Getting Started</a></td>
 </tr>
 <tr>
-<td><strong>Test an agent</strong> — CLI commands for running tests, managing agents, exporting results</td>
+<td><strong>Test an agent you've already built</strong> — CLI commands, managing agents, exporting results</td>
 <td><a href="cli/">CLI Reference</a></td>
 </tr>
 <tr>
-<td><strong>Understand the model</strong> — agent graphs, node types, transitions, dynamic variables</td>
+<td><strong>Understand agent graphs and test cases</strong> — nodes, transitions, dynamic variables</td>
 <td><a href="concepts/">Core Concepts</a></td>
 </tr>
 <tr>
-<td><strong>Configure models and settings</strong> — LLM providers, run options, platform credentials</td>
+<td><strong>Configure LLM models and platforms</strong> — providers, run options, credentials</td>
 <td><a href="configuration/">Configuration</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="feature-highlights">Feature highlights<a class="headerlink" href="#feature-highlights" title="Permanent link">&para;</a></h2>
+<h2 id="what-you-can-do">What you can do<a class="headerlink" href="#what-you-can-do" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><a href="features/#format-conversion">Format conversion</a></strong> — Import from any supported platform, export to any other</li>
-<li><strong><a href="features/#platform-integration">Platform integration</a></strong> — Import, push, and sync agents with Retell, VAPI, LiveKit, Bland, Telnyx</li>
-<li><strong><a href="features/#diagnosis-auto-fix">Diagnosis and auto-fix</a></strong> — LLM-powered root cause analysis with automated prompt repair</li>
-<li><strong><a href="features/#audio-evaluation">Audio evaluation</a></strong> — TTS/STT round-trip catches pronunciation and number-reading issues</li>
-<li><strong><a href="features/#global-metrics">Global metrics</a></strong> — Compliance checks (HIPAA, PCI-DSS) that run on every test</li>
-<li><strong><a href="features/#agent-decomposition">Agent decomposition</a></strong> — Split large agents into focused sub-agents</li>
-<li><strong><a href="getting-started/#cicd">CI/CD integration</a></strong> — Run voice agent tests in GitHub Actions</li>
+<li><strong><a href="features/#format-conversion">Import from Retell, export to VAPI</a></strong> — convert between any supported platform via a unified agent graph</li>
+<li><strong><a href="features/#platform-integration">Push and sync with live platforms</a></strong> — import, push, and sync agent configs directly from the Web UI or CLI</li>
+<li><strong><a href="features/#diagnosis-auto-fix">Diagnose failures and auto-fix prompts</a></strong> — LLM analyzes why a test failed and proposes prompt changes, with an automated repair loop</li>
+<li><strong><a href="features/#audio-evaluation">Catch what LLM judges miss</a></strong> — TTS/STT round-trip evaluation catches pronunciation and number-reading issues</li>
+<li><strong><a href="features/#global-metrics">Enforce compliance on every test</a></strong> — HIPAA, PCI-DSS, brand voice checks that run automatically</li>
+<li><strong><a href="features/#agent-decomposition">Break large agents into sub-agents</a></strong> — LLM-powered decomposition with handoff rules</li>
+<li><strong><a href="getting-started/#cicd">Test in CI/CD</a></strong> — run voice agent tests in GitHub Actions, block bad deploys</li>
 </ul>
+<h2 id="platform-support">Platform support<a class="headerlink" href="#platform-support" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Import</th>
+<th>Export</th>
+<th>Push</th>
+<th>Sync</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retell</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>VAPI</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>LiveKit</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Bland</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td>Telnyx</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
