@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.37"
+    "version": "0.38"
   },
   "paths": {
     "/api/health": {
