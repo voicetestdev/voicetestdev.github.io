@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.40"
+    "version": "0.41"
   },
   "paths": {
     "/api/health": {
@@ -997,6 +997,68 @@
         }
       }
     },
+    "/api/agents/{agent_id}/import-call": {
+      "post": {
+        "summary": "Import Call",
+        "description": "Import call transcripts as a new Run with imported Results.\n\nThe uploaded file's content is parsed by a platform-specific adapter\n(currently Retell only). Each conversation in the file becomes one Result\ninside the created Run, with status=\"imported\" and no test_case_id linkage.",
+        "operationId": "import_call_api_agents__agent_id__import_call_post",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "retell",
+              "title": "Format"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_import_call_api_agents__agent_id__import_call_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Import Call Api Agents  Agent Id  Import Call Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/agents/upload": {
       "post": {
         "summary": "Create Agent From File",
@@ -1926,6 +1988,48 @@
                   "type": "object",
                   "additionalProperties": true,
                   "title": "Response Delete Run Api Runs  Run Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/runs/{source_run_id}/replay": {
+      "post": {
+        "summary": "Replay Run",
+        "description": "Replay a source Run against the agent's current graph.\n\nLoads the source Run, drives a fresh conversation per source Result using\nthe source's recorded user turns as a script, and persists the live\nconversations as a new Run.",
+        "operationId": "replay_run_api_runs__source_run_id__replay_post",
+        "parameters": [
+          {
+            "name": "source_run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Source Run Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Replay Run Api Runs  Source Run Id  Replay Post"
                 }
               }
             }
@@ -3050,6 +3154,20 @@
           "file"
         ],
         "title": "Body_import_agent_file_api_agents_import_file_post"
+      },
+      "Body_import_call_api_agents__agent_id__import_call_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_import_call_api_agents__agent_id__import_call_post"
       },
       "CacheSettings": {
         "properties": {
@@ -4525,7 +4643,8 @@
             "enum": [
               "pass",
               "fail",
-              "error"
+              "error",
+              "imported"
             ],
             "title": "Status"
           },
