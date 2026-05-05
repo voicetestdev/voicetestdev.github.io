@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/architecture/">
+        <link rel="canonical" href="https://voicetest.dev/docs/PROPOSALS/">
       
       
-        <link rel="prev" href="../transcripts/">
-      
-      
-        <link rel="next" href="../development/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>Architecture - voicetest docs</title>
+        <title>voicetest Proposals - voicetest docs</title>
       
     
     
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#architecture" class="md-skip">
+        <a href="#voicetest-proposals" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture
+              voicetest Proposals
             
           </span>
         </div>
@@ -446,37 +442,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -492,81 +461,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#conversation-engine" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conversation engine
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#di-container-punq" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DI container (Punq)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dspy-signatures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DSPy signatures
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-tool-conversion-retell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Terminal tool conversion (Retell)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -625,54 +519,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conversation-engine" class="md-nav__link">
+  <a href="#real-call-transcript-ingestion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conversation engine
+        Real-call transcript ingestion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-call transcript ingestion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shared-groundwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared groundwork
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#di-container-punq" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#transcript-driven-test-case-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DI container (Punq)
+        Transcript-driven test case generation
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dspy-signatures" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#coverage-gap-analysis-against-an-existing-suite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DSPy signatures
+        Coverage / gap analysis against an existing suite
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#terminal-tool-conversion-retell" class="md-nav__link">
+  <a href="#sequencing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminal tool conversion (Retell)
+        Sequencing
       
     </span>
   </a>
@@ -699,63 +599,73 @@
   
 
 
-<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
-<h2 id="conversation-engine">Conversation engine<a class="headerlink" href="#conversation-engine" title="Permanent link">&para;</a></h2>
-<p>The <code>ConversationEngine.advance()</code> method traverses the agent graph from the current node until it produces speech or settles:</p>
+<h1 id="voicetest-proposals">voicetest Proposals<a class="headerlink" href="#voicetest-proposals" title="Permanent link">&para;</a></h1>
+<p>Design notes for features under consideration. Not committed work; not on the public roadmap. Living document — expect entries to evolve, merge, or get deleted as we learn.</p>
+<hr />
+<h2 id="real-call-transcript-ingestion">Real-call transcript ingestion<a class="headerlink" href="#real-call-transcript-ingestion" title="Permanent link">&para;</a></h2>
+<p><strong>Context.</strong> Many prospective clients arrive with thousands of production call transcripts and zero test cases. Hand-writing a representative test suite is the bottleneck, and the bottleneck is what kills adoption — not the test runner itself. Three proposals below address different slices of this problem; they share a common ingestion + schema layer.</p>
+<h3 id="shared-groundwork">Shared groundwork<a class="headerlink" href="#shared-groundwork" title="Permanent link">&para;</a></h3>
+<p>Before either of these is buildable, voicetest needs:</p>
+<ul>
+<li><strong>A canonical transcript schema</strong> — message list with <code>role</code> ∈ <code>{user, assistant, tool}</code>, content, optional timestamps, optional metadata (call duration, agent version, end reason, latency). All platform-specific shapes (Retell <code>call.transcript</code>, VAPI artifact, LiveKit egress, plain text) normalize into this.</li>
+<li><strong>An ingest path</strong> — single command/endpoint that accepts a directory of transcripts (one JSON per call, or one JSONL with many calls) and stores normalized records in the existing run/results storage. Reuse the existing <code>RunRecord</code>/<code>RunResultRecord</code> tables where possible; add a <code>source_kind</code> column distinguishing <code>simulated</code> from <code>live</code>.</li>
+<li><strong>PII hooks</strong> — opt-in redaction pass during ingest (regex or LLM-based for names/phones/SSNs/emails/account numbers). Default off; clients with sensitive data flip it on. Out of scope for the first proposal pass but should be designed-for in the schema.</li>
+</ul>
+<p>Persisting live calls in the same store as test runs lets the runs UI render them with the existing <code>RunsView</code> component — adjacent value with no extra UI work.</p>
+<hr />
+<h3 id="transcript-driven-test-case-generation">Transcript-driven test case generation<a class="headerlink" href="#transcript-driven-test-case-generation" title="Permanent link">&para;</a></h3>
+<p><strong>Problem.</strong> A client has 10k production transcripts and 0 test cases. Hand-writing 50 hand-tuned cases takes a week and misses the long tail.</p>
+<p><strong>Idea.</strong> Cluster the transcript corpus into "caller types" by intent + persona signal, then synthesize one voicetest <code>TestCase</code> per cluster. The generated cases use the existing simulator + judge plumbing — they're not replay; they're synthesized personas grounded in real distributions.</p>
+<p><strong>Pipeline.</strong></p>
 <ol>
-<li>Call <code>_process_node()</code> on the current node</li>
-<li>If the node produced a response (conversation node), return it</li>
-<li>If the node is silent (logic or extract node) and transitioned, follow the edge and repeat</li>
-<li>Maximum 20 hops per <code>advance()</code> call to prevent infinite loops</li>
+<li><strong>Normalize.</strong> Run all transcripts through the canonical schema.</li>
+<li><strong>Embed + cluster.</strong> Compute embeddings per transcript (or per opening 2–3 user turns, where intent is usually clearest). Cluster using HDBSCAN or k-means with silhouette-based k selection. Output: N clusters, each with a representative sample.</li>
+<li><strong>Per cluster, extract a persona.</strong> Prompt an LLM with the cluster's representative transcripts to fill the existing Identity / Goal / Personality template. Goal must be derivable from observed user behavior, not hallucinated.</li>
+<li><strong>Per cluster, extract metrics.</strong> From the cluster's transcripts, infer what "success" looks like for that caller type (e.g. "agent collected the account number and confirmed the refund"). Emit as <code>metrics</code> on the generated <code>TestCase</code>.</li>
+<li><strong>Write <code>tests/generated/*.toml</code></strong> — one file per cluster, with provenance metadata (cluster id, sample size, source transcript ids).</li>
+<li><strong>Open a PR-like review</strong> — the user reviews/edits/discards before any case is "live."</li>
 </ol>
-<p>Silent nodes auto-fire: logic nodes evaluate equations deterministically, extract nodes call the LLM once for variable extraction then evaluate equations. Tool messages record transitions and extractions in the transcript.</p>
-<p><strong>Transition evaluation</strong> uses a structured two-phase output within a single LLM call. The signature includes an <code>objectives_complete</code> (bool) gate that the LLM must fill before selecting a transition target. If the node's objectives aren't met — for example, the agent asked a question the user hasn't addressed — the transition is blocked regardless of whether a condition matches. The evaluator also receives the agent's <code>last_agent_message</code> as a dedicated input to ground its completion assessment.</p>
-<p><strong>Metric evaluation</strong> filters internal tool messages (transitions, variable extractions) from the transcript before sending it to the judge LLM. The judge only sees the user/assistant conversation, reducing noise that could cause false negatives.</p>
-<h2 id="di-container-punq">DI container (Punq)<a class="headerlink" href="#di-container-punq" title="Permanent link">&para;</a></h2>
-<p>The project uses Punq for dependency injection. Key singletons:</p>
+<p><strong>Hard parts.</strong></p>
 <ul>
-<li><code>Engine</code>, <code>sessionmaker</code>, <code>Session</code> — SQLAlchemy database layer (DuckDB-backed)</li>
-<li><code>ImporterRegistry</code>, <code>ExporterRegistry</code>, <code>PlatformRegistry</code> — Registries</li>
+<li><strong>De-duplication vs coverage.</strong> 10k transcripts may collapse into 30 clusters or 300 — picking the right granularity per client is fiddly. Probably needs an interactive knob ("merge clusters with similarity &gt; X").</li>
+<li><strong>Goal extraction is the bottleneck.</strong> "What did this caller want?" is often only clear after the agent figured it out. Conditioning the LLM on the full transcript helps, but risks generating goals biased toward what the agent (correctly or incorrectly) inferred.</li>
+<li><strong>Eval metrics are only as good as the corpus.</strong> If production calls themselves are buggy, generated metrics inherit those bugs.</li>
 </ul>
-<p>Repositories are transient but share the singleton session:</p>
+<p><strong>Why it's high-leverage.</strong> Replaces "write 50 cases over a week" with "review 30 generated cases over an hour." This is the moment a 10k-transcript client decides whether voicetest is worth the lift.</p>
+<p><strong>Dependencies.</strong> Builds on the shared ingestion + schema layer. Subsumes most of the coverage proposal below — clustering naturally surfaces "patterns the existing test suite doesn't cover."</p>
+<hr />
+<h3 id="coverage-gap-analysis-against-an-existing-suite">Coverage / gap analysis against an existing suite<a class="headerlink" href="#coverage-gap-analysis-against-an-existing-suite" title="Permanent link">&para;</a></h3>
+<p><strong>Problem.</strong> A client has both production transcripts AND an existing voicetest suite. They want to know: "what real-world patterns am I not testing?" without auto-generating tests they didn't ask for.</p>
+<p><strong>Idea.</strong> Same ingest + clustering as the test-generation proposal above, but instead of generating test cases, emit a coverage report.</p>
+<p><strong>Pipeline.</strong></p>
+<ol>
+<li><strong>Normalize + cluster</strong> (shared with the test-generation flow above).</li>
+<li><strong>Embed existing test cases</strong> (use their <code>user_prompt</code> + a synthetic transcript expansion).</li>
+<li><strong>Match clusters to test cases.</strong> For each transcript cluster, find the nearest test case in embedding space. If max similarity &lt; threshold, the cluster is "uncovered."</li>
+<li><strong>Render a coverage report.</strong> Per-cluster:<ul>
+<li>Sample size (how often this pattern shows up in production)</li>
+<li>Nearest existing test case + similarity score</li>
+<li>2–3 representative transcript snippets</li>
+<li>"Generate test case from this cluster?" CTA (links into the test-generation flow above)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Hard parts.</strong></p>
 <ul>
-<li><code>AgentRepository</code>, <code>TestCaseRepository</code>, <code>RunRepository</code>, <code>CallRepository</code></li>
+<li><strong>Threshold choice.</strong> "Similar enough to count as covered" is squishy. Probably ship with a tunable knob and good defaults rather than try to learn it.</li>
+<li><strong>Weighting matters.</strong> A pattern that's 40% of production traffic but missing from the suite is far more important than a 0.1% edge case. Report should sort by traffic weight, not just by gap size.</li>
 </ul>
-<p>Get instances via <code>voicetest.container</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">voicetest.container</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_session</span><span class="p">,</span> <span class="n">get_importer_registry</span>
-</code></pre></div>
-<p><strong>When to use DI:</strong></p>
-<ul>
-<li>Use <code>get_*</code> helpers for app code (REST handlers, CLI commands)</li>
-<li>Use <code>container.resolve(Type)</code> when you need the container directly</li>
-<li>For tests, use <code>reset_container()</code> to get fresh state</li>
-<li>Don't instantiate repositories directly; let Punq inject the session</li>
-</ul>
-<h2 id="dspy-signatures">DSPy signatures<a class="headerlink" href="#dspy-signatures" title="Permanent link">&para;</a></h2>
-<p>When defining DSPy signatures, type the fields accurately:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MySignature</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Signature</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Docstring becomes the prompt context.&quot;&quot;&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">input_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What this input contains&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric input&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What the LLM should produce&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric score from 0.0 to 1.0&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;List of extracted items&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">valid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;True/False judgment&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The type annotations (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>list[str]</code>) guide the LLM's output format. The <code>desc</code> should clarify semantics, not just repeat the type.</p>
-<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
-<p>Data persists to <code>.voicetest/data.duckdb</code> (or <code>VOICETEST_DB_PATH</code> env var).</p>
-<p>Tests are scoped to agents via <code>agent_id</code> foreign key in <code>test_cases</code> table.</p>
-<h2 id="terminal-tool-conversion-retell">Terminal tool conversion (Retell)<a class="headerlink" href="#terminal-tool-conversion-retell" title="Permanent link">&para;</a></h2>
-<p>When importing Retell LLM format agents, terminal tools (<code>end_call</code>, <code>transfer_call</code>) are converted to proper CF node types during export rather than remaining as tools in the tools array:</p>
-<ul>
-<li><code>end_call</code> tools become <code>type=end</code> nodes in the Conversation Flow</li>
-<li><code>transfer_call</code> tools become <code>type=transfer_call</code> nodes with <code>transfer_destination</code> and <code>transfer_option</code></li>
-<li>Tool metadata carries <code>transfer_destination</code> and <code>transfer_option</code> through the import/export pipeline</li>
-<li>The agent envelope (voice_id, language, etc.) is preserved from LLM format through CF export for Retell UI re-import</li>
-</ul>
+<p><strong>Why it's worth its own line.</strong> Some clients explicitly don't want auto-generated test cases — they want to keep the suite hand-curated. For them, "show me what I'm missing" is the entire deliverable. Same plumbing as the test-generation flow, different output mode.</p>
+<p><strong>Dependencies.</strong> Reuses the shared ingestion + clustering. Independently shippable once that exists.</p>
+<hr />
+<h2 id="sequencing">Sequencing<a class="headerlink" href="#sequencing" title="Permanent link">&para;</a></h2>
+<p>Build order if/when this comes off the proposals shelf (replay regression mode is being implemented separately and is not part of this sequence):</p>
+<ol>
+<li>Shared ingest + canonical schema + storage.</li>
+<li>Clustering primitive (used by both proposals below).</li>
+<li>Coverage report — ships first because the output is just a report, no synthesis.</li>
+<li>Test case synthesis — last, because "review N generated cases" UX needs more polish.</li>
+</ol>
 
 
 

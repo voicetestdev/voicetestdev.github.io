@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/architecture/">
+        <link rel="canonical" href="https://voicetest.dev/docs/transcripts/">
       
       
-        <link rel="prev" href="../transcripts/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../development/">
+        <link rel="next" href="../architecture/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Architecture - voicetest docs</title>
+        <title>Importing transcripts - voicetest docs</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#architecture" class="md-skip">
+        <a href="#importing-real-call-transcripts" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Architecture
+              Importing transcripts
             
           </span>
         </div>
@@ -419,33 +419,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../transcripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Importing transcripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -465,7 +438,7 @@
   <span class="md-ellipsis">
     
   
-    Architecture
+    Importing transcripts
   
 
     
@@ -483,7 +456,7 @@
   <span class="md-ellipsis">
     
   
-    Architecture
+    Importing transcripts
   
 
     
@@ -509,10 +482,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conversation-engine" class="md-nav__link">
+  <a href="#two-operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conversation engine
+        Two operations
       
     </span>
   </a>
@@ -520,10 +493,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#di-container-punq" class="md-nav__link">
+  <a href="#supported-formats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DI container (Punq)
+        Supported formats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data model
       
     </span>
   </a>
@@ -531,10 +532,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dspy-signatures" class="md-nav__link">
+  <a href="#replay-semantics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DSPy signatures
+        Replay semantics
       
     </span>
   </a>
@@ -542,21 +543,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-tool-conversion-retell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Terminal tool conversion (Retell)
+        Limitations
       
     </span>
   </a>
@@ -567,6 +557,33 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -625,10 +642,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conversation-engine" class="md-nav__link">
+  <a href="#two-operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conversation engine
+        Two operations
       
     </span>
   </a>
@@ -636,10 +653,38 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#di-container-punq" class="md-nav__link">
+  <a href="#supported-formats" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DI container (Punq)
+        Supported formats
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data model
       
     </span>
   </a>
@@ -647,10 +692,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dspy-signatures" class="md-nav__link">
+  <a href="#replay-semantics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DSPy signatures
+        Replay semantics
       
     </span>
   </a>
@@ -658,21 +703,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-tool-conversion-retell" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Terminal tool conversion (Retell)
+        Limitations
       
     </span>
   </a>
@@ -699,63 +733,88 @@
   
 
 
-<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
-<h2 id="conversation-engine">Conversation engine<a class="headerlink" href="#conversation-engine" title="Permanent link">&para;</a></h2>
-<p>The <code>ConversationEngine.advance()</code> method traverses the agent graph from the current node until it produces speech or settles:</p>
-<ol>
-<li>Call <code>_process_node()</code> on the current node</li>
-<li>If the node produced a response (conversation node), return it</li>
-<li>If the node is silent (logic or extract node) and transitioned, follow the edge and repeat</li>
-<li>Maximum 20 hops per <code>advance()</code> call to prevent infinite loops</li>
-</ol>
-<p>Silent nodes auto-fire: logic nodes evaluate equations deterministically, extract nodes call the LLM once for variable extraction then evaluate equations. Tool messages record transitions and extractions in the transcript.</p>
-<p><strong>Transition evaluation</strong> uses a structured two-phase output within a single LLM call. The signature includes an <code>objectives_complete</code> (bool) gate that the LLM must fill before selecting a transition target. If the node's objectives aren't met — for example, the agent asked a question the user hasn't addressed — the transition is blocked regardless of whether a condition matches. The evaluator also receives the agent's <code>last_agent_message</code> as a dedicated input to ground its completion assessment.</p>
-<p><strong>Metric evaluation</strong> filters internal tool messages (transitions, variable extractions) from the transcript before sending it to the judge LLM. The judge only sees the user/assistant conversation, reducing noise that could cause false negatives.</p>
-<h2 id="di-container-punq">DI container (Punq)<a class="headerlink" href="#di-container-punq" title="Permanent link">&para;</a></h2>
-<p>The project uses Punq for dependency injection. Key singletons:</p>
+<h1 id="importing-real-call-transcripts">Importing real call transcripts<a class="headerlink" href="#importing-real-call-transcripts" title="Permanent link">&para;</a></h1>
+<p>voicetest can ingest real production call transcripts as Runs, alongside the simulated test runs the harness generates. Imported transcripts share the same storage and UI surfaces as simulated runs and can be <strong>replayed</strong> against the agent's current graph to detect behavioral drift.</p>
+<h2 id="two-operations">Two operations<a class="headerlink" href="#two-operations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>What it does</th>
+<th>UI</th>
+<th>CLI</th>
+<th>REST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Import calls</strong></td>
+<td>Parse a platform-specific transcript dump and persist as a Run with <code>status="imported"</code> Results</td>
+<td>"Import Calls…" button on the agent page</td>
+<td><code>voicetest import-call --agent &lt;id&gt; --transcript file.json</code></td>
+<td><code>POST /api/agents/{id}/import-call</code> (multipart)</td>
+</tr>
+<tr>
+<td><strong>Replay</strong></td>
+<td>Drive a fresh conversation against the agent's current graph using a source Run's user turns as a script</td>
+<td>"Replay" button on the run detail page</td>
+<td><code>voicetest replay &lt;run-id&gt;</code></td>
+<td><code>POST /api/runs/{id}/replay</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="supported-formats">Supported formats<a class="headerlink" href="#supported-formats" title="Permanent link">&para;</a></h2>
+<h3 id="retell">Retell<a class="headerlink" href="#retell" title="Permanent link">&para;</a></h3>
+<p>voicetest accepts both:</p>
 <ul>
-<li><code>Engine</code>, <code>sessionmaker</code>, <code>Session</code> — SQLAlchemy database layer (DuckDB-backed)</li>
-<li><code>ImporterRegistry</code>, <code>ExporterRegistry</code>, <code>PlatformRegistry</code> — Registries</li>
+<li>The Retell call object as returned by <code>GET /v2/get-call/{call_id}</code> (single call)</li>
+<li>The Retell post-call webhook payload (call object wrapped in <code>{"event": ..., "call": {...}}</code>)</li>
 </ul>
-<p>Repositories are transient but share the singleton session:</p>
-<ul>
-<li><code>AgentRepository</code>, <code>TestCaseRepository</code>, <code>RunRepository</code>, <code>CallRepository</code></li>
-</ul>
-<p>Get instances via <code>voicetest.container</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">voicetest.container</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_session</span><span class="p">,</span> <span class="n">get_importer_registry</span>
+<p>Either shape can be a single object or an array. Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Single call</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;call_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call_abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;transcript_object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;agent&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hi, how can I help?&quot;</span><span class="p">},</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I need to cancel my order.&quot;</span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">&quot;start_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1700000000000</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">&quot;end_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1700000060000</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">// Webhook envelope</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call_ended&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">&quot;call&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* same call object as above */</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1">// Array of either</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* call */</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* call */</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
-<p><strong>When to use DI:</strong></p>
+<p>The adapter maps <code>role: "agent"</code> → <code>role: "assistant"</code> (voicetest convention) and ignores word-level timing details.</p>
+<p>Other platforms (VAPI, LiveKit, Telnyx, Bland) are <strong>not yet supported</strong> — <code>--format</code> is parameterized so they can be added without breaking changes.</p>
+<h2 id="data-model">Data model<a class="headerlink" href="#data-model" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Use <code>get_*</code> helpers for app code (REST handlers, CLI commands)</li>
-<li>Use <code>container.resolve(Type)</code> when you need the container directly</li>
-<li>For tests, use <code>reset_container()</code> to get fresh state</li>
-<li>Don't instantiate repositories directly; let Punq inject the session</li>
+<li><strong>Imported run</strong>: a <code>Run</code> whose <code>Result</code>s have <code>status="imported"</code>, <code>test_case_id=null</code>, <code>call_id=null</code>. Each Result holds one call's transcript.</li>
+<li><strong>Replay run</strong>: a <code>Run</code> produced by replaying a source Run. Results have <code>status="pass"</code> (replay results are passive captures of live behavior; judging happens later when metrics are configured).</li>
 </ul>
-<h2 id="dspy-signatures">DSPy signatures<a class="headerlink" href="#dspy-signatures" title="Permanent link">&para;</a></h2>
-<p>When defining DSPy signatures, type the fields accurately:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MySignature</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Signature</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Docstring becomes the prompt context.&quot;&quot;&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">input_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What this input contains&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric input&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What the LLM should produce&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric score from 0.0 to 1.0&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;List of extracted items&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">valid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;True/False judgment&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The type annotations (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>list[str]</code>) guide the LLM's output format. The <code>desc</code> should clarify semantics, not just repeat the type.</p>
-<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
-<p>Data persists to <code>.voicetest/data.duckdb</code> (or <code>VOICETEST_DB_PATH</code> env var).</p>
-<p>Tests are scoped to agents via <code>agent_id</code> foreign key in <code>test_cases</code> table.</p>
-<h2 id="terminal-tool-conversion-retell">Terminal tool conversion (Retell)<a class="headerlink" href="#terminal-tool-conversion-retell" title="Permanent link">&para;</a></h2>
-<p>When importing Retell LLM format agents, terminal tools (<code>end_call</code>, <code>transfer_call</code>) are converted to proper CF node types during export rather than remaining as tools in the tools array:</p>
+<p>Both kinds of runs render in the existing runs UI alongside simulated runs. The runs list shows an "imported" badge for runs whose Results are all imported.</p>
+<h2 id="replay-semantics">Replay semantics<a class="headerlink" href="#replay-semantics" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>end_call</code> tools become <code>type=end</code> nodes in the Conversation Flow</li>
-<li><code>transfer_call</code> tools become <code>type=transfer_call</code> nodes with <code>transfer_destination</code> and <code>transfer_option</code></li>
-<li>Tool metadata carries <code>transfer_destination</code> and <code>transfer_option</code> through the import/export pipeline</li>
-<li>The agent envelope (voice_id, language, etc.) is preserved from LLM format through CF export for Retell UI re-import</li>
+<li>For each source Result, <code>ScriptedUserSimulator</code> yields the source's recorded user turns in order.</li>
+<li>The live agent's responses replace the recorded ones; the source's agent turns are not used.</li>
+<li>If the live agent diverges from the recorded conversation (asks a different question), the next recorded user turn may not fit perfectly. The replay continues anyway — the regression signal is still useful because the conversation as a whole can be evaluated.</li>
+<li>Replay is <strong>best-effort</strong>: there's no LLM-based divergence handling in v1.</li>
 </ul>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Single-platform support (Retell only).</li>
+<li>No PII redaction at import time — clients with sensitive data should redact before ingesting.</li>
+<li>No diff view between source and replay yet; they're separate runs in the UI.</li>
+<li>No batch import via UI — large dumps are easier via CLI.</li>
+</ul>
+<p>For more advanced workflows (clustering, coverage analysis, test-case generation from real calls), see the proposals in <a href="../PROPOSALS/">PROPOSALS.md</a>.</p>
 
 
 
