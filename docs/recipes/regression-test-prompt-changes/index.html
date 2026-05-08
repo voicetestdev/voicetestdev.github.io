@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/">
+        <link rel="canonical" href="https://voicetest.dev/docs/recipes/regression-test-prompt-changes/">
       
       
+        <link rel="prev" href="../">
       
-        <link rel="next" href="getting-started/">
+      
+        <link rel="next" href="../import-call-history/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>voicetest docs</title>
+        <title>Regression-test prompt changes - voicetest docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-voice-agent-testing" class="md-skip">
+        <a href="#regression-test-prompt-changes" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="../.." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Regression-test prompt changes
             
           </span>
         </div>
@@ -228,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="../.." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,6 +257,142 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -274,7 +412,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Regression-test prompt changes
   
 
     
@@ -285,14 +423,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    Regression-test prompt changes
   
 
     
@@ -318,10 +456,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#where-to-start" class="md-nav__link">
+  <a href="#before-you-change-anything-snapshot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where to start
+        Before you change anything: snapshot
       
     </span>
   </a>
@@ -329,10 +467,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do" class="md-nav__link">
+  <a href="#make-the-change" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you can do
+        Make the change
       
     </span>
   </a>
@@ -340,10 +478,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#platform-support" class="md-nav__link">
+  <a href="#re-run-and-compare" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform support
+        Re-run and compare
       
     </span>
   </a>
@@ -351,10 +489,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
+  <a href="#what-to-look-for" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interfaces
+        What to look for
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catch-it-before-it-ships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catch it before it ships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
       
     </span>
   </a>
@@ -368,112 +528,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="getting-started/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Getting Started
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="recipes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -483,35 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/regression-test-prompt-changes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Regression-test prompt changes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="recipes/import-call-history/" class="md-nav__link">
+      <a href="../import-call-history/" class="md-nav__link">
         
   
   
@@ -539,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/diagnose-failing-test/" class="md-nav__link">
+      <a href="../diagnose-failing-test/" class="md-nav__link">
         
   
   
@@ -567,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/ci-github-actions/" class="md-nav__link">
+      <a href="../ci-github-actions/" class="md-nav__link">
         
   
   
@@ -602,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -629,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -656,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/" class="md-nav__link">
+      <a href="../../features/" class="md-nav__link">
         
   
   
@@ -683,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -710,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="transcripts/" class="md-nav__link">
+      <a href="../../transcripts/" class="md-nav__link">
         
   
   
@@ -737,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -764,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -811,10 +837,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#where-to-start" class="md-nav__link">
+  <a href="#before-you-change-anything-snapshot" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where to start
+        Before you change anything: snapshot
       
     </span>
   </a>
@@ -822,10 +848,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do" class="md-nav__link">
+  <a href="#make-the-change" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you can do
+        Make the change
       
     </span>
   </a>
@@ -833,10 +859,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#platform-support" class="md-nav__link">
+  <a href="#re-run-and-compare" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform support
+        Re-run and compare
       
     </span>
   </a>
@@ -844,10 +870,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
+  <a href="#what-to-look-for" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interfaces
+        What to look for
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#catch-it-before-it-ships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catch it before it ships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
       
     </span>
   </a>
@@ -874,129 +922,82 @@
   
 
 
-<h1 id="voicetest-voice-agent-testing">voicetest — Voice Agent Testing<a class="headerlink" href="#voicetest-voice-agent-testing" title="Permanent link">&para;</a></h1>
-<p>Voice agents break in ways unit tests can't catch: wrong transitions, bad prompts, numbers that TTS mangles into nonsense. voicetest simulates real multi-turn conversations against your agent, then judges the results with LLMs — so you find the problems before your users do.</p>
-<p>Open source. Apache 2.0. Free forever.</p>
-<p><strong>For teams building voice agents on Retell, VAPI, LiveKit, Bland, or Telnyx.</strong></p>
-<p><img alt="Web UI" src="demos/web-demo-light.gif" /></p>
-<h2 id="where-to-start">Where to start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>If you want to...</th>
-<th>Go here</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Get your first test running in 5 minutes</strong> — install, run the demo, see results</td>
-<td><a href="getting-started/">Getting Started</a></td>
-</tr>
-<tr>
-<td><strong>Test an agent you've already built</strong> — CLI commands, managing agents, exporting results</td>
-<td><a href="cli/">CLI Reference</a></td>
-</tr>
-<tr>
-<td><strong>Understand agent graphs and test cases</strong> — nodes, transitions, dynamic variables</td>
-<td><a href="concepts/">Core Concepts</a></td>
-</tr>
-<tr>
-<td><strong>Configure LLM models and platforms</strong> — providers, run options, credentials</td>
-<td><a href="configuration/">Configuration</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="what-you-can-do">What you can do<a class="headerlink" href="#what-you-can-do" title="Permanent link">&para;</a></h2>
+<h1 id="regression-test-prompt-changes">Regression-test prompt changes<a class="headerlink" href="#regression-test-prompt-changes" title="Permanent link">&para;</a></h1>
+<p><strong>The problem:</strong> You've maintained a voice agent for months. Today you want to edit a prompt — tighten an instruction, change a tone, add a new transition condition. You're 90% sure the change is safe, but you've been burned before: a one-word edit that broke identity verification on a flow nobody had touched in weeks.</p>
+<p><strong>The flow:</strong></p>
+<ol>
+<li>Snapshot current behavior with the existing test suite</li>
+<li>Make the prompt change</li>
+<li>Re-run the same suite</li>
+<li>Compare runs side by side</li>
+</ol>
+<h2 id="before-you-change-anything-snapshot">Before you change anything: snapshot<a class="headerlink" href="#before-you-change-anything-snapshot" title="Permanent link">&para;</a></h2>
+<p>Pull the current agent definition and run the suite to capture today's baseline. The web UI keeps the run on disk:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>voicetest<span class="w"> </span>serve
+</code></pre></div>
+<p>In the UI, import the agent, load your tests, click <strong>Run</strong>. When it finishes, the run lands in the runs list with an ID and timestamp. That's your baseline.</p>
+<p>CLI alternative — save the run for later comparison:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>voicetest<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--agent<span class="w"> </span>agent.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--tests<span class="w"> </span>tests.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--all<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>--output<span class="w"> </span>baseline.json
+</code></pre></div>
+<h2 id="make-the-change">Make the change<a class="headerlink" href="#make-the-change" title="Permanent link">&para;</a></h2>
+<p>Edit <code>agent.json</code> (or use <strong>Push to Platform</strong> from the UI if you maintain the agent on Retell/VAPI/etc.). Keep the change small and focused — one edit per regression cycle is the cleanest.</p>
+<div class="admonition tip">
+<p class="admonition-title">Version control your agent</p>
+<p>Commit <code>agent.json</code> to git before every change. The diff is the single most useful artifact when you're trying to figure out what broke.</p>
+</div>
+<h2 id="re-run-and-compare">Re-run and compare<a class="headerlink" href="#re-run-and-compare" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>voicetest<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--agent<span class="w"> </span>agent.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--tests<span class="w"> </span>tests.json<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--all<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--output<span class="w"> </span>after-change.json
+</code></pre></div>
+<p>In the web UI, the runs list shows both runs. Click each to compare:</p>
 <ul>
-<li><strong><a href="features/#format-conversion">Import from Retell, export to VAPI</a></strong> — convert between any supported platform via a unified agent graph</li>
-<li><strong><a href="features/#platform-integration">Push and sync with live platforms</a></strong> — import, push, and sync agent configs directly from the Web UI or CLI</li>
-<li><strong><a href="features/#diagnosis-auto-fix">Diagnose failures and auto-fix prompts</a></strong> — LLM analyzes why a test failed and proposes prompt changes, with an automated repair loop</li>
-<li><strong><a href="features/#audio-evaluation">Catch what LLM judges miss</a></strong> — TTS/STT round-trip evaluation catches pronunciation and number-reading issues</li>
-<li><strong><a href="features/#global-metrics">Enforce compliance on every test</a></strong> — HIPAA, PCI-DSS, brand voice checks that run automatically</li>
-<li><strong><a href="features/#agent-decomposition">Break large agents into sub-agents</a></strong> — LLM-powered decomposition with handoff rules</li>
-<li><strong><a href="recipes/ci-github-actions/">Test in CI/CD</a></strong> — run voice agent tests in GitHub Actions, block bad deploys</li>
+<li><strong>Pass/fail summary</strong> — did any test flip from green to red?</li>
+<li><strong>Score deltas</strong> — even passing tests can degrade. A score that drops from 0.93 to 0.71 is worth investigating.</li>
+<li><strong>Turn counts</strong> — a conversation that used to take 8 turns now taking 14 means the agent is working harder for the same outcome.</li>
+<li><strong>Transcript diffs</strong> — open a test in both runs, scroll the transcripts side by side.</li>
 </ul>
-<h2 id="platform-support">Platform support<a class="headerlink" href="#platform-support" title="Permanent link">&para;</a></h2>
+<h2 id="what-to-look-for">What to look for<a class="headerlink" href="#what-to-look-for" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Platform</th>
-<th>Import</th>
-<th>Export</th>
-<th>Push</th>
-<th>Sync</th>
+<th>Signal</th>
+<th>What it usually means</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Retell</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>New failures on tests you didn't touch</td>
+<td>The prompt change has a side-effect. Common cause: changing one node's instructions affects how the LLM interprets transition conditions from neighbouring nodes.</td>
 </tr>
 <tr>
-<td>VAPI</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Same pass/fail but lower scores</td>
+<td>The agent is <em>technically</em> meeting the criteria but in a way the judge finds less complete. Often a sign that conciseness or tone has shifted.</td>
 </tr>
 <tr>
-<td>LiveKit</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Tests get stuck in the wrong node</td>
+<td>A transition condition you didn't edit is now being interpreted differently. Usually fixed by tightening the global prompt or the affected transition's natural-language description.</td>
 </tr>
 <tr>
-<td>Bland</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td></td>
-</tr>
-<tr>
-<td>Telnyx</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Test passes but with a wildly different turn count</td>
+<td>Path through the graph has changed. Worth a transcript scan to confirm the new path is acceptable.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Interface</th>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Web UI</td>
-<td><code>voicetest serve</code></td>
-<td>Visual test management, streaming transcripts, graph visualization</td>
-</tr>
-<tr>
-<td>CLI</td>
-<td><code>voicetest run</code></td>
-<td>Fast iteration, scripting, CI/CD</td>
-</tr>
-<tr>
-<td>Interactive shell</td>
-<td><code>voicetest</code></td>
-<td>REPL for exploratory testing</td>
-</tr>
-<tr>
-<td>REST API</td>
-<td><code>voicetest serve</code></td>
-<td>Integrate with any toolchain at <code>localhost:8000/api</code></td>
-</tr>
-</tbody>
-</table>
+<h2 id="catch-it-before-it-ships">Catch it before it ships<a class="headerlink" href="#catch-it-before-it-ships" title="Permanent link">&para;</a></h2>
+<p>Once you've manually validated the loop a few times, automate it. The <a href="../ci-github-actions/">GitHub Actions recipe</a> shows how to run the same suite on every push and block merges that regress.</p>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../diagnose-failing-test/">Diagnose a failing test</a> — when a regression appears, voicetest can propose the fix</li>
+<li><a href="../ci-github-actions/">Run in GitHub Actions</a> — make this loop automatic</li>
+<li><a href="../../features/#diagnosis-auto-fix">Features: Diagnosis &amp; auto-fix</a> — full reference</li>
+</ul>
 
 
 
@@ -1052,10 +1053,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

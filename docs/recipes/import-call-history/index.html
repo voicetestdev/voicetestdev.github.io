@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/">
+        <link rel="canonical" href="https://voicetest.dev/docs/recipes/import-call-history/">
       
       
+        <link rel="prev" href="../regression-test-prompt-changes/">
       
-        <link rel="next" href="getting-started/">
+      
+        <link rel="next" href="../diagnose-failing-test/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>voicetest docs</title>
+        <title>Import call history - voicetest docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-voice-agent-testing" class="md-skip">
+        <a href="#import-call-history-as-a-regression-suite" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="../.." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Import call history
             
           </span>
         </div>
@@ -228,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="../.." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,6 +257,170 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../regression-test-prompt-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regression-test prompt changes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -274,7 +440,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Import call history
   
 
     
@@ -285,14 +451,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    Import call history
   
 
     
@@ -318,10 +484,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#where-to-start" class="md-nav__link">
+  <a href="#1-pull-a-batch-of-calls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where to start
+        1. Pull a batch of calls
       
     </span>
   </a>
@@ -329,10 +495,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do" class="md-nav__link">
+  <a href="#2-import-as-a-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you can do
+        2. Import as a Run
       
     </span>
   </a>
@@ -340,10 +506,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#platform-support" class="md-nav__link">
+  <a href="#3-replay-against-the-current-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform support
+        3. Replay against the current graph
       
     </span>
   </a>
@@ -351,10 +517,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
+  <a href="#4-compare-source-vs-replay" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interfaces
+        4. Compare source vs. replay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-replays-into-named-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning replays into named tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-repeatable-rhythm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A repeatable rhythm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
       
     </span>
   </a>
@@ -368,112 +567,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="getting-started/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Getting Started
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="recipes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -483,63 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/regression-test-prompt-changes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Regression-test prompt changes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="recipes/import-call-history/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Import call history
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="recipes/diagnose-failing-test/" class="md-nav__link">
+      <a href="../diagnose-failing-test/" class="md-nav__link">
         
   
   
@@ -567,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/ci-github-actions/" class="md-nav__link">
+      <a href="../ci-github-actions/" class="md-nav__link">
         
   
   
@@ -602,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -629,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -656,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/" class="md-nav__link">
+      <a href="../../features/" class="md-nav__link">
         
   
   
@@ -683,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -710,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="transcripts/" class="md-nav__link">
+      <a href="../../transcripts/" class="md-nav__link">
         
   
   
@@ -737,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -764,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -811,10 +848,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#where-to-start" class="md-nav__link">
+  <a href="#1-pull-a-batch-of-calls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where to start
+        1. Pull a batch of calls
       
     </span>
   </a>
@@ -822,10 +859,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do" class="md-nav__link">
+  <a href="#2-import-as-a-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you can do
+        2. Import as a Run
       
     </span>
   </a>
@@ -833,10 +870,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#platform-support" class="md-nav__link">
+  <a href="#3-replay-against-the-current-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Platform support
+        3. Replay against the current graph
       
     </span>
   </a>
@@ -844,10 +881,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interfaces" class="md-nav__link">
+  <a href="#4-compare-source-vs-replay" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interfaces
+        4. Compare source vs. replay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turning-replays-into-named-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Turning replays into named tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-repeatable-rhythm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A repeatable rhythm
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
       
     </span>
   </a>
@@ -874,129 +944,104 @@
   
 
 
-<h1 id="voicetest-voice-agent-testing">voicetest — Voice Agent Testing<a class="headerlink" href="#voicetest-voice-agent-testing" title="Permanent link">&para;</a></h1>
-<p>Voice agents break in ways unit tests can't catch: wrong transitions, bad prompts, numbers that TTS mangles into nonsense. voicetest simulates real multi-turn conversations against your agent, then judges the results with LLMs — so you find the problems before your users do.</p>
-<p>Open source. Apache 2.0. Free forever.</p>
-<p><strong>For teams building voice agents on Retell, VAPI, LiveKit, Bland, or Telnyx.</strong></p>
-<p><img alt="Web UI" src="demos/web-demo-light.gif" /></p>
-<h2 id="where-to-start">Where to start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
+<h1 id="import-call-history-as-a-regression-suite">Import call history as a regression suite<a class="headerlink" href="#import-call-history-as-a-regression-suite" title="Permanent link">&para;</a></h1>
+<p><strong>The problem:</strong> You have a synthetic test suite, but it's bounded by the imagination of whoever wrote it. Real callers say things you didn't anticipate — filler, hedging, unusual order combinations, intents your suite doesn't cover. You want production traffic to be the regression net for the cases you haven't thought of.</p>
+<p><strong>The flow:</strong></p>
+<ol>
+<li>Pull a batch of recent calls from your platform</li>
+<li>Import them as a voicetest <strong>Run</strong></li>
+<li>Replay them against the agent's current graph</li>
+<li>Diff source vs. replay</li>
+</ol>
+<p>This works for ~1000 production calls in about a minute end-to-end after the initial setup.</p>
+<h2 id="1-pull-a-batch-of-calls">1. Pull a batch of calls<a class="headerlink" href="#1-pull-a-batch-of-calls" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Retell</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Yesterday&#39;s calls in one file</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.retellai.com/v2/list-calls<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$RETELL_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;filter_criteria&quot;: {&quot;start_timestamp&quot;: {&quot;after&quot;: 1714780800000}}, &quot;limit&quot;: 1000}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>&gt;<span class="w"> </span>prod-calls.json
+</code></pre></div>
+<p>Voicetest accepts both the single-call shape and the post-call webhook envelope, as a single object or an array.</p>
+</div>
+</div>
+</div>
+<p>Other platforms (VAPI, LiveKit, Telnyx, Bland) are not yet supported in v1 of the transcript importer. See <a href="../../transcripts/">Importing transcripts</a> for the format reference.</p>
+<h2 id="2-import-as-a-run">2. Import as a Run<a class="headerlink" href="#2-import-as-a-run" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>voicetest<span class="w"> </span>import-call<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--agent<span class="w"> </span>&lt;your-agent-id&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--transcript<span class="w"> </span>prod-calls.json
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Imported 312 conversation(s) into run prod-2026-05-08</span>
+</code></pre></div>
+<p>Each call becomes a <code>Result</code> inside one <code>Run</code>, with <code>status="imported"</code>. The run renders in the UI alongside your simulated runs and is fully searchable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Redact PII before ingest</p>
+<p>Voicetest does not redact transcripts at import time. If your calls contain personal data, redact in the dump file <em>before</em> running <code>import-call</code>.</p>
+</div>
+<h2 id="3-replay-against-the-current-graph">3. Replay against the current graph<a class="headerlink" href="#3-replay-against-the-current-graph" title="Permanent link">&para;</a></h2>
+<p>Replaying drives a fresh conversation against the agent's <em>current</em> configuration using the source's recorded user turns as a script. The live agent's responses replace the recorded ones.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>voicetest<span class="w"> </span>replay<span class="w"> </span>prod-2026-05-08
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Replayed 312 conversation(s) into run replay-abc123</span>
+</code></pre></div>
+<p>The new run lands next to the source in the runs UI.</p>
+<h2 id="4-compare-source-vs-replay">4. Compare source vs. replay<a class="headerlink" href="#4-compare-source-vs-replay" title="Permanent link">&para;</a></h2>
+<p>In the web UI, open the source run on the left and the replay on the right. Scroll the transcripts side by side. You're looking for:</p>
 <table>
 <thead>
 <tr>
-<th>If you want to...</th>
-<th>Go here</th>
+<th>Divergence</th>
+<th>What it usually means</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Get your first test running in 5 minutes</strong> — install, run the demo, see results</td>
-<td><a href="getting-started/">Getting Started</a></td>
+<td>Live agent asks a different question than recorded</td>
+<td>A prompt change altered the path. The next scripted user turn won't fit perfectly — replay continues anyway.</td>
 </tr>
 <tr>
-<td><strong>Test an agent you've already built</strong> — CLI commands, managing agents, exporting results</td>
-<td><a href="cli/">CLI Reference</a></td>
+<td>Live agent fails to extract a variable that worked</td>
+<td>An extract-node prompt regressed. Usually fixable with one targeted edit.</td>
 </tr>
 <tr>
-<td><strong>Understand agent graphs and test cases</strong> — nodes, transitions, dynamic variables</td>
-<td><a href="concepts/">Core Concepts</a></td>
+<td>Live agent ends the call earlier than recorded</td>
+<td>Either an end-condition is firing too eagerly, or the agent is now resolving faster — read the transcripts to tell.</td>
 </tr>
 <tr>
-<td><strong>Configure LLM models and platforms</strong> — providers, run options, credentials</td>
-<td><a href="configuration/">Configuration</a></td>
+<td>Live agent escalates ("transfer to human") more often</td>
+<td>Confidence in routing has dropped. Check whether routing prompts changed or whether new global nodes are firing.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="what-you-can-do">What you can do<a class="headerlink" href="#what-you-can-do" title="Permanent link">&para;</a></h2>
+<p>Replay is <strong>best-effort</strong> — there is no LLM-driven divergence repair in v1. When the live agent diverges from the script, the regression signal is "this conversation is now incoherent," which is exactly the thing you want to know about.</p>
+<h2 id="turning-replays-into-named-tests">Turning replays into named tests<a class="headerlink" href="#turning-replays-into-named-tests" title="Permanent link">&para;</a></h2>
+<p>The replay run gives you signal but not a permanent named test case. To promote a particular conversation to the synthetic suite:</p>
+<ol>
+<li>Open the source result in the UI</li>
+<li>Click <strong>Convert to test case</strong></li>
+<li>Give it a name and edit the metrics list</li>
+<li>Save — it now lives in your <code>tests.json</code> and runs on every <code>voicetest run --all</code></li>
+</ol>
+<p>Curating ~20 of your most common production patterns into the synthetic suite typically catches &gt;80% of meaningful regressions, and a replay sweep on a fresh batch of calls catches the rest.</p>
+<h2 id="a-repeatable-rhythm">A repeatable rhythm<a class="headerlink" href="#a-repeatable-rhythm" title="Permanent link">&para;</a></h2>
+<p>A practical weekly cadence for teams running production agents:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Monday: pull the past week of calls</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./scripts/dump-retell-calls.sh<span class="w"> </span>&gt;<span class="w"> </span>weekly-calls.json
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>voicetest<span class="w"> </span>import-call<span class="w"> </span>--agent<span class="w"> </span>receptionist<span class="w"> </span>--transcript<span class="w"> </span>weekly-calls.json
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Friday afternoon: replay against whatever&#39;s been merged this week</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>voicetest<span class="w"> </span>replay<span class="w"> </span><span class="k">$(</span>latest_weekly_run_id<span class="k">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Then scan the diffs in the UI before the weekend deploy freeze</span>
+</code></pre></div>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><a href="features/#format-conversion">Import from Retell, export to VAPI</a></strong> — convert between any supported platform via a unified agent graph</li>
-<li><strong><a href="features/#platform-integration">Push and sync with live platforms</a></strong> — import, push, and sync agent configs directly from the Web UI or CLI</li>
-<li><strong><a href="features/#diagnosis-auto-fix">Diagnose failures and auto-fix prompts</a></strong> — LLM analyzes why a test failed and proposes prompt changes, with an automated repair loop</li>
-<li><strong><a href="features/#audio-evaluation">Catch what LLM judges miss</a></strong> — TTS/STT round-trip evaluation catches pronunciation and number-reading issues</li>
-<li><strong><a href="features/#global-metrics">Enforce compliance on every test</a></strong> — HIPAA, PCI-DSS, brand voice checks that run automatically</li>
-<li><strong><a href="features/#agent-decomposition">Break large agents into sub-agents</a></strong> — LLM-powered decomposition with handoff rules</li>
-<li><strong><a href="recipes/ci-github-actions/">Test in CI/CD</a></strong> — run voice agent tests in GitHub Actions, block bad deploys</li>
+<li><a href="https://voicetest.dev/blog/replay-production-call-transcripts-voice-agent-regression/">Replay Production Call Transcripts (blog post)</a> — narrative walkthrough</li>
+<li><a href="../../transcripts/">Importing transcripts</a> — full reference for the import + replay APIs</li>
+<li><a href="../regression-test-prompt-changes/">Regression-test prompt changes</a> — the synthetic-suite version of the same loop</li>
 </ul>
-<h2 id="platform-support">Platform support<a class="headerlink" href="#platform-support" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Platform</th>
-<th>Import</th>
-<th>Export</th>
-<th>Push</th>
-<th>Sync</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Retell</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>VAPI</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>LiveKit</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>Bland</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td></td>
-</tr>
-<tr>
-<td>Telnyx</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-</tbody>
-</table>
-<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Interface</th>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Web UI</td>
-<td><code>voicetest serve</code></td>
-<td>Visual test management, streaming transcripts, graph visualization</td>
-</tr>
-<tr>
-<td>CLI</td>
-<td><code>voicetest run</code></td>
-<td>Fast iteration, scripting, CI/CD</td>
-</tr>
-<tr>
-<td>Interactive shell</td>
-<td><code>voicetest</code></td>
-<td>REPL for exploratory testing</td>
-</tr>
-<tr>
-<td>REST API</td>
-<td><code>voicetest serve</code></td>
-<td>Integrate with any toolchain at <code>localhost:8000/api</code></td>
-</tr>
-</tbody>
-</table>
 
 
 
@@ -1052,10 +1097,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
