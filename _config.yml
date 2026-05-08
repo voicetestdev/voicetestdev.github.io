@@ -4,7 +4,7 @@ url: https://voicetest.dev
 baseurl: ""
 
 permalink: /blog/:slug/
-future: true
+future: false
 
 plugins:
   - jekyll-seo-tag
