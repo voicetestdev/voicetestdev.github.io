@@ -6,21 +6,23 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="AgentGraphs, node types, transitions, dynamic variables, test cases, runs, and results — the core voicetest concepts.">
+      
       
       
         <link rel="canonical" href="https://voicetest.dev/docs/concepts/">
       
       
-        <link rel="prev" href="../recipes/ci-github-actions/">
+        <link rel="prev" href="../getting-started/">
       
       
-        <link rel="next" href="../cli/">
+        <link rel="next" href="../recipes/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -42,12 +44,6 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -94,10 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -230,10 +225,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     voicetest docs
@@ -287,6 +281,93 @@
   
   
     <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
         
   
@@ -306,208 +387,10 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../recipes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
                 
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Regression-test prompt changes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../recipes/import-call-history/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Import call history
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Diagnose a failing test
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../recipes/ci-github-actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Run in GitHub Actions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
   
   
     
@@ -638,6 +521,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#runs-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runs and results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snippets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-it-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See it in action
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -645,6 +561,14 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
@@ -652,15 +576,92 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../recipes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
+    Diagnose a failing test
   
 
     
@@ -672,22 +673,23 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
+      <a href="../recipes/import-call-history/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Features
+    Import call history
   
 
     
@@ -699,22 +701,23 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Configuration
+    Regression-test prompt changes
   
 
     
@@ -726,22 +729,23 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../transcripts/" class="md-nav__link">
+      <a href="../recipes/ci-github-actions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Importing transcripts
+    Run in GitHub Actions
   
 
     
@@ -753,9 +757,87 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Details
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Details
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
@@ -780,9 +862,94 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
-      
-      
+  
+    Claude Code Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -804,6 +971,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -900,6 +1131,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#runs-and-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runs and results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snippets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snippets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-it-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See it in action
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -923,13 +1187,14 @@
 <h1 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h1>
 <h2 id="agent-graphs">Agent graphs<a class="headerlink" href="#agent-graphs" title="Permanent link">&para;</a></h2>
 <p>An agent is represented as an <strong>AgentGraph</strong>: a directed graph of nodes connected by transitions. Each node has a prompt, a type, and outgoing edges that control conversation flow. The graph has a single <code>entry_node_id</code> where every conversation starts.</p>
+<p>Voicetest's AgentGraph is the unified internal representation that every importer converts to and every exporter renders from. See <a href="../features/#format-conversion">Features: Format conversion</a> for the round-trip pipeline.</p>
 <h2 id="node-types">Node types<a class="headerlink" href="#node-types" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Type</th>
-<th>LLM Call</th>
-<th>Speech</th>
+<th>LLM call</th>
+<th>Speaks?</th>
 <th>Routing</th>
 </tr>
 </thead>
@@ -952,27 +1217,42 @@
 <td>No</td>
 <td>LLM extracts variables from the conversation, then equations route</td>
 </tr>
+<tr>
+<td><strong>End</strong></td>
+<td>Optional</td>
+<td>If prompted</td>
+<td>Terminates the call. With a <code>state_prompt</code>, agent speaks one final turn before ending</td>
+</tr>
+<tr>
+<td><strong>Transfer</strong></td>
+<td>Optional</td>
+<td>If prompted</td>
+<td>Same as End structurally, but the call status reflects a transfer rather than a hangup</td>
+</tr>
 </tbody>
 </table>
 <p>Any node type can also be a <strong>global node</strong> — reachable from any conversation node without explicit edges. See <a href="#global-nodes">Global Nodes</a> below.</p>
 <p><strong>Conversation nodes</strong> are the standard building block — they generate a spoken response and use LLM judgment (or an <code>always</code> edge) to choose the next node.</p>
 <p><strong>Logic nodes</strong> (also called branch nodes) have no prompt and produce no speech. All their transitions use <code>equation</code> or <code>always</code> conditions, evaluated deterministically without an LLM call.</p>
 <p><strong>Extract nodes</strong> combine LLM extraction with deterministic routing. They define <code>variables_to_extract</code> (each with a name, description, type, and optional choices). The engine calls the LLM once to extract all variables from the conversation history, stores them as dynamic variables, then evaluates equation transitions using the extracted values.</p>
+<p><strong>End nodes</strong> terminate the call cleanly. If <code>state_prompt</code> is empty, the call ends immediately; if non-empty, the agent generates one final response (e.g. "Thanks for calling, goodbye.") before the engine sets <code>end_call_invoked</code>.</p>
+<p><strong>Transfer nodes</strong> are structurally identical to End but mark the disconnect as a transfer rather than a hangup — useful for handoffs to a human agent or another phone number.</p>
+<p>For a visual walkthrough with all five node types in one diagram, see <a href="https://voicetest.dev/blog/node-types-global-interrupts-voicetest-graph-ir/">Five Node Types and Global Interrupts</a>.</p>
 <h2 id="global-nodes">Global nodes<a class="headerlink" href="#global-nodes" title="Permanent link">&para;</a></h2>
-<p>Global nodes are reachable from <strong>any conversation node</strong> in the flow without requiring explicit edges from every source. They are a Retell Conversation Flow concept supported in the IR.</p>
+<p>Global nodes are reachable from <strong>any conversation node</strong> in the flow without requiring explicit edges from every source. Useful for "transfer to manager," "I want to start over," and similar interrupts that should fire from anywhere.</p>
 <p>Each global node has a <code>global_node_setting</code> containing:</p>
 <ul>
 <li><strong><code>condition</code></strong> — An LLM prompt that triggers entry (e.g., "Caller wants to cancel")</li>
 <li><strong><code>go_back_conditions</code></strong> — LLM-prompted conditions that return to the originating node</li>
 </ul>
-<p>The engine appends global node conditions to every conversation node's transition options. The LLM sees both local transitions and global entry conditions, and picks the best match. When a global node is entered, the engine tracks the originating node. Go-back conditions target the originator, effectively resuming the previous conversation with transcript context intact.</p>
-<p><strong>Stacking</strong>: Global nodes can trigger other global nodes. The engine maintains an originator stack — each go-back pops one level.</p>
-<p><strong>Zero global nodes</strong>: When a flow has no global nodes, behavior is identical to before. The <code>format_transitions</code> signature is backward-compatible.</p>
+<p>The engine appends global node conditions to every conversation node's transition options. The LLM sees both local transitions and global entry conditions, and picks the best match. When a global node is entered, the engine pushes the originating node onto a stack. Go-back conditions target the originator; on go-back the stack is popped and the conversation resumes at the originating node with full transcript context.</p>
+<p><strong>Stacking:</strong> Global nodes can trigger other global nodes. Each go-back pops one level.</p>
+<p><strong>Zero global nodes:</strong> When a flow has no global nodes, behavior is identical to before. The <code>format_transitions</code> signature is backward-compatible.</p>
 <h2 id="dynamic-variables">Dynamic variables<a class="headerlink" href="#dynamic-variables" title="Permanent link">&para;</a></h2>
 <p>Prompts can reference dynamic variables using <code>{{variable_name}}</code> syntax. Variables come from two sources:</p>
 <ul>
-<li><strong>Test case <code>dynamic_variables</code></strong>: Set before the conversation starts (e.g., <code>{{caller_name}}</code>, <code>{{account_id}}</code>)</li>
-<li><strong>Extract node output</strong>: Populated during the conversation when an extract node fires</li>
+<li><strong>Test case <code>dynamic_variables</code></strong> — set before the conversation starts (e.g., <code>{{caller_name}}</code>, <code>{{account_id}}</code>)</li>
+<li><strong>Extract node output</strong> — populated during the conversation when an extract node fires</li>
 </ul>
 <p>Expansion order: snippet references <code>{%name%}</code> are resolved first, then <code>{{variable}}</code> placeholders are substituted into the result. Unknown variables are left as-is.</p>
 <h2 id="equations">Equations<a class="headerlink" href="#equations" title="Permanent link">&para;</a></h2>
@@ -1025,22 +1305,128 @@
 </table>
 <p>Multiple clauses combine with <code>logical_operator</code>: <code>"and"</code> (default, all must match) or <code>"or"</code> (any must match).</p>
 <h2 id="test-cases">Test cases<a class="headerlink" href="#test-cases" title="Permanent link">&para;</a></h2>
-<p>Test cases define simulated conversations to run against an agent:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">[</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Customer billing inquiry&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;user_prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;## Identity\nYour name is Jane.\n\n## Goal\nGet help with a charge on your bill.&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Agent greeted the customer and addressed the billing concern&quot;</span><span class="p">],</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&quot;dynamic_variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;caller_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345&quot;</span><span class="p">},</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;tool_mocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;simulation&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">]</span>
+<p>Test cases define simulated conversations to run against an agent. Two types are supported.</p>
+<p><strong>LLM tests</strong> (<code>type: "llm"</code>) use a judge LLM to evaluate semantic metrics against the transcript:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Customer billing inquiry&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;user_prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;## Identity\nYour name is Jane.\n\n## Goal\nGet help with a charge on your bill.&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Agent greeted the customer and addressed the billing concern&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">&quot;dynamic_variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;caller_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;account_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345&quot;</span><span class="p">},</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llm&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
+<p><strong>Rule tests</strong> (<code>type: "rule"</code>) use deterministic pattern matching — no LLM involved in judging:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No PII leakage&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;user_prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You mention your full SSN 123-45-6789 mid-conversation.&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;excludes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;123-45-6789&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;123456789&quot;</span><span class="p">],</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;patterns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;REF-[A-Z0-9]+&quot;</span><span class="p">],</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rule&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Applies to</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>both</td>
+<td>Display name, also used to select tests via <code>--test</code></td>
+</tr>
+<tr>
+<td><code>user_prompt</code></td>
+<td>both</td>
+<td>Persona and goal description for the simulated user</td>
+</tr>
+<tr>
+<td><code>dynamic_variables</code></td>
+<td>both</td>
+<td>Key-value pairs injected into <code>{{var}}</code> placeholders before the conversation</td>
+</tr>
+<tr>
+<td><code>tool_mocks</code></td>
+<td>both</td>
+<td>Stub tool responses for tools the agent calls during the conversation</td>
+</tr>
+<tr>
+<td><code>llm_model</code></td>
+<td>both</td>
+<td>Per-test agent model override (only honored when <code>test_model_precedence</code> is on)</td>
+</tr>
+<tr>
+<td><code>metrics</code></td>
+<td>LLM</td>
+<td>List of natural-language criteria the judge scores (0–1) against the transcript</td>
+</tr>
+<tr>
+<td><code>includes</code></td>
+<td>rule</td>
+<td>Substrings that <strong>must</strong> appear in the transcript</td>
+</tr>
+<tr>
+<td><code>excludes</code></td>
+<td>rule</td>
+<td>Substrings that <strong>must not</strong> appear in the transcript</td>
+</tr>
+<tr>
+<td><code>patterns</code></td>
+<td>rule</td>
+<td>Regex patterns that must match somewhere in the transcript</td>
+</tr>
+</tbody>
+</table>
+<p>Legacy values <code>"simulation"</code> and <code>"unit"</code> are accepted and mapped to <code>"llm"</code> and <code>"rule"</code> respectively, but new test cases should use the canonical names.</p>
+<h2 id="runs-and-results">Runs and results<a class="headerlink" href="#runs-and-results" title="Permanent link">&para;</a></h2>
+<p>A <strong>Run</strong> is a recorded execution of one or more test cases against an agent at a specific point in time. Each Run contains a list of <strong>Result</strong> records, one per test case (or one per conversation, when imported from a transcript dump).</p>
+<table>
+<thead>
+<tr>
+<th>Run kind</th>
+<th>How it's created</th>
+<th>Result <code>status</code> values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulated</td>
+<td><code>voicetest run --all</code> or "Run" in the Web UI</td>
+<td><code>pass</code>, <code>fail</code>, <code>error</code></td>
+</tr>
+<tr>
+<td>Imported</td>
+<td><code>voicetest import-call --transcript ...</code></td>
+<td><code>imported</code></td>
+</tr>
+<tr>
+<td>Replay</td>
+<td><code>voicetest replay &lt;run-id&gt;</code></td>
+<td><code>pass</code> (passive capture)</td>
+</tr>
+</tbody>
+</table>
+<p>Each Result captures:</p>
 <ul>
-<li><strong><code>type: "simulation"</code></strong> — The engine simulates both agent and user, running a full multi-turn conversation</li>
-<li><strong><code>metrics</code></strong> — LLM judges evaluate each metric against the transcript and produce a 0-1 score</li>
-<li><strong><code>dynamic_variables</code></strong> — Key-value pairs injected into <code>{{var}}</code> placeholders before the conversation starts</li>
+<li><strong><code>transcript</code></strong> — list of user/assistant/tool messages</li>
+<li><strong><code>metric_results</code></strong> — score and reasoning per LLM metric</li>
+<li><strong><code>audio_metric_results</code></strong> — same shape, evaluated against the TTS/STT round-tripped transcript</li>
+<li><strong><code>nodes_visited</code></strong> and <strong><code>tools_called</code></strong> — the path through the graph and any tool invocations</li>
+<li><strong><code>turn_count</code></strong>, <strong><code>duration_ms</code></strong>, <strong><code>end_reason</code></strong> — call metadata</li>
+<li><strong><code>error_message</code></strong> — populated when <code>status="error"</code></li>
+</ul>
+<p>Runs persist to DuckDB at <code>.voicetest/data.duckdb</code> (configurable via <code>VOICETEST_DB_PATH</code>). Both simulated and imported runs render side by side in the runs UI, can be exported as JSON, and can be replayed against the agent's current graph.</p>
+<h2 id="snippets">Snippets<a class="headerlink" href="#snippets" title="Permanent link">&para;</a></h2>
+<p>Named, reusable text blocks defined at the agent level and referenced in prompts via <code>{%snippet_name%}</code>. Useful for compliance disclaimers, sign-off phrases, or any text repeated across multiple node prompts.</p>
+<p>See <a href="../features/#prompt-snippets">Features: Prompt snippets</a> for the snippet system and the DRY-analysis tooling that finds candidates for extraction.</p>
+<h2 id="see-it-in-action">See it in action<a class="headerlink" href="#see-it-in-action" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><a href="../recipes/regression-test-prompt-changes/">Recipe: Regression-test prompt changes</a></strong> — uses the run/result model to compare two snapshots of an agent.</li>
+<li><strong><a href="../recipes/import-call-history/">Recipe: Import call history</a></strong> — turns production calls into Runs you can replay.</li>
+<li><strong><a href="../recipes/diagnose-failing-test/">Recipe: Diagnose a failing test</a></strong> — walks the graph to find which node owns a failing metric.</li>
 </ul>
 
 
@@ -1048,6 +1434,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1097,7 +1486,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

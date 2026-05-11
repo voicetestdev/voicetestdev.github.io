@@ -6,21 +6,23 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="How voicetest is structured — the AgentGraph IR, the conversation engine, and how tests, runs, and storage fit together.">
+      
       
       
         <link rel="canonical" href="https://voicetest.dev/docs/architecture/">
       
       
-        <link rel="prev" href="../transcripts/">
+        <link rel="prev" href="../recipes/ci-github-actions/">
       
       
-        <link rel="next" href="../development/">
+        <link rel="next" href="../claude-code/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -42,12 +44,6 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -94,10 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -230,10 +225,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     voicetest docs
@@ -287,6 +281,93 @@
   
   
     <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
         
   
@@ -306,58 +387,7 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+              
             
               
                 
@@ -366,14 +396,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/" class="md-nav__link">
+      <a href="../concepts/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Recipes
+    Core Concepts
   
 
     
@@ -387,6 +417,90 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../recipes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
               
                 
   
@@ -394,14 +508,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
+      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Regression-test prompt changes
+    Diagnose a failing test
   
 
     
@@ -450,14 +564,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
+      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Diagnose a failing test
+    Regression-test prompt changes
   
 
     
@@ -510,17 +624,51 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../concepts/" class="md-nav__link">
+  
+    
+    
+      
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Core Concepts
+    Details
   
 
     
@@ -528,121 +676,22 @@
   
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
   
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
+    Details
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../transcripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Importing transcripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
     
@@ -708,32 +757,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-agentgraph-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The AgentGraph IR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conversation-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
         Conversation engine
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#di-container-punq" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DI container (Punq)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dspy-signatures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DSPy signatures
       
     </span>
   </a>
@@ -752,10 +801,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#terminal-tool-conversion-retell" class="md-nav__link">
+  <a href="#layered-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminal tool conversion (Retell)
+        Layered structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-look-in-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to look in the source
       
     </span>
   </a>
@@ -769,9 +829,94 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
-      
-      
+  
+    Claude Code Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -793,6 +938,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -824,32 +1033,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-agentgraph-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The AgentGraph IR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conversation-engine" class="md-nav__link">
     <span class="md-ellipsis">
       
         Conversation engine
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#di-container-punq" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DI container (Punq)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dspy-signatures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DSPy signatures
       
     </span>
   </a>
@@ -868,10 +1077,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#terminal-tool-conversion-retell" class="md-nav__link">
+  <a href="#layered-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Terminal tool conversion (Retell)
+        Layered structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-look-in-the-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to look in the source
       
     </span>
   </a>
@@ -899,68 +1119,130 @@
 
 
 <h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
+<h2 id="system-overview">System overview<a class="headerlink" href="#system-overview" title="Permanent link">&para;</a></h2>
+<p>Voicetest is built around one central data structure — the <strong>AgentGraph IR</strong> — and a thin layering above and below it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>              ┌─────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Surfaces    │  CLI    Web UI / REST    Shell    Plugin│
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>              └────────────────────┬────────────────────┘
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                                   │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>              ┌────────────────────▼────────────────────┐
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  Services    │  agents · runs · diagnosis · snippets   │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>              └────────────────────┬────────────────────┘
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                   │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                       ┌───────────┼───────────┐
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                       ▼           ▼           ▼
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  Core             Importers     Engine     Exporters
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                       │       + Judges        ▲
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                       │           │           │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                       └──▶ AgentGraph IR ◀────┘
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                                   │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                                   ▼
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                              TestResult
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                                   │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                                   ▼
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  Storage           DuckDB  (.voicetest/data.duckdb)
+</code></pre></div>
+<p>The surfaces are thin wrappers — CLI commands, REST handlers, the interactive shell, and the Claude Code plugin all delegate to the <strong>service layer</strong>. Services orchestrate the <strong>core</strong> components: importers parse platform configs into the IR, exporters render the IR out to other formats, the engine drives an IR through a conversation, and judges evaluate the resulting transcripts. Everything persists to DuckDB through a shared repository layer.</p>
+<h2 id="the-agentgraph-ir">The AgentGraph IR<a class="headerlink" href="#the-agentgraph-ir" title="Permanent link">&para;</a></h2>
+<p>Every importer converts platform-specific configs into the AgentGraph; every exporter renders one back out. This is the central architectural choice: it keeps the conversation engine, judges, and tooling agnostic to where an agent originally came from. For the import/export matrix, see <a href="../features/#format-conversion">Features: Format conversion</a>.</p>
+<p>The IR captures:</p>
+<ul>
+<li><strong>Nodes</strong> — five types (Conversation, Logic, Extract, End, Transfer), any of which can be marked global. See <a href="../concepts/#node-types">Concepts: Node types</a>.</li>
+<li><strong>Transitions</strong> — typed edges (<code>llm_prompt</code>, <code>equation</code>, <code>tool_call</code>, <code>always</code>) between nodes.</li>
+<li><strong>Variables</strong> — extract-node outputs and per-call dynamic variables.</li>
+<li><strong>Snippets</strong> — named reusable prompt fragments referenced via <code>{%name%}</code>.</li>
+<li><strong>Tools</strong> — function definitions available to the agent at each node.</li>
+</ul>
+<p>Round-trip fidelity is preserved when the source and target platforms share a feature; lossy steps are annotated by the exporter. The voicetest native format (<code>.vt.json</code>) is lossless and is the recommended format for version control.</p>
 <h2 id="conversation-engine">Conversation engine<a class="headerlink" href="#conversation-engine" title="Permanent link">&para;</a></h2>
 <p>The <code>ConversationEngine.advance()</code> method traverses the agent graph from the current node until it produces speech or settles:</p>
 <ol>
-<li>Call <code>_process_node()</code> on the current node</li>
-<li>If the node produced a response (conversation node), return it</li>
-<li>If the node is silent (logic or extract node) and transitioned, follow the edge and repeat</li>
-<li>Maximum 20 hops per <code>advance()</code> call to prevent infinite loops</li>
+<li>Call <code>_process_node()</code> on the current node.</li>
+<li>If the node produced a response (conversation node), return it.</li>
+<li>If the node is silent (logic or extract), follow the resulting transition and repeat.</li>
+<li>Maximum 20 hops per <code>advance()</code> call to prevent infinite loops.</li>
 </ol>
-<p>Silent nodes auto-fire: logic nodes evaluate equations deterministically, extract nodes call the LLM once for variable extraction then evaluate equations. Tool messages record transitions and extractions in the transcript.</p>
+<p>Silent nodes auto-fire: logic nodes evaluate equations deterministically; extract nodes call the LLM once for variable extraction, then evaluate equations against the extracted values. Tool messages record transitions and extractions in the transcript without surfacing as user-visible turns.</p>
 <p><strong>Transition evaluation</strong> uses a structured two-phase output within a single LLM call. The signature includes an <code>objectives_complete</code> (bool) gate that the LLM must fill before selecting a transition target. If the node's objectives aren't met — for example, the agent asked a question the user hasn't addressed — the transition is blocked regardless of whether a condition matches. The evaluator also receives the agent's <code>last_agent_message</code> as a dedicated input to ground its completion assessment.</p>
-<p><strong>Metric evaluation</strong> filters internal tool messages (transitions, variable extractions) from the transcript before sending it to the judge LLM. The judge only sees the user/assistant conversation, reducing noise that could cause false negatives.</p>
-<h2 id="di-container-punq">DI container (Punq)<a class="headerlink" href="#di-container-punq" title="Permanent link">&para;</a></h2>
-<p>The project uses Punq for dependency injection. Key singletons:</p>
-<ul>
-<li><code>Engine</code>, <code>sessionmaker</code>, <code>Session</code> — SQLAlchemy database layer (DuckDB-backed)</li>
-<li><code>ImporterRegistry</code>, <code>ExporterRegistry</code>, <code>PlatformRegistry</code> — Registries</li>
-</ul>
-<p>Repositories are transient but share the singleton session:</p>
-<ul>
-<li><code>AgentRepository</code>, <code>TestCaseRepository</code>, <code>RunRepository</code>, <code>CallRepository</code></li>
-</ul>
-<p>Get instances via <code>voicetest.container</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">voicetest.container</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_session</span><span class="p">,</span> <span class="n">get_importer_registry</span>
-</code></pre></div>
-<p><strong>When to use DI:</strong></p>
-<ul>
-<li>Use <code>get_*</code> helpers for app code (REST handlers, CLI commands)</li>
-<li>Use <code>container.resolve(Type)</code> when you need the container directly</li>
-<li>For tests, use <code>reset_container()</code> to get fresh state</li>
-<li>Don't instantiate repositories directly; let Punq inject the session</li>
-</ul>
-<h2 id="dspy-signatures">DSPy signatures<a class="headerlink" href="#dspy-signatures" title="Permanent link">&para;</a></h2>
-<p>When defining DSPy signatures, type the fields accurately:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MySignature</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Signature</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Docstring becomes the prompt context.&quot;&quot;&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">input_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What this input contains&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric input&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What the LLM should produce&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric score from 0.0 to 1.0&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;List of extracted items&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">valid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;True/False judgment&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>The type annotations (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>list[str]</code>) guide the LLM's output format. The <code>desc</code> should clarify semantics, not just repeat the type.</p>
+<p><strong>Metric evaluation</strong> filters internal tool messages (transitions, variable extractions) from the transcript before sending it to the judge LLM. The judge sees only user/assistant turns, reducing noise that could cause false negatives.</p>
+<p><strong>Global node handling</strong> maintains an originator stack. Entering a global node pushes the current node; a go-back transition pops it and resumes at the originator. Forward exits from a global also pop, since the previous "where was I?" is now stale.</p>
 <h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
-<p>Data persists to <code>.voicetest/data.duckdb</code> (or <code>VOICETEST_DB_PATH</code> env var).</p>
-<p>Tests are scoped to agents via <code>agent_id</code> foreign key in <code>test_cases</code> table.</p>
-<h2 id="terminal-tool-conversion-retell">Terminal tool conversion (Retell)<a class="headerlink" href="#terminal-tool-conversion-retell" title="Permanent link">&para;</a></h2>
-<p>When importing Retell LLM format agents, terminal tools (<code>end_call</code>, <code>transfer_call</code>) are converted to proper CF node types during export rather than remaining as tools in the tools array:</p>
-<ul>
-<li><code>end_call</code> tools become <code>type=end</code> nodes in the Conversation Flow</li>
-<li><code>transfer_call</code> tools become <code>type=transfer_call</code> nodes with <code>transfer_destination</code> and <code>transfer_option</code></li>
-<li>Tool metadata carries <code>transfer_destination</code> and <code>transfer_option</code> through the import/export pipeline</li>
-<li>The agent envelope (voice_id, language, etc.) is preserved from LLM format through CF export for Retell UI re-import</li>
-</ul>
+<p>Runs, results, agents, and test cases persist to <strong>DuckDB</strong> at <code>.voicetest/data.duckdb</code> (overridable via <code>VOICETEST_DB_PATH</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Where it lives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agents</td>
+<td><code>agents</code> table — name, source type, graph JSON, model overrides, metric config</td>
+</tr>
+<tr>
+<td>Test cases</td>
+<td><code>test_cases</code> table — scoped to an agent via <code>agent_id</code> foreign key</td>
+</tr>
+<tr>
+<td>Runs</td>
+<td><code>runs</code> table — one row per <code>voicetest run</code> invocation, with metadata and aggregated counts</td>
+</tr>
+<tr>
+<td>Results</td>
+<td><code>results</code> table — one row per test case execution, with transcript, scores, and call metadata</td>
+</tr>
+</tbody>
+</table>
+<p>Imported and replay runs share the same tables as simulated runs, with status differentiation (<code>status="imported"</code> vs <code>status="pass"|"fail"|"error"</code>).</p>
+<p>The Web UI, REST API, and CLI all read and write through the same repository layer; no surface holds private state.</p>
+<h2 id="layered-structure">Layered structure<a class="headerlink" href="#layered-structure" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Importers</strong></td>
+<td>Parse platform-specific JSON into AgentGraph</td>
+</tr>
+<tr>
+<td><strong>Exporters</strong></td>
+<td>Render AgentGraph back to platform-specific JSON, code, or diagrams</td>
+</tr>
+<tr>
+<td><strong>Engine</strong></td>
+<td>Drive an AgentGraph through a conversation, producing TestResults</td>
+</tr>
+<tr>
+<td><strong>Judges</strong></td>
+<td>Evaluate TestResult transcripts against metrics (LLM) or rules (deterministic)</td>
+</tr>
+<tr>
+<td><strong>Services</strong></td>
+<td>Orchestrate above for the CLI, REST, and Web UI surfaces</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>DuckDB-backed repositories</td>
+</tr>
+</tbody>
+</table>
+<p>Voicetest's three top-level surfaces (CLI, REST + Web UI, interactive shell) are thin wrappers over the service layer. Adding a new surface means writing a new entry point, not reimplementing logic.</p>
+<h2 id="where-to-look-in-the-source">Where to look in the source<a class="headerlink" href="#where-to-look-in-the-source" title="Permanent link">&para;</a></h2>
+<p>For a quick map of the source tree (importers, engine, services, etc.), see <a href="../development/#project-structure">Development: Project structure</a>. For dependency injection and DSPy conventions, see <a href="../development/#internals">Development: Internals</a>.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1010,7 +1292,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

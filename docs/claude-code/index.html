@@ -6,11 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Use Claude Code as your LLM backend (no API key needed) and install voicetest's Claude Code plugin for slash commands.">
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/PROPOSALS/">
+      
+        <link rel="canonical" href="https://voicetest.dev/docs/claude-code/">
       
       
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../cli/">
       
       
         
@@ -21,7 +27,7 @@
     
     
       
-        <title>voicetest Proposals - voicetest docs</title>
+        <title>Claude Code Integration - voicetest docs</title>
       
     
     
@@ -68,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-proposals" class="md-skip">
+        <a href="#claude-code-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              voicetest Proposals
+              Claude Code Integration
             
           </span>
         </div>
@@ -618,8 +624,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -646,13 +654,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -673,7 +679,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -716,10 +722,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../claude-code/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Integration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -735,6 +768,65 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#passthrough-as-an-llm-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passthrough as an LLM backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Passthrough as an LLM backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subprocess-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subprocess timeout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -914,44 +1006,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#real-call-transcript-ingestion" class="md-nav__link">
+  <a href="#passthrough-as-an-llm-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Real-call transcript ingestion
+        Passthrough as an LLM backend
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Real-call transcript ingestion">
+    <nav class="md-nav" aria-label="Passthrough as an LLM backend">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared-groundwork" class="md-nav__link">
+  <a href="#subprocess-timeout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared groundwork
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transcript-driven-test-case-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transcript-driven test case generation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coverage-gap-analysis-against-an-existing-suite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Coverage / gap analysis against an existing suite
+        Subprocess timeout
       
     </span>
   </a>
@@ -964,10 +1034,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sequencing" class="md-nav__link">
+  <a href="#plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sequencing
+        Plugin
       
     </span>
   </a>
@@ -994,79 +1064,80 @@
   
 
 
-<h1 id="voicetest-proposals">voicetest Proposals<a class="headerlink" href="#voicetest-proposals" title="Permanent link">&para;</a></h1>
-<p>Design notes for features under consideration. Not committed work; not on the public roadmap. Living document — expect entries to evolve, merge, or get deleted as we learn.</p>
-<hr />
-<h2 id="real-call-transcript-ingestion">Real-call transcript ingestion<a class="headerlink" href="#real-call-transcript-ingestion" title="Permanent link">&para;</a></h2>
-<p><strong>Context.</strong> Many prospective clients arrive with thousands of production call transcripts and zero test cases. Hand-writing a representative test suite is the bottleneck, and the bottleneck is what kills adoption — not the test runner itself. Three proposals below address different slices of this problem; they share a common ingestion + schema layer.</p>
-<h3 id="shared-groundwork">Shared groundwork<a class="headerlink" href="#shared-groundwork" title="Permanent link">&para;</a></h3>
-<p>Before either of these is buildable, voicetest needs:</p>
-<ul>
-<li><strong>A canonical transcript schema</strong> — message list with <code>role</code> ∈ <code>{user, assistant, tool}</code>, content, optional timestamps, optional metadata (call duration, agent version, end reason, latency). All platform-specific shapes (Retell <code>call.transcript</code>, VAPI artifact, LiveKit egress, plain text) normalize into this.</li>
-<li><strong>An ingest path</strong> — single command/endpoint that accepts a directory of transcripts (one JSON per call, or one JSONL with many calls) and stores normalized records in the existing run/results storage. Reuse the existing <code>RunRecord</code>/<code>RunResultRecord</code> tables where possible; add a <code>source_kind</code> column distinguishing <code>simulated</code> from <code>live</code>.</li>
-<li><strong>PII hooks</strong> — opt-in redaction pass during ingest (regex or LLM-based for names/phones/SSNs/emails/account numbers). Default off; clients with sensitive data flip it on. Out of scope for the first proposal pass but should be designed-for in the schema.</li>
-</ul>
-<p>Persisting live calls in the same store as test runs lets the runs UI render them with the existing <code>RunsView</code> component — adjacent value with no extra UI work.</p>
-<hr />
-<h3 id="transcript-driven-test-case-generation">Transcript-driven test case generation<a class="headerlink" href="#transcript-driven-test-case-generation" title="Permanent link">&para;</a></h3>
-<p><strong>Problem.</strong> A client has 10k production transcripts and 0 test cases. Hand-writing 50 hand-tuned cases takes a week and misses the long tail.</p>
-<p><strong>Idea.</strong> Cluster the transcript corpus into "caller types" by intent + persona signal, then synthesize one voicetest <code>TestCase</code> per cluster. The generated cases use the existing simulator + judge plumbing — they're not replay; they're synthesized personas grounded in real distributions.</p>
-<p><strong>Pipeline.</strong></p>
+<h1 id="claude-code-integration">Claude Code Integration<a class="headerlink" href="#claude-code-integration" title="Permanent link">&para;</a></h1>
+<p>Voicetest integrates with <a href="https://claude.ai/claude-code">Claude Code</a> in two complementary ways:</p>
 <ol>
-<li><strong>Normalize.</strong> Run all transcripts through the canonical schema.</li>
-<li><strong>Embed + cluster.</strong> Compute embeddings per transcript (or per opening 2–3 user turns, where intent is usually clearest). Cluster using HDBSCAN or k-means with silhouette-based k selection. Output: N clusters, each with a representative sample.</li>
-<li><strong>Per cluster, extract a persona.</strong> Prompt an LLM with the cluster's representative transcripts to fill the existing Identity / Goal / Personality template. Goal must be derivable from observed user behavior, not hallucinated.</li>
-<li><strong>Per cluster, extract metrics.</strong> From the cluster's transcripts, infer what "success" looks like for that caller type (e.g. "agent collected the account number and confirmed the refund"). Emit as <code>metrics</code> on the generated <code>TestCase</code>.</li>
-<li><strong>Write <code>tests/generated/*.toml</code></strong> — one file per cluster, with provenance metadata (cluster id, sample size, source transcript ids).</li>
-<li><strong>Open a PR-like review</strong> — the user reviews/edits/discards before any case is "live."</li>
+<li><strong>LLM backend passthrough</strong> — route voicetest's agent / simulator / judge model calls through the <code>claude</code> CLI, using your existing Claude Code authentication. No separate API key required.</li>
+<li><strong>Plugin</strong> — slash commands and auto-activating skills that let Claude Code itself drive voicetest workflows (run tests, export agents, convert formats).</li>
 </ol>
-<p><strong>Hard parts.</strong></p>
+<h2 id="passthrough-as-an-llm-backend">Passthrough as an LLM backend<a class="headerlink" href="#passthrough-as-an-llm-backend" title="Permanent link">&para;</a></h2>
+<p>If you already have Claude Code installed and authenticated, set any of the model roles to <code>claudecode/&lt;model&gt;</code> in <code>.voicetest/settings.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[models]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;claudecode/sonnet&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">simulator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;claudecode/haiku&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">judge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;claudecode/sonnet&quot;</span>
+</code></pre></div>
+<p>Available model strings:</p>
 <ul>
-<li><strong>De-duplication vs coverage.</strong> 10k transcripts may collapse into 30 clusters or 300 — picking the right granularity per client is fiddly. Probably needs an interactive knob ("merge clusters with similarity &gt; X").</li>
-<li><strong>Goal extraction is the bottleneck.</strong> "What did this caller want?" is often only clear after the agent figured it out. Conditioning the LLM on the full transcript helps, but risks generating goals biased toward what the agent (correctly or incorrectly) inferred.</li>
-<li><strong>Eval metrics are only as good as the corpus.</strong> If production calls themselves are buggy, generated metrics inherit those bugs.</li>
+<li><code>claudecode/sonnet</code> — Claude Sonnet</li>
+<li><code>claudecode/opus</code> — Claude Opus</li>
+<li><code>claudecode/haiku</code> — Claude Haiku</li>
 </ul>
-<p><strong>Why it's high-leverage.</strong> Replaces "write 50 cases over a week" with "review 30 generated cases over an hour." This is the moment a 10k-transcript client decides whether voicetest is worth the lift.</p>
-<p><strong>Dependencies.</strong> Builds on the shared ingestion + schema layer. Subsumes most of the coverage proposal below — clustering naturally surfaces "patterns the existing test suite doesn't cover."</p>
-<hr />
-<h3 id="coverage-gap-analysis-against-an-existing-suite">Coverage / gap analysis against an existing suite<a class="headerlink" href="#coverage-gap-analysis-against-an-existing-suite" title="Permanent link">&para;</a></h3>
-<p><strong>Problem.</strong> A client has both production transcripts AND an existing voicetest suite. They want to know: "what real-world patterns am I not testing?" without auto-generating tests they didn't ask for.</p>
-<p><strong>Idea.</strong> Same ingest + clustering as the test-generation proposal above, but instead of generating test cases, emit a coverage report.</p>
-<p><strong>Pipeline.</strong></p>
-<ol>
-<li><strong>Normalize + cluster</strong> (shared with the test-generation flow above).</li>
-<li><strong>Embed existing test cases</strong> (use their <code>user_prompt</code> + a synthetic transcript expansion).</li>
-<li><strong>Match clusters to test cases.</strong> For each transcript cluster, find the nearest test case in embedding space. If max similarity &lt; threshold, the cluster is "uncovered."</li>
-<li><strong>Render a coverage report.</strong> Per-cluster:<ul>
-<li>Sample size (how often this pattern shows up in production)</li>
-<li>Nearest existing test case + similarity score</li>
-<li>2–3 representative transcript snippets</li>
-<li>"Generate test case from this cluster?" CTA (links into the test-generation flow above)</li>
-</ul>
-</li>
-</ol>
-<p><strong>Hard parts.</strong></p>
-<ul>
-<li><strong>Threshold choice.</strong> "Similar enough to count as covered" is squishy. Probably ship with a tunable knob and good defaults rather than try to learn it.</li>
-<li><strong>Weighting matters.</strong> A pattern that's 40% of production traffic but missing from the suite is far more important than a 0.1% edge case. Report should sort by traffic weight, not just by gap size.</li>
-</ul>
-<p><strong>Why it's worth its own line.</strong> Some clients explicitly don't want auto-generated test cases — they want to keep the suite hand-curated. For them, "show me what I'm missing" is the entire deliverable. Same plumbing as the test-generation flow, different output mode.</p>
-<p><strong>Dependencies.</strong> Reuses the shared ingestion + clustering. Independently shippable once that exists.</p>
-<hr />
-<h2 id="sequencing">Sequencing<a class="headerlink" href="#sequencing" title="Permanent link">&para;</a></h2>
-<p>Build order if/when this comes off the proposals shelf (replay regression mode is being implemented separately and is not part of this sequence):</p>
-<ol>
-<li>Shared ingest + canonical schema + storage.</li>
-<li>Clustering primitive (used by both proposals below).</li>
-<li>Coverage report — ships first because the output is just a report, no synthesis.</li>
-<li>Test case synthesis — last, because "review N generated cases" UX needs more polish.</li>
-</ol>
+<p>Each call invokes the <code>claude</code> CLI as a subprocess, using your existing Claude Code authentication.</p>
+<h3 id="subprocess-timeout">Subprocess timeout<a class="headerlink" href="#subprocess-timeout" title="Permanent link">&para;</a></h3>
+<p>Each call has a 600-second timeout on the <code>claude</code> CLI subprocess. If a request exceeds it, voicetest translates the failure into a retryable timeout error. Timeouts are capped at <strong>2 attempts</strong> (vs. the default 8 used for rate limits and connection errors) because each attempt costs the full timeout — bounding worst-case wallclock at roughly twice the timeout. If both attempts fail, the test surfaces as <code>status="error"</code> with a clear message rather than a raw <code>subprocess.TimeoutExpired</code> stacktrace.</p>
+<p>If you consistently hit the timeout on legitimate long generations, raise the <code>timeout</code> argument when constructing the LM (Python API), or split the workload into smaller prompts.</p>
+<h2 id="plugin">Plugin<a class="headerlink" href="#plugin" title="Permanent link">&para;</a></h2>
+<p>The Claude Code plugin gives Claude Code itself voicetest superpowers — slash commands and auto-activating skills that drive importers, exporters, runs, and format conversions.</p>
+<p><strong>For repo contributors</strong> (automatic):</p>
+<p>Skills and commands load automatically from <code>.claude/</code> (symlinked to <code>claude-plugin/</code>).</p>
+<p><strong>Install as a marketplace plugin:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/plugin marketplace add voicetestdev/voicetest
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/plugin install voicetest@voicetest-plugins
+</code></pre></div>
+<p><strong>For pip-installed users:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>your-project
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>voicetest<span class="w"> </span>init-claude
+</code></pre></div>
+<p><strong>Available slash commands:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/voicetest-run</code></td>
+<td>Run tests against an agent</td>
+</tr>
+<tr>
+<td><code>/voicetest-export</code></td>
+<td>Export an agent to a different format</td>
+</tr>
+<tr>
+<td><code>/voicetest-convert</code></td>
+<td>Convert between platform formats (e.g. Retell → VAPI)</td>
+</tr>
+<tr>
+<td><code>/voicetest-info</code></td>
+<td>List importers, exporters, platforms, and current settings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plugin path</strong> (for manual plugin loading):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>claude<span class="w"> </span>--plugin-dir<span class="w"> </span><span class="k">$(</span>voicetest<span class="w"> </span>claude-plugin-path<span class="k">)</span>
+</code></pre></div>
 
 
 
 
 
 
+
+  
+  
 
 
 

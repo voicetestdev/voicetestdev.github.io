@@ -6,11 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="What shipped in each voicetest release. User-facing changes, in reverse chronological order.">
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/PROPOSALS/">
+      
+        <link rel="canonical" href="https://voicetest.dev/docs/changelog/">
       
       
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../getting-started/">
       
       
         
@@ -21,7 +27,7 @@
     
     
       
-        <title>voicetest Proposals - voicetest docs</title>
+        <title>Changelog - voicetest docs</title>
       
     
     
@@ -68,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-proposals" class="md-skip">
+        <a href="#changelog" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              voicetest Proposals
+              Changelog
             
           </span>
         </div>
@@ -272,10 +278,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -291,6 +324,158 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v041-import-transcripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.41 — Import transcripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v040-timeout-retries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.40 — Timeout retries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v039" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.39
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v038-runs-ui-reorganization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.38 — Runs UI reorganization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v037" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.37
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v036" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.36
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v035-interface-cleanup-ooc-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.35 — Interface cleanup, OOC errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v034-global-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.34 — Global nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v033" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.33
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v032" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.32
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v031-extract-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.31 — Extract nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v030-cache-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.30 — Cache layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -914,60 +1099,131 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#real-call-transcript-ingestion" class="md-nav__link">
+  <a href="#v041-import-transcripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Real-call transcript ingestion
+        v0.41 — Import transcripts
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Real-call transcript ingestion">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#shared-groundwork" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shared groundwork
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transcript-driven-test-case-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Transcript-driven test case generation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#coverage-gap-analysis-against-an-existing-suite" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Coverage / gap analysis against an existing suite
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sequencing" class="md-nav__link">
+  <a href="#v040-timeout-retries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sequencing
+        v0.40 — Timeout retries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v039" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.39
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v038-runs-ui-reorganization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.38 — Runs UI reorganization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v037" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.37
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v036" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.36
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v035-interface-cleanup-ooc-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.35 — Interface cleanup, OOC errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v034-global-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.34 — Global nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v033" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.33
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v032" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.32
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v031-extract-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.31 — Extract nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v030-cache-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.30 — Cache layer
       
     </span>
   </a>
@@ -994,79 +1250,79 @@
   
 
 
-<h1 id="voicetest-proposals">voicetest Proposals<a class="headerlink" href="#voicetest-proposals" title="Permanent link">&para;</a></h1>
-<p>Design notes for features under consideration. Not committed work; not on the public roadmap. Living document — expect entries to evolve, merge, or get deleted as we learn.</p>
-<hr />
-<h2 id="real-call-transcript-ingestion">Real-call transcript ingestion<a class="headerlink" href="#real-call-transcript-ingestion" title="Permanent link">&para;</a></h2>
-<p><strong>Context.</strong> Many prospective clients arrive with thousands of production call transcripts and zero test cases. Hand-writing a representative test suite is the bottleneck, and the bottleneck is what kills adoption — not the test runner itself. Three proposals below address different slices of this problem; they share a common ingestion + schema layer.</p>
-<h3 id="shared-groundwork">Shared groundwork<a class="headerlink" href="#shared-groundwork" title="Permanent link">&para;</a></h3>
-<p>Before either of these is buildable, voicetest needs:</p>
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<p>User-facing changes by release. For the full commit log, see the <a href="https://github.com/voicetestdev/voicetest/releases">GitHub releases</a>.</p>
+<h2 id="v041-import-transcripts">v0.41 — Import transcripts<a class="headerlink" href="#v041-import-transcripts" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>A canonical transcript schema</strong> — message list with <code>role</code> ∈ <code>{user, assistant, tool}</code>, content, optional timestamps, optional metadata (call duration, agent version, end reason, latency). All platform-specific shapes (Retell <code>call.transcript</code>, VAPI artifact, LiveKit egress, plain text) normalize into this.</li>
-<li><strong>An ingest path</strong> — single command/endpoint that accepts a directory of transcripts (one JSON per call, or one JSONL with many calls) and stores normalized records in the existing run/results storage. Reuse the existing <code>RunRecord</code>/<code>RunResultRecord</code> tables where possible; add a <code>source_kind</code> column distinguishing <code>simulated</code> from <code>live</code>.</li>
-<li><strong>PII hooks</strong> — opt-in redaction pass during ingest (regex or LLM-based for names/phones/SSNs/emails/account numbers). Default off; clients with sensitive data flip it on. Out of scope for the first proposal pass but should be designed-for in the schema.</li>
+<li><strong>Transcript import &amp; replay.</strong> New <code>voicetest import-call</code> command ingests Retell call dumps as Runs; <code>voicetest replay &lt;run-id&gt;</code> drives the recorded user turns against the agent's current graph. See the <a href="../recipes/import-call-history/">Import call history recipe</a>.</li>
+<li>New <code>ScriptedUserSimulator</code> for replay drives conversations from a fixed user-turn script.</li>
+<li>REST endpoints: <code>POST /api/agents/{id}/import-call</code>, <code>POST /api/runs/{id}/replay</code>.</li>
 </ul>
-<p>Persisting live calls in the same store as test runs lets the runs UI render them with the existing <code>RunsView</code> component — adjacent value with no extra UI work.</p>
-<hr />
-<h3 id="transcript-driven-test-case-generation">Transcript-driven test case generation<a class="headerlink" href="#transcript-driven-test-case-generation" title="Permanent link">&para;</a></h3>
-<p><strong>Problem.</strong> A client has 10k production transcripts and 0 test cases. Hand-writing 50 hand-tuned cases takes a week and misses the long tail.</p>
-<p><strong>Idea.</strong> Cluster the transcript corpus into "caller types" by intent + persona signal, then synthesize one voicetest <code>TestCase</code> per cluster. The generated cases use the existing simulator + judge plumbing — they're not replay; they're synthesized personas grounded in real distributions.</p>
-<p><strong>Pipeline.</strong></p>
-<ol>
-<li><strong>Normalize.</strong> Run all transcripts through the canonical schema.</li>
-<li><strong>Embed + cluster.</strong> Compute embeddings per transcript (or per opening 2–3 user turns, where intent is usually clearest). Cluster using HDBSCAN or k-means with silhouette-based k selection. Output: N clusters, each with a representative sample.</li>
-<li><strong>Per cluster, extract a persona.</strong> Prompt an LLM with the cluster's representative transcripts to fill the existing Identity / Goal / Personality template. Goal must be derivable from observed user behavior, not hallucinated.</li>
-<li><strong>Per cluster, extract metrics.</strong> From the cluster's transcripts, infer what "success" looks like for that caller type (e.g. "agent collected the account number and confirmed the refund"). Emit as <code>metrics</code> on the generated <code>TestCase</code>.</li>
-<li><strong>Write <code>tests/generated/*.toml</code></strong> — one file per cluster, with provenance metadata (cluster id, sample size, source transcript ids).</li>
-<li><strong>Open a PR-like review</strong> — the user reviews/edits/discards before any case is "live."</li>
-</ol>
-<p><strong>Hard parts.</strong></p>
+<h2 id="v040-timeout-retries">v0.40 — Timeout retries<a class="headerlink" href="#v040-timeout-retries" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>De-duplication vs coverage.</strong> 10k transcripts may collapse into 30 clusters or 300 — picking the right granularity per client is fiddly. Probably needs an interactive knob ("merge clusters with similarity &gt; X").</li>
-<li><strong>Goal extraction is the bottleneck.</strong> "What did this caller want?" is often only clear after the agent figured it out. Conditioning the LLM on the full transcript helps, but risks generating goals biased toward what the agent (correctly or incorrectly) inferred.</li>
-<li><strong>Eval metrics are only as good as the corpus.</strong> If production calls themselves are buggy, generated metrics inherit those bugs.</li>
+<li><strong>Per-exception retry caps.</strong> Timeouts now retry at most 2 times (vs. the default 8), bounding worst-case wallclock. Other failure classes (rate limits, connection errors) keep the higher cap.</li>
+<li><code>subprocess.TimeoutExpired</code> from the Claude Code passthrough is now translated to <code>litellm.Timeout</code> so the standard retry path handles it.</li>
+<li>Default Claude Code subprocess timeout raised to 600s.</li>
 </ul>
-<p><strong>Why it's high-leverage.</strong> Replaces "write 50 cases over a week" with "review 30 generated cases over an hour." This is the moment a 10k-transcript client decides whether voicetest is worth the lift.</p>
-<p><strong>Dependencies.</strong> Builds on the shared ingestion + schema layer. Subsumes most of the coverage proposal below — clustering naturally surfaces "patterns the existing test suite doesn't cover."</p>
-<hr />
-<h3 id="coverage-gap-analysis-against-an-existing-suite">Coverage / gap analysis against an existing suite<a class="headerlink" href="#coverage-gap-analysis-against-an-existing-suite" title="Permanent link">&para;</a></h3>
-<p><strong>Problem.</strong> A client has both production transcripts AND an existing voicetest suite. They want to know: "what real-world patterns am I not testing?" without auto-generating tests they didn't ask for.</p>
-<p><strong>Idea.</strong> Same ingest + clustering as the test-generation proposal above, but instead of generating test cases, emit a coverage report.</p>
-<p><strong>Pipeline.</strong></p>
-<ol>
-<li><strong>Normalize + cluster</strong> (shared with the test-generation flow above).</li>
-<li><strong>Embed existing test cases</strong> (use their <code>user_prompt</code> + a synthetic transcript expansion).</li>
-<li><strong>Match clusters to test cases.</strong> For each transcript cluster, find the nearest test case in embedding space. If max similarity &lt; threshold, the cluster is "uncovered."</li>
-<li><strong>Render a coverage report.</strong> Per-cluster:<ul>
-<li>Sample size (how often this pattern shows up in production)</li>
-<li>Nearest existing test case + similarity score</li>
-<li>2–3 representative transcript snippets</li>
-<li>"Generate test case from this cluster?" CTA (links into the test-generation flow above)</li>
-</ul>
-</li>
-</ol>
-<p><strong>Hard parts.</strong></p>
+<h2 id="v039">v0.39<a class="headerlink" href="#v039" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Threshold choice.</strong> "Similar enough to count as covered" is squishy. Probably ship with a tunable knob and good defaults rather than try to learn it.</li>
-<li><strong>Weighting matters.</strong> A pattern that's 40% of production traffic but missing from the suite is far more important than a 0.1% edge case. Report should sort by traffic weight, not just by gap size.</li>
+<li>Bug fix for a graph traversal edge case (<code>None</code> error in node resolution).</li>
 </ul>
-<p><strong>Why it's worth its own line.</strong> Some clients explicitly don't want auto-generated test cases — they want to keep the suite hand-curated. For them, "show me what I'm missing" is the entire deliverable. Same plumbing as the test-generation flow, different output mode.</p>
-<p><strong>Dependencies.</strong> Reuses the shared ingestion + clustering. Independently shippable once that exists.</p>
-<hr />
-<h2 id="sequencing">Sequencing<a class="headerlink" href="#sequencing" title="Permanent link">&para;</a></h2>
-<p>Build order if/when this comes off the proposals shelf (replay regression mode is being implemented separately and is not part of this sequence):</p>
-<ol>
-<li>Shared ingest + canonical schema + storage.</li>
-<li>Clustering primitive (used by both proposals below).</li>
-<li>Coverage report — ships first because the output is just a report, no synthesis.</li>
-<li>Test case synthesis — last, because "review N generated cases" UX needs more polish.</li>
-</ol>
+<h2 id="v038-runs-ui-reorganization">v0.38 — Runs UI reorganization<a class="headerlink" href="#v038-runs-ui-reorganization" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Runs list and run detail are now distinct views in the Web UI.</li>
+<li>Cleaner navigation when comparing multiple runs.</li>
+</ul>
+<h2 id="v037">v0.37<a class="headerlink" href="#v037" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dynamic favicon based on test run status.</li>
+<li>DuckDB concurrency fix for parallel test execution.</li>
+<li><code>voicetest up</code> now uses <code>uvx</code> for ephemeral tool runs.</li>
+<li>Pre-release versions are no longer auto-installed.</li>
+</ul>
+<h2 id="v036">v0.36<a class="headerlink" href="#v036" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Web UI styling moved into shared modules; spinner added for long-running operations.</li>
+<li>Additional DuckDB concurrency hardening.</li>
+</ul>
+<h2 id="v035-interface-cleanup-ooc-errors">v0.35 — Interface cleanup, OOC errors<a class="headerlink" href="#v035-interface-cleanup-ooc-errors" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Out-of-context (quota exhausted) errors are caught and surfaced as <code>status="error"</code> results with clear messages instead of stacktraces.</li>
+<li>General Web UI interface cleanup.</li>
+</ul>
+<h2 id="v034-global-nodes">v0.34 — Global nodes<a class="headerlink" href="#v034-global-nodes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Global nodes.</strong> Nodes can be marked reachable from any conversation node via <code>global_node_setting</code>, with <code>go_back_conditions</code> for resumable interrupts. The engine maintains an originator stack to support stacked global flows.</li>
+<li>Round-trip fidelity for global nodes through the Retell CF importer/exporter.</li>
+<li>See <a href="../concepts/#global-nodes">Concepts: Global nodes</a> and the <a href="https://voicetest.dev/blog/node-types-global-interrupts-voicetest-graph-ir/">Five Node Types blog post</a>.</li>
+</ul>
+<h2 id="v033">v0.33<a class="headerlink" href="#v033" title="Permanent link">&para;</a></h2>
+<ul>
+<li>New graph-generation utilities (<code>gengraph</code>).</li>
+<li>Snippet detection improvements: file paths and RDBMS connection strings are now special-cased rather than flagged as duplicate text.</li>
+</ul>
+<h2 id="v032">v0.32<a class="headerlink" href="#v032" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Split-and-clean refactor: the IR layer is now cleanly separated from importers and exporters.</li>
+</ul>
+<h2 id="v031-extract-nodes">v0.31 — Extract nodes<a class="headerlink" href="#v031-extract-nodes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Extract nodes.</strong> New node type that runs an LLM extraction over the conversation, populates dynamic variables, then routes via equation transitions. See <a href="../concepts/#node-types">Concepts: Node types</a>.</li>
+</ul>
+<h2 id="v030-cache-layer">v0.30 — Cache layer<a class="headerlink" href="#v030-cache-layer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>DSPy LLM response cache with disk and S3 backends. See <a href="../features/#llm-response-cache">Features: LLM response cache</a>.</li>
+<li><code>--no-cache</code> CLI flag and <code>no_cache</code> run option for cache-bypass on demand.</li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 

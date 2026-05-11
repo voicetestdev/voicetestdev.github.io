@@ -6,10 +6,14 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Pick the right LLM for each voicetest role — agent, simulator, judge — and balance quality against cost.">
       
       
-        <link rel="canonical" href="https://voicetest.dev/docs/PROPOSALS/">
       
+        <link rel="canonical" href="https://voicetest.dev/docs/models/">
+      
+      
+        <link rel="prev" href="../features/">
       
       
       
@@ -21,7 +25,7 @@
     
     
       
-        <title>voicetest Proposals - voicetest docs</title>
+        <title>Models guide - voicetest docs</title>
       
     
     
@@ -68,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-proposals" class="md-skip">
+        <a href="#models-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              voicetest Proposals
+              Models guide
             
           </span>
         </div>
@@ -618,8 +622,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -646,13 +652,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -673,7 +677,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -856,10 +860,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../models/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -875,6 +906,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick recommendations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to choose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to choose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulator-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulator model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#judge-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Judge model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-specific-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider-specific notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -914,22 +1070,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#real-call-transcript-ingestion" class="md-nav__link">
+  <a href="#the-three-roles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Real-call transcript ingestion
+        The three roles
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Real-call transcript ingestion">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick recommendations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-choose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to choose
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to choose">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shared-groundwork" class="md-nav__link">
+  <a href="#agent-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Shared groundwork
+        Agent model
       
     </span>
   </a>
@@ -937,10 +1115,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#transcript-driven-test-case-generation" class="md-nav__link">
+  <a href="#simulator-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Transcript-driven test case generation
+        Simulator model
       
     </span>
   </a>
@@ -948,10 +1126,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#coverage-gap-analysis-against-an-existing-suite" class="md-nav__link">
+  <a href="#judge-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coverage / gap analysis against an existing suite
+        Judge model
       
     </span>
   </a>
@@ -964,10 +1142,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sequencing" class="md-nav__link">
+  <a href="#setting-models" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sequencing
+        Setting models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-specific-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider-specific notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching
       
     </span>
   </a>
@@ -994,79 +1194,145 @@
   
 
 
-<h1 id="voicetest-proposals">voicetest Proposals<a class="headerlink" href="#voicetest-proposals" title="Permanent link">&para;</a></h1>
-<p>Design notes for features under consideration. Not committed work; not on the public roadmap. Living document — expect entries to evolve, merge, or get deleted as we learn.</p>
-<hr />
-<h2 id="real-call-transcript-ingestion">Real-call transcript ingestion<a class="headerlink" href="#real-call-transcript-ingestion" title="Permanent link">&para;</a></h2>
-<p><strong>Context.</strong> Many prospective clients arrive with thousands of production call transcripts and zero test cases. Hand-writing a representative test suite is the bottleneck, and the bottleneck is what kills adoption — not the test runner itself. Three proposals below address different slices of this problem; they share a common ingestion + schema layer.</p>
-<h3 id="shared-groundwork">Shared groundwork<a class="headerlink" href="#shared-groundwork" title="Permanent link">&para;</a></h3>
-<p>Before either of these is buildable, voicetest needs:</p>
+<h1 id="models-guide">Models guide<a class="headerlink" href="#models-guide" title="Permanent link">&para;</a></h1>
+<p>Voicetest uses three distinct LLM roles. Choosing the right model for each is the single biggest lever for run cost, run speed, and result quality.</p>
+<h2 id="the-three-roles">The three roles<a class="headerlink" href="#the-three-roles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What it does</th>
+<th>What it needs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agent</strong></td>
+<td>Plays your voice agent — generates responses node by node, decides when to transition, calls tools when needed</td>
+<td>Strong instruction-following, structured output for transitions and tool calls, low latency for streaming</td>
+</tr>
+<tr>
+<td><strong>Simulator</strong></td>
+<td>Plays the user — generates the next user turn given the persona and goal in the test case</td>
+<td>Good at sustaining a believable persona, accepting hedging/filler, willing to be uncooperative when the test demands it</td>
+</tr>
+<tr>
+<td><strong>Judge</strong></td>
+<td>Evaluates the finished transcript against each metric, producing a 0–1 score with reasoning</td>
+<td>Strong reading comprehension, calibrated scoring, follows scoring rubrics consistently</td>
+</tr>
+</tbody>
+</table>
+<p>Each role can be configured independently in <code>settings.toml</code>, in <code>RunOptions</code>, or per test case (when <code>test_model_precedence</code> is enabled).</p>
+<h2 id="quick-recommendations">Quick recommendations<a class="headerlink" href="#quick-recommendations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>Agent</th>
+<th>Simulator</th>
+<th>Judge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Free / local development</strong></td>
+<td><code>groq/llama-3.1-8b-instant</code></td>
+<td><code>groq/llama-3.1-8b-instant</code></td>
+<td><code>groq/llama-3.1-8b-instant</code></td>
+</tr>
+<tr>
+<td><strong>Highest quality</strong> (production CI)</td>
+<td><code>openai/gpt-4o</code></td>
+<td><code>openai/gpt-4o-mini</code></td>
+<td><code>anthropic/claude-3-5-sonnet</code></td>
+</tr>
+<tr>
+<td><strong>Cost-optimized</strong></td>
+<td><code>openai/gpt-4o-mini</code></td>
+<td><code>gemini/gemini-1.5-flash</code></td>
+<td><code>anthropic/claude-3-5-haiku</code></td>
+</tr>
+<tr>
+<td><strong>Fully offline</strong> (Ollama)</td>
+<td><code>ollama_chat/qwen2.5:14b</code></td>
+<td><code>ollama_chat/qwen2.5:7b</code></td>
+<td><code>ollama_chat/qwen2.5:14b</code></td>
+</tr>
+<tr>
+<td><strong>Claude Code passthrough</strong></td>
+<td><code>claudecode/sonnet</code></td>
+<td><code>claudecode/haiku</code></td>
+<td><code>claudecode/sonnet</code></td>
+</tr>
+</tbody>
+</table>
+<p>These are starting points. Validate against your own test suite before locking them in — model quality on voice-agent transcripts varies more than on general benchmarks.</p>
+<h2 id="how-to-choose">How to choose<a class="headerlink" href="#how-to-choose" title="Permanent link">&para;</a></h2>
+<h3 id="agent-model">Agent model<a class="headerlink" href="#agent-model" title="Permanent link">&para;</a></h3>
+<p>The agent runs at every turn of every conversation, so latency and per-call cost compound fast. It also has the hardest job — your real production agent's behavior depends on this LLM. Match what your production deployment uses, when feasible:</p>
 <ul>
-<li><strong>A canonical transcript schema</strong> — message list with <code>role</code> ∈ <code>{user, assistant, tool}</code>, content, optional timestamps, optional metadata (call duration, agent version, end reason, latency). All platform-specific shapes (Retell <code>call.transcript</code>, VAPI artifact, LiveKit egress, plain text) normalize into this.</li>
-<li><strong>An ingest path</strong> — single command/endpoint that accepts a directory of transcripts (one JSON per call, or one JSONL with many calls) and stores normalized records in the existing run/results storage. Reuse the existing <code>RunRecord</code>/<code>RunResultRecord</code> tables where possible; add a <code>source_kind</code> column distinguishing <code>simulated</code> from <code>live</code>.</li>
-<li><strong>PII hooks</strong> — opt-in redaction pass during ingest (regex or LLM-based for names/phones/SSNs/emails/account numbers). Default off; clients with sensitive data flip it on. Out of scope for the first proposal pass but should be designed-for in the schema.</li>
+<li>If you ship Retell with <code>gpt-4o</code>, test with <code>openai/gpt-4o</code>. Same provider tier eliminates surprises.</li>
+<li>If you ship with a custom model, test with the same one.</li>
+<li>For development iteration, downgrade to <code>gpt-4o-mini</code> or a free Groq model — you'll catch the obvious regressions without the production cost.</li>
 </ul>
-<p>Persisting live calls in the same store as test runs lets the runs UI render them with the existing <code>RunsView</code> component — adjacent value with no extra UI work.</p>
-<hr />
-<h3 id="transcript-driven-test-case-generation">Transcript-driven test case generation<a class="headerlink" href="#transcript-driven-test-case-generation" title="Permanent link">&para;</a></h3>
-<p><strong>Problem.</strong> A client has 10k production transcripts and 0 test cases. Hand-writing 50 hand-tuned cases takes a week and misses the long tail.</p>
-<p><strong>Idea.</strong> Cluster the transcript corpus into "caller types" by intent + persona signal, then synthesize one voicetest <code>TestCase</code> per cluster. The generated cases use the existing simulator + judge plumbing — they're not replay; they're synthesized personas grounded in real distributions.</p>
-<p><strong>Pipeline.</strong></p>
-<ol>
-<li><strong>Normalize.</strong> Run all transcripts through the canonical schema.</li>
-<li><strong>Embed + cluster.</strong> Compute embeddings per transcript (or per opening 2–3 user turns, where intent is usually clearest). Cluster using HDBSCAN or k-means with silhouette-based k selection. Output: N clusters, each with a representative sample.</li>
-<li><strong>Per cluster, extract a persona.</strong> Prompt an LLM with the cluster's representative transcripts to fill the existing Identity / Goal / Personality template. Goal must be derivable from observed user behavior, not hallucinated.</li>
-<li><strong>Per cluster, extract metrics.</strong> From the cluster's transcripts, infer what "success" looks like for that caller type (e.g. "agent collected the account number and confirmed the refund"). Emit as <code>metrics</code> on the generated <code>TestCase</code>.</li>
-<li><strong>Write <code>tests/generated/*.toml</code></strong> — one file per cluster, with provenance metadata (cluster id, sample size, source transcript ids).</li>
-<li><strong>Open a PR-like review</strong> — the user reviews/edits/discards before any case is "live."</li>
-</ol>
-<p><strong>Hard parts.</strong></p>
+<p><strong>Avoid</strong>: tiny models (under 8B parameters) for agents with structured tool calls or many transitions. They'll fumble the JSON.</p>
+<h3 id="simulator-model">Simulator model<a class="headerlink" href="#simulator-model" title="Permanent link">&para;</a></h3>
+<p>The simulator's job is "play the user" — produce realistic next turns from a persona and goal. This is easier than the agent's job, so you can usually go a tier cheaper. But there are two caveats:</p>
 <ul>
-<li><strong>De-duplication vs coverage.</strong> 10k transcripts may collapse into 30 clusters or 300 — picking the right granularity per client is fiddly. Probably needs an interactive knob ("merge clusters with similarity &gt; X").</li>
-<li><strong>Goal extraction is the bottleneck.</strong> "What did this caller want?" is often only clear after the agent figured it out. Conditioning the LLM on the full transcript helps, but risks generating goals biased toward what the agent (correctly or incorrectly) inferred.</li>
-<li><strong>Eval metrics are only as good as the corpus.</strong> If production calls themselves are buggy, generated metrics inherit those bugs.</li>
+<li><strong>Don't go too cheap.</strong> A simulator that can't sustain a persona produces unrealistic conversations, and your tests pass for the wrong reasons. Test the simulator quality by reading 5–10 transcripts and asking "would a real caller talk like this?"</li>
+<li><strong>Don't use the same model as the agent.</strong> When agent and simulator are the same model, the LLM "knows itself" — the simulator anticipates the agent's next move in ways a real user wouldn't. Pick a different provider or family.</li>
 </ul>
-<p><strong>Why it's high-leverage.</strong> Replaces "write 50 cases over a week" with "review 30 generated cases over an hour." This is the moment a 10k-transcript client decides whether voicetest is worth the lift.</p>
-<p><strong>Dependencies.</strong> Builds on the shared ingestion + schema layer. Subsumes most of the coverage proposal below — clustering naturally surfaces "patterns the existing test suite doesn't cover."</p>
-<hr />
-<h3 id="coverage-gap-analysis-against-an-existing-suite">Coverage / gap analysis against an existing suite<a class="headerlink" href="#coverage-gap-analysis-against-an-existing-suite" title="Permanent link">&para;</a></h3>
-<p><strong>Problem.</strong> A client has both production transcripts AND an existing voicetest suite. They want to know: "what real-world patterns am I not testing?" without auto-generating tests they didn't ask for.</p>
-<p><strong>Idea.</strong> Same ingest + clustering as the test-generation proposal above, but instead of generating test cases, emit a coverage report.</p>
-<p><strong>Pipeline.</strong></p>
-<ol>
-<li><strong>Normalize + cluster</strong> (shared with the test-generation flow above).</li>
-<li><strong>Embed existing test cases</strong> (use their <code>user_prompt</code> + a synthetic transcript expansion).</li>
-<li><strong>Match clusters to test cases.</strong> For each transcript cluster, find the nearest test case in embedding space. If max similarity &lt; threshold, the cluster is "uncovered."</li>
-<li><strong>Render a coverage report.</strong> Per-cluster:<ul>
-<li>Sample size (how often this pattern shows up in production)</li>
-<li>Nearest existing test case + similarity score</li>
-<li>2–3 representative transcript snippets</li>
-<li>"Generate test case from this cluster?" CTA (links into the test-generation flow above)</li>
-</ul>
-</li>
-</ol>
-<p><strong>Hard parts.</strong></p>
+<h3 id="judge-model">Judge model<a class="headerlink" href="#judge-model" title="Permanent link">&para;</a></h3>
+<p>The judge reads a finished transcript and scores each metric. This is mostly reading comprehension; quality matters less than calibration consistency. Practical tips:</p>
 <ul>
-<li><strong>Threshold choice.</strong> "Similar enough to count as covered" is squishy. Probably ship with a tunable knob and good defaults rather than try to learn it.</li>
-<li><strong>Weighting matters.</strong> A pattern that's 40% of production traffic but missing from the suite is far more important than a 0.1% edge case. Report should sort by traffic weight, not just by gap size.</li>
+<li><strong>Pick one judge and stick with it.</strong> Switching judges between runs makes scores incomparable.</li>
+<li><strong>Stronger judges are worth it for production CI.</strong> If a regression slips past the judge, you ship the bug. The cost is small relative to the per-conversation agent cost.</li>
+<li><strong>Test the judge on known-good transcripts.</strong> If a judge consistently mis-scores cases you know should pass, retire it.</li>
 </ul>
-<p><strong>Why it's worth its own line.</strong> Some clients explicitly don't want auto-generated test cases — they want to keep the suite hand-curated. For them, "show me what I'm missing" is the entire deliverable. Same plumbing as the test-generation flow, different output mode.</p>
-<p><strong>Dependencies.</strong> Reuses the shared ingestion + clustering. Independently shippable once that exists.</p>
-<hr />
-<h2 id="sequencing">Sequencing<a class="headerlink" href="#sequencing" title="Permanent link">&para;</a></h2>
-<p>Build order if/when this comes off the proposals shelf (replay regression mode is being implemented separately and is not part of this sequence):</p>
-<ol>
-<li>Shared ingest + canonical schema + storage.</li>
-<li>Clustering primitive (used by both proposals below).</li>
-<li>Coverage report — ships first because the output is just a report, no synthesis.</li>
-<li>Test case synthesis — last, because "review N generated cases" UX needs more polish.</li>
-</ol>
+<h2 id="setting-models">Setting models<a class="headerlink" href="#setting-models" title="Permanent link">&para;</a></h2>
+<p>Put it in <code>settings.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[models]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;openai/gpt-4o-mini&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">simulator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gemini/gemini-1.5-flash&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">judge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;anthropic/claude-3-5-haiku-20241022&quot;</span>
+</code></pre></div>
+<p>Or per run via <code>RunOptions</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">voicetest.models.test_case</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunOptions</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">options</span> <span class="o">=</span> <span class="n">RunOptions</span><span class="p">(</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">agent_model</span><span class="o">=</span><span class="s2">&quot;openai/gpt-4o&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">simulator_model</span><span class="o">=</span><span class="s2">&quot;openai/gpt-4o-mini&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">judge_model</span><span class="o">=</span><span class="s2">&quot;anthropic/claude-3-5-sonnet-20241022&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">)</span>
+</code></pre></div>
+<p>Or per test case (requires <code>test_model_precedence = true</code> in run options):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hard escalation case&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;user_prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;llm_model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openai/gpt-4o&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;llm&quot;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="provider-specific-notes">Provider-specific notes<a class="headerlink" href="#provider-specific-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>LiteLLM format</strong> — voicetest uses <a href="https://docs.litellm.ai/docs/providers">LiteLLM</a> for all routing, so any provider LiteLLM supports works. Format: <code>provider/model-name</code>.</li>
+<li><strong>Vertex AI region</strong> — set <code>VERTEXAI_LOCATION=global</code> for newer Gemini models. See <a href="../configuration/#vertex-ai">Configuration: Vertex AI</a>.</li>
+<li><strong>Claude Code passthrough</strong> — use your existing Claude Code subscription instead of an API key. See <a href="../claude-code/">Claude Code Integration</a>.</li>
+<li><strong>Ollama for local</strong> — fully offline, free, and reproducible. Install <a href="https://ollama.ai/">Ollama</a>, pull the model, and use <code>ollama_chat/&lt;model&gt;</code> in voicetest. Bigger models give better quality at the cost of speed.</li>
+</ul>
+<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
+<p>Voicetest caches LLM responses by default to avoid redundant calls when re-running tests. This makes the same suite cheap to re-run. Disable per call with <code>--no-cache</code> or <code>no_cache = true</code> in run options. See <a href="../features/#llm-response-cache">Features: LLM response cache</a> for the disk and S3 backends.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

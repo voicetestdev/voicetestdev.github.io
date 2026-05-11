@@ -6,19 +6,21 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Open-source test harness for voice agents on Retell, VAPI, LiveKit, Bland, and Telnyx. Simulate conversations, judge with LLMs, catch regressions in CI.">
+      
       
       
         <link rel="canonical" href="https://voicetest.dev/docs/">
       
       
       
-        <link rel="next" href="getting-started/">
+        <link rel="next" href="changelog/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -40,12 +42,6 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -76,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#voicetest-voice-agent-testing" class="md-skip">
+        <a href="#voicetest" class="md-skip">
           Skip to content
         </a>
       
@@ -92,10 +88,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -228,10 +223,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="assets/logo.svg" alt="logo">
 
     </a>
     voicetest docs
@@ -318,6 +312,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you get
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#where-to-start" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -329,10 +334,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do" class="md-nav__link">
+  <a href="#whats-distinctive" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you can do
+        What's distinctive
       
     </span>
   </a>
@@ -376,6 +381,93 @@
   
   
     <li class="md-nav__item">
+      <a href="changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="getting-started/" class="md-nav__link">
         
   
@@ -395,58 +487,7 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+              
             
               
                 
@@ -455,14 +496,14 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/" class="md-nav__link">
+      <a href="concepts/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Recipes
+    Core Concepts
   
 
     
@@ -476,6 +517,90 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="recipes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
               
                 
   
@@ -483,14 +608,14 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/regression-test-prompt-changes/" class="md-nav__link">
+      <a href="recipes/diagnose-failing-test/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Regression-test prompt changes
+    Diagnose a failing test
   
 
     
@@ -539,14 +664,14 @@
   
   
     <li class="md-nav__item">
-      <a href="recipes/diagnose-failing-test/" class="md-nav__link">
+      <a href="recipes/regression-test-prompt-changes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Diagnose a failing test
+    Regression-test prompt changes
   
 
     
@@ -601,15 +726,49 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="concepts/" class="md-nav__link">
+    
+    
+      
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Core Concepts
+    Details
   
 
     
@@ -617,121 +776,22 @@
   
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="cli/" class="md-nav__link">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
   
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
+    Details
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="features/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="transcripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Importing transcripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
@@ -756,9 +816,94 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
-      
-      
+  
+    Claude Code Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -780,6 +925,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -811,6 +1020,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#what-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you get
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#where-to-start" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -822,10 +1042,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-do" class="md-nav__link">
+  <a href="#whats-distinctive" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you can do
+        What's distinctive
       
     </span>
   </a>
@@ -874,11 +1094,26 @@
   
 
 
-<h1 id="voicetest-voice-agent-testing">voicetest — Voice Agent Testing<a class="headerlink" href="#voicetest-voice-agent-testing" title="Permanent link">&para;</a></h1>
-<p>Voice agents break in ways unit tests can't catch: wrong transitions, bad prompts, numbers that TTS mangles into nonsense. voicetest simulates real multi-turn conversations against your agent, then judges the results with LLMs — so you find the problems before your users do.</p>
-<p>Open source. Apache 2.0. Free forever.</p>
-<p><strong>For teams building voice agents on Retell, VAPI, LiveKit, Bland, or Telnyx.</strong></p>
+<h1 id="voicetest">voicetest<a class="headerlink" href="#voicetest" title="Permanent link">&para;</a></h1>
+<p>Voice agents break in ways unit tests can't catch: a transition that fires too eagerly, a prompt that confuses the LLM under hedging, a phone number TTS reads as "four hundred fifteen, five hundred fifty-five." Manual testing doesn't scale — you click through a few conversations, ship the change, and find out from a customer three days later that something broke.</p>
+<p><strong>Voicetest is the test harness that closes that loop.</strong> It simulates real multi-turn conversations against your agent, judges the results with LLMs, and catches regressions before your users do.</p>
 <p><img alt="Web UI" src="demos/web-demo-light.gif" /></p>
+<h2 id="what-you-get">What you get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install once</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>voicetest
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Run a regression suite against any agent (Retell, VAPI, LiveKit, Bland, Telnyx)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>voicetest<span class="w"> </span>run<span class="w"> </span>--agent<span class="w"> </span>agent.json<span class="w"> </span>--tests<span class="w"> </span>tests.json<span class="w"> </span>--all
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Test                          Pass  Score  Turns
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>─────────────────────────────────────────────────
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Schedules an appointment       ✓    0.93   8
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Handles cancellation           ✗    0.41   12
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>No PII leakage                 ✓    1.00   6
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>─────────────────────────────────────────────────
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>2/3 passed
+</code></pre></div>
+<p>When something fails, voicetest can <a href="recipes/diagnose-failing-test/">diagnose</a> and propose the fix. When you tweak a prompt, you can <a href="recipes/regression-test-prompt-changes/">snapshot the suite</a> before and after to see what moved. When you have production calls, you can <a href="recipes/import-call-history/">import them as a regression suite</a>. When you're ready to ship, <a href="recipes/ci-github-actions/">GitHub Actions</a> blocks merges that regress.</p>
 <h2 id="where-to-start">Where to start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -893,75 +1128,78 @@
 <td><a href="getting-started/">Getting Started</a></td>
 </tr>
 <tr>
-<td><strong>Test an agent you've already built</strong> — CLI commands, managing agents, exporting results</td>
-<td><a href="cli/">CLI Reference</a></td>
+<td><strong>Solve a specific problem</strong> — task-oriented walkthroughs</td>
+<td><a href="recipes/">Recipes</a></td>
 </tr>
 <tr>
-<td><strong>Understand agent graphs and test cases</strong> — nodes, transitions, dynamic variables</td>
+<td><strong>Understand graphs, nodes, and judging</strong></td>
 <td><a href="concepts/">Core Concepts</a></td>
 </tr>
 <tr>
-<td><strong>Configure LLM models and platforms</strong> — providers, run options, credentials</td>
+<td><strong>Configure models, platforms, and credentials</strong></td>
 <td><a href="configuration/">Configuration</a></td>
+</tr>
+<tr>
+<td><strong>Browse every CLI command</strong></td>
+<td><a href="cli/">CLI Reference</a></td>
 </tr>
 </tbody>
 </table>
-<h2 id="what-you-can-do">What you can do<a class="headerlink" href="#what-you-can-do" title="Permanent link">&para;</a></h2>
+<h2 id="whats-distinctive">What's distinctive<a class="headerlink" href="#whats-distinctive" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong><a href="features/#format-conversion">Import from Retell, export to VAPI</a></strong> — convert between any supported platform via a unified agent graph</li>
-<li><strong><a href="features/#platform-integration">Push and sync with live platforms</a></strong> — import, push, and sync agent configs directly from the Web UI or CLI</li>
-<li><strong><a href="features/#diagnosis-auto-fix">Diagnose failures and auto-fix prompts</a></strong> — LLM analyzes why a test failed and proposes prompt changes, with an automated repair loop</li>
-<li><strong><a href="features/#audio-evaluation">Catch what LLM judges miss</a></strong> — TTS/STT round-trip evaluation catches pronunciation and number-reading issues</li>
-<li><strong><a href="features/#global-metrics">Enforce compliance on every test</a></strong> — HIPAA, PCI-DSS, brand voice checks that run automatically</li>
-<li><strong><a href="features/#agent-decomposition">Break large agents into sub-agents</a></strong> — LLM-powered decomposition with handoff rules</li>
-<li><strong><a href="recipes/ci-github-actions/">Test in CI/CD</a></strong> — run voice agent tests in GitHub Actions, block bad deploys</li>
+<li><strong>Test any platform.</strong> Retell, VAPI, LiveKit, Bland, Telnyx, or custom — voicetest's <a href="architecture/#the-agentgraph-ir">unified AgentGraph IR</a> means one test suite runs against agents from any of them.</li>
+<li><strong><a href="features/#format-conversion">Convert between platforms</a></strong> without manual rewrites — import a Retell Conversation Flow, export to VAPI; import VAPI, export to LiveKit.</li>
+<li><strong><a href="features/#diagnosis-auto-fix">LLM-powered diagnosis</a></strong> identifies the root cause of a failed test and proposes a prompt fix, with a one-click "apply and re-run" loop.</li>
+<li><strong><a href="features/#transcript-import-replay">Replay production calls</a></strong> against the agent's current graph to detect drift before users notice.</li>
+<li><strong><a href="features/#audio-evaluation">Audio evaluation</a></strong> catches what text-only judges miss — TTS/STT round-trip checks for digit-reading and pronunciation issues.</li>
+<li><strong><a href="recipes/ci-github-actions/">Run anywhere</a></strong> — CLI, Web UI, REST API, GitHub Actions, or as a Claude Code plugin.</li>
 </ul>
 <h2 id="platform-support">Platform support<a class="headerlink" href="#platform-support" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Platform</th>
-<th>Import</th>
-<th>Export</th>
-<th>Push</th>
-<th>Sync</th>
+<th style="text-align: center;">Import</th>
+<th style="text-align: center;">Export</th>
+<th style="text-align: center;">Push</th>
+<th style="text-align: center;">Sync</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Retell</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr>
 <td>VAPI</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr>
 <td>LiveKit</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 <tr>
 <td>Bland</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;"></td>
 </tr>
 <tr>
 <td>Telnyx</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
 </tr>
 </tbody>
 </table>
@@ -971,29 +1209,34 @@
 <tr>
 <th>Interface</th>
 <th>Command</th>
-<th>Description</th>
+<th>Best for</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Web UI</td>
 <td><code>voicetest serve</code></td>
-<td>Visual test management, streaming transcripts, graph visualization</td>
+<td>Visual iteration, side-by-side run comparison, diagnosis</td>
 </tr>
 <tr>
 <td>CLI</td>
 <td><code>voicetest run</code></td>
-<td>Fast iteration, scripting, CI/CD</td>
+<td>Scripting, CI/CD, fast iteration</td>
 </tr>
 <tr>
 <td>Interactive shell</td>
 <td><code>voicetest</code></td>
-<td>REPL for exploratory testing</td>
+<td>Exploratory testing</td>
 </tr>
 <tr>
 <td>REST API</td>
 <td><code>voicetest serve</code></td>
 <td>Integrate with any toolchain at <code>localhost:8000/api</code></td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td><code>/voicetest-run</code></td>
+<td>Have Claude drive your test suite — see <a href="claude-code/">Claude Code Integration</a></td>
 </tr>
 </tbody>
 </table>
@@ -1003,6 +1246,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1052,7 +1298,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>

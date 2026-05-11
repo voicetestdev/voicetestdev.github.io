@@ -2,62 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://voicetest.dev/docs/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/PROPOSALS/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/architecture/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://voicetest.dev/docs/changelog/</loc>
+         <lastmod>2026-05-11</lastmod>
+    </url>
+    <url>
+         <loc>https://voicetest.dev/docs/claude-code/</loc>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/cli/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/concepts/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/configuration/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/development/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/features/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/getting-started/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
-         <loc>https://voicetest.dev/docs/transcripts/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <loc>https://voicetest.dev/docs/models/</loc>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/recipes/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/recipes/ci-github-actions/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/recipes/diagnose-failing-test/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/recipes/import-call-history/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
     <url>
          <loc>https://voicetest.dev/docs/recipes/regression-test-prompt-changes/</loc>
-         <lastmod>2026-05-08</lastmod>
+         <lastmod>2026-05-11</lastmod>
     </url>
 </urlset>

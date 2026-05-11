@@ -6,19 +6,23 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Contributor guide — code quality, fixtures, Docker development, frontend, and voicetest's internals.">
+      
       
       
         <link rel="canonical" href="https://voicetest.dev/docs/development/">
       
       
-        <link rel="prev" href="../architecture/">
+        <link rel="prev" href="../configuration/">
       
+      
+        <link rel="next" href="../features/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -40,12 +44,6 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -92,10 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -228,10 +225,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     voicetest docs
@@ -285,6 +281,93 @@
   
   
     <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
         
   
@@ -304,58 +387,7 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+              
             
               
                 
@@ -364,14 +396,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/" class="md-nav__link">
+      <a href="../concepts/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Recipes
+    Core Concepts
   
 
     
@@ -385,6 +417,90 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../recipes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
               
                 
   
@@ -392,14 +508,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
+      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Regression-test prompt changes
+    Diagnose a failing test
   
 
     
@@ -448,14 +564,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
+      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Diagnose a failing test
+    Regression-test prompt changes
   
 
     
@@ -508,17 +624,51 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../concepts/" class="md-nav__link">
+  
+    
+    
+      
         
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Core Concepts
+    Details
   
 
     
@@ -526,121 +676,22 @@
   
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
   
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
+    Details
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../transcripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Importing transcripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
@@ -665,9 +716,94 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
-      
-      
+  
+    Claude Code Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
     
@@ -799,6 +935,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#di-container-punq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DI container (Punq)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dspy-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSPy signatures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retell-terminal-tool-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retell terminal-tool conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#project-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -812,6 +998,70 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -906,6 +1156,56 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Internals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#di-container-punq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DI container (Punq)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dspy-signatures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSPy signatures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retell-terminal-tool-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retell terminal-tool conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1079,42 +1379,86 @@
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">cd</span><span class="w"> </span>web<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mise<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>--<span class="w"> </span>bun<span class="w"> </span>run<span class="w"> </span>build
 </code></pre></div>
 <p>Svelte 5 reactivity guidelines are documented in <code>web/README.md</code>.</p>
+<h2 id="internals">Internals<a class="headerlink" href="#internals" title="Permanent link">&para;</a></h2>
+<p>These details are useful when contributing to voicetest or building on its Python API. Public users don't need to read this section.</p>
+<h3 id="di-container-punq">DI container (Punq)<a class="headerlink" href="#di-container-punq" title="Permanent link">&para;</a></h3>
+<p>The project uses <a href="https://github.com/bobthemighty/punq">Punq</a> for dependency injection. Key singletons:</p>
+<ul>
+<li><code>Engine</code>, <code>sessionmaker</code>, <code>Session</code> — SQLAlchemy database layer (DuckDB-backed)</li>
+<li><code>ImporterRegistry</code>, <code>ExporterRegistry</code>, <code>PlatformRegistry</code> — registries</li>
+</ul>
+<p>Repositories are transient but share the singleton session:</p>
+<ul>
+<li><code>AgentRepository</code>, <code>TestCaseRepository</code>, <code>RunRepository</code>, <code>CallRepository</code></li>
+</ul>
+<p>Get instances via <code>voicetest.container</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">voicetest.container</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_session</span><span class="p">,</span> <span class="n">get_importer_registry</span>
+</code></pre></div>
+<p><strong>When to use DI:</strong></p>
+<ul>
+<li>Use <code>get_*</code> helpers for app code (REST handlers, CLI commands).</li>
+<li>Use <code>container.resolve(Type)</code> when you need the container directly.</li>
+<li>For tests, use <code>reset_container()</code> to get fresh state.</li>
+<li>Don't instantiate repositories directly; let Punq inject the session.</li>
+</ul>
+<h3 id="dspy-signatures">DSPy signatures<a class="headerlink" href="#dspy-signatures" title="Permanent link">&para;</a></h3>
+<p>When defining DSPy signatures, type the fields accurately:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MySignature</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Signature</span><span class="p">):</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Docstring becomes the prompt context.&quot;&quot;&quot;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">input_text</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What this input contains&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric input&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">result</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;What the LLM should produce&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Numeric score from 0.0 to 1.0&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;List of extracted items&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">valid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;True/False judgment&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The type annotations (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>list[str]</code>) guide the LLM's output format. The <code>desc</code> should clarify semantics, not just repeat the type.</p>
+<h3 id="retell-terminal-tool-conversion">Retell terminal-tool conversion<a class="headerlink" href="#retell-terminal-tool-conversion" title="Permanent link">&para;</a></h3>
+<p>When importing Retell LLM-format agents, terminal tools (<code>end_call</code>, <code>transfer_call</code>) are converted to proper CF node types during export rather than remaining as tools in the tools array:</p>
+<ul>
+<li><code>end_call</code> tools become <code>type=end</code> nodes in the Conversation Flow.</li>
+<li><code>transfer_call</code> tools become <code>type=transfer_call</code> nodes with <code>transfer_destination</code> and <code>transfer_option</code>.</li>
+<li>Tool metadata carries <code>transfer_destination</code> and <code>transfer_option</code> through the import/export pipeline.</li>
+<li>The agent envelope (voice_id, language, etc.) is preserved from LLM format through CF export so the result re-imports cleanly into the Retell UI.</li>
+</ul>
 <h2 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>voicetest/
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>├── voicetest/           # Python package
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>│   ├── cli.py           # CLI (40+ commands)
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>│   ├── rest.py          # REST API server + WebSocket + SPA serving
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>│   ├── container.py     # Dependency injection (Punq)
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>│   ├── cache.py         # LLM response cache (disk + S3 backends)
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>│   ├── templating.py    # Snippet and variable expansion
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>│   ├── services/        # Service layer (agents, diagnosis, evaluation, runs, snippets, etc.)
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>│   ├── compose/         # Bundled Docker Compose for infrastructure services
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>│   ├── models/          # Pydantic models (agent, test_case, results, decompose, etc.)
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>│   ├── importers/       # Source importers (retell, vapi, bland, telnyx, livekit, xlsform, custom)
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>│   ├── exporters/       # Format exporters (mermaid, livekit, retell, vapi, bland, telnyx, voicetest_ir)
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>│   ├── platforms/       # Platform SDK clients (retell, vapi, bland, telnyx, livekit)
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>│   ├── engine/          # Execution engine
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>│   │   ├── conversation.py    # ConversationEngine: advance(), graph traversal
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>│   │   ├── equations.py       # Deterministic equation evaluation
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>│   │   ├── modules.py         # DSPy modules for state execution
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>│   │   ├── session.py         # ConversationRunner for simulated tests
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>│   │   └── livekit_llm.py     # LiveKit real-time integration
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>│   ├── simulator/       # User simulation
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>│   ├── judges/          # Evaluation judges (metric, rule, diagnosis)
-<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>│   ├── storage/         # DuckDB persistence layer
-<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>│   └── tui/             # TUI and shell
-<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>├── claude-plugin/       # Claude Code plugin (commands + skills)
-<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>│   ├── commands/        # Slash commands (/voicetest-run, etc.)
-<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>│   └── skills/          # Auto-activating skill + references
-<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>├── web/                 # Frontend (Bun + Svelte + Vite)
-<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>│   ├── src/
-<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>│   │   ├── components/  # Svelte components
-<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>│   │   └── lib/         # API client, stores, types
-<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>│   └── dist/            # Built assets (bundled in package)
-<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>├── tests/
-<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>│   ├── unit/            # Unit tests
-<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>│   └── integration/     # Integration tests (Ollama)
-<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a>└── docs/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>voicetest/
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>├── voicetest/           # Python package
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│   ├── cli.py           # CLI (40+ commands)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│   ├── rest.py          # REST API server + WebSocket + SPA serving
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│   ├── container.py     # Dependency injection (Punq)
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│   ├── cache.py         # LLM response cache (disk + S3 backends)
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│   ├── templating.py    # Snippet and variable expansion
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│   ├── services/        # Service layer (agents, diagnosis, evaluation, runs, snippets, etc.)
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>│   ├── compose/         # Bundled Docker Compose for infrastructure services
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>│   ├── models/          # Pydantic models (agent, test_case, results, decompose, etc.)
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>│   ├── importers/       # Source importers (retell, vapi, bland, telnyx, livekit, xlsform, custom)
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>│   ├── exporters/       # Format exporters (mermaid, livekit, retell, vapi, bland, telnyx, voicetest_ir)
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>│   ├── platforms/       # Platform SDK clients (retell, vapi, bland, telnyx, livekit)
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>│   ├── engine/          # Execution engine
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│   │   ├── conversation.py    # ConversationEngine: advance(), graph traversal
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│   │   ├── equations.py       # Deterministic equation evaluation
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>│   │   ├── modules.py         # DSPy modules for state execution
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>│   │   ├── session.py         # ConversationRunner for simulated tests
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>│   │   └── livekit_llm.py     # LiveKit real-time integration
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>│   ├── simulator/       # User simulation
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>│   ├── judges/          # Evaluation judges (metric, rule, diagnosis)
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>│   ├── storage/         # DuckDB persistence layer
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>│   └── tui/             # TUI and shell
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>├── claude-plugin/       # Claude Code plugin (commands + skills)
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>│   ├── commands/        # Slash commands (/voicetest-run, etc.)
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>│   └── skills/          # Auto-activating skill + references
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>├── web/                 # Frontend (Bun + Svelte + Vite)
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>│   ├── src/
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>│   │   ├── components/  # Svelte components
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>│   │   └── lib/         # API client, stores, types
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>│   └── dist/            # Built assets (bundled in package)
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>├── tests/
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>│   ├── unit/            # Unit tests
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>│   └── integration/     # Integration tests (Ollama)
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>└── docs/
 </code></pre></div>
 
 
@@ -1122,6 +1466,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1171,7 +1518,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

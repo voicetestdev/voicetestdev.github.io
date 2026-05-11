@@ -6,21 +6,23 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="LLM models, run options, settings.toml — every knob voicetest exposes.">
+      
       
       
         <link rel="canonical" href="https://voicetest.dev/docs/configuration/">
       
       
-        <link rel="prev" href="../features/">
+        <link rel="prev" href="../cli/">
       
       
-        <link rel="next" href="../transcripts/">
+        <link rel="next" href="../development/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../assets/favicon.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -42,12 +44,6 @@
       
     
     
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -94,10 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-header__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -230,10 +225,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
+    <a href="https://voicetest.dev/" title="voicetest docs" class="md-nav__button md-logo" aria-label="voicetest docs" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     voicetest docs
@@ -287,6 +281,93 @@
   
   
     <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start Here
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start Here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started/" class="md-nav__link">
         
   
@@ -306,58 +387,7 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Recipes
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Recipes
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+              
             
               
                 
@@ -366,14 +396,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/" class="md-nav__link">
+      <a href="../concepts/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Recipes
+    Core Concepts
   
 
     
@@ -387,6 +417,90 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../recipes/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipes
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recipes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
               
                 
   
@@ -394,14 +508,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
+      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Regression-test prompt changes
+    Diagnose a failing test
   
 
     
@@ -450,14 +564,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../recipes/diagnose-failing-test/" class="md-nav__link">
+      <a href="../recipes/regression-test-prompt-changes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Diagnose a failing test
+    Regression-test prompt changes
   
 
     
@@ -510,17 +624,87 @@
       
   
   
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Details
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Details
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../concepts/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Core Concepts
+    Architecture
   
 
     
@@ -532,9 +716,38 @@
     </li>
   
 
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
-      
-      
+  
+    Claude Code Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -559,36 +772,10 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
+              
+            
+              
+                
   
   
     
@@ -704,38 +891,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude-code-passthrough" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code passthrough
+        Environment variables
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Claude Code passthrough">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#subprocess-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subprocess timeout
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude-code-plugin" class="md-nav__link">
+  <a href="#using-claude-code-as-your-llm-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code plugin
+        Using Claude Code as your LLM backend
       
     </span>
   </a>
@@ -749,63 +919,10 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../transcripts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Importing transcripts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -827,6 +944,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -908,38 +1089,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude-code-passthrough" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code passthrough
+        Environment variables
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Claude Code passthrough">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#subprocess-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subprocess timeout
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#claude-code-plugin" class="md-nav__link">
+  <a href="#using-claude-code-as-your-llm-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Claude Code plugin
+        Using Claude Code as your LLM backend
       
     </span>
   </a>
@@ -989,6 +1153,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt; set agent_model gemini/gemini-1.5-flash
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt; set simulator_model ollama_chat/qwen2.5:0.5b
 </code></pre></div>
+<p>For guidance on which model to use for each role, see the <a href="../models/">Models guide</a>.</p>
 <h3 id="vertex-ai">Vertex AI<a class="headerlink" href="#vertex-ai" title="Permanent link">&para;</a></h3>
 <p>For Vertex AI models that aren't available in the default <code>us-central1</code> region, set the <code>VERTEXAI_LOCATION</code> environment variable:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">VERTEXAI_LOCATION</span><span class="o">=</span>global<span class="w">  </span><span class="c1"># needed for e.g. gemini-3.1-flash-lite-preview</span>
@@ -1065,52 +1230,100 @@
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">[cache]</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">cache_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;disk&quot;</span>
 </code></pre></div>
-<h2 id="claude-code-passthrough">Claude Code passthrough<a class="headerlink" href="#claude-code-passthrough" title="Permanent link">&para;</a></h2>
-<p>If you have <a href="https://claude.ai/claude-code">Claude Code</a> installed, you can use it as your LLM backend without configuring API keys:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># .voicetest/settings.toml</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">[models]</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;claudecode/sonnet&quot;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">simulator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;claudecode/haiku&quot;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">judge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;claudecode/sonnet&quot;</span>
-</code></pre></div>
-<p>Available model strings:</p>
-<ul>
-<li><code>claudecode/sonnet</code> — Claude Sonnet</li>
-<li><code>claudecode/opus</code> — Claude Opus</li>
-<li><code>claudecode/haiku</code> — Claude Haiku</li>
-</ul>
-<p>This invokes the <code>claude</code> CLI via subprocess, using your existing Claude Code authentication.</p>
-<h3 id="subprocess-timeout">Subprocess timeout<a class="headerlink" href="#subprocess-timeout" title="Permanent link">&para;</a></h3>
-<p>Each call has a 600-second timeout on the <code>claude</code> CLI subprocess. If a request exceeds it, voicetest translates the failure into a retryable timeout error. Timeouts are capped at <strong>2 attempts</strong> (vs. the default 8 used for rate limits and connection errors) because each attempt costs the full timeout — bounding worst-case wallclock at roughly twice the timeout. If both attempts fail, the test surfaces as <code>status="error"</code> with a clear message rather than a raw <code>subprocess.TimeoutExpired</code> stacktrace.</p>
-<p>If you consistently hit the timeout on legitimate long generations, raise the <code>timeout</code> argument when constructing the LM (Python API), or split the workload into smaller prompts.</p>
-<h2 id="claude-code-plugin">Claude Code plugin<a class="headerlink" href="#claude-code-plugin" title="Permanent link">&para;</a></h2>
-<p>voicetest ships with a Claude Code plugin for agent-assisted voice testing. Slash commands and auto-activating skills help Claude Code discover importers/exporters, run tests, export agents, and convert between formats.</p>
-<p><strong>For repo contributors</strong> (automatic):</p>
-<p>Skills and commands load automatically from <code>.claude/</code> (symlinked to <code>claude-plugin/</code>).</p>
-<p><strong>Install as a marketplace plugin:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/plugin marketplace add voicetestdev/voicetest
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/plugin install voicetest@voicetest-plugins
-</code></pre></div>
-<p><strong>For pip-installed users:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>your-project
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>voicetest<span class="w"> </span>init-claude
-</code></pre></div>
-<p><strong>Available slash commands:</strong></p>
-<ul>
-<li><code>/voicetest-run</code> — Run tests against an agent</li>
-<li><code>/voicetest-export</code> — Export agent to a different format</li>
-<li><code>/voicetest-convert</code> — Convert between platform formats</li>
-<li><code>/voicetest-info</code> — List importers, exporters, platforms, and settings</li>
-</ul>
-<p><strong>Plugin path</strong> (for manual plugin loading):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>claude<span class="w"> </span>--plugin-dir<span class="w"> </span><span class="k">$(</span>voicetest<span class="w"> </span>claude-plugin-path<span class="k">)</span>
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Keys</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[models]</code></td>
+<td><code>agent</code>, <code>simulator</code>, <code>judge</code></td>
+<td>LiteLLM strings; required for any non-local model</td>
+</tr>
+<tr>
+<td><code>[run]</code></td>
+<td><code>max_turns</code>, <code>audio_eval</code>, <code>streaming</code>, etc.</td>
+<td>Defaults for new runs; per-run overrides win</td>
+</tr>
+<tr>
+<td><code>[audio]</code></td>
+<td><code>tts_url</code>, <code>stt_url</code></td>
+<td>Set when audio eval is enabled</td>
+</tr>
+<tr>
+<td><code>[cache]</code></td>
+<td><code>cache_backend</code>, <code>s3_bucket</code>, <code>s3_prefix</code>, <code>s3_region</code></td>
+<td>See <a href="../features/#llm-response-cache">Features: LLM response cache</a></td>
+</tr>
+</tbody>
+</table>
+<p><code>voicetest settings</code> prints the active configuration; <code>voicetest settings --set &lt;key&gt;=&lt;value&gt;</code> updates it.</p>
+<h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GROQ_API_KEY</code></td>
+<td>Default LLM provider for the demo agent and quickstart</td>
+</tr>
+<tr>
+<td><code>OPENAI_API_KEY</code></td>
+<td>OpenAI models</td>
+</tr>
+<tr>
+<td><code>ANTHROPIC_API_KEY</code></td>
+<td>Anthropic Claude models</td>
+</tr>
+<tr>
+<td><code>VERTEXAI_LOCATION</code></td>
+<td>Override the Vertex AI region (default <code>us-central1</code>)</td>
+</tr>
+<tr>
+<td><code>VOICETEST_DB_PATH</code></td>
+<td>Override DuckDB storage location (default <code>.voicetest/data.duckdb</code>)</td>
+</tr>
+<tr>
+<td><code>RETELL_API_KEY</code></td>
+<td>Retell platform integration</td>
+</tr>
+<tr>
+<td><code>VAPI_API_KEY</code></td>
+<td>VAPI platform integration</td>
+</tr>
+<tr>
+<td><code>BLAND_API_KEY</code></td>
+<td>Bland platform integration</td>
+</tr>
+<tr>
+<td><code>TELNYX_API_KEY</code></td>
+<td>Telnyx platform integration</td>
+</tr>
+<tr>
+<td><code>LIVEKIT_API_KEY</code> + <code>LIVEKIT_API_SECRET</code></td>
+<td>LiveKit platform integration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="using-claude-code-as-your-llm-backend">Using Claude Code as your LLM backend<a class="headerlink" href="#using-claude-code-as-your-llm-backend" title="Permanent link">&para;</a></h2>
+<p>If you have <a href="https://claude.ai/claude-code">Claude Code</a> installed, you can route LLM calls through your existing Claude subscription instead of configuring a separate API key. See <a href="../claude-code/">Claude Code Integration</a>.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1160,7 +1373,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
