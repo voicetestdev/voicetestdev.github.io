@@ -445,6 +445,8 @@
       
         
       
+        
+      
     
     
     
@@ -499,6 +501,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recipes/starter-test-suite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Starter test suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1425,41 +1455,53 @@
 </ul>
 <h2 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>voicetest/
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>├── voicetest/           # Python package
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│   ├── cli.py           # CLI (40+ commands)
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│   ├── rest.py          # REST API server + WebSocket + SPA serving
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│   ├── container.py     # Dependency injection (Punq)
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│   ├── cache.py         # LLM response cache (disk + S3 backends)
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│   ├── templating.py    # Snippet and variable expansion
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│   ├── services/        # Service layer (agents, diagnosis, evaluation, runs, snippets, etc.)
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>│   ├── compose/         # Bundled Docker Compose for infrastructure services
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>│   ├── models/          # Pydantic models (agent, test_case, results, decompose, etc.)
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>│   ├── importers/       # Source importers (retell, vapi, bland, telnyx, livekit, xlsform, custom)
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>│   ├── exporters/       # Format exporters (mermaid, livekit, retell, vapi, bland, telnyx, voicetest_ir)
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>│   ├── platforms/       # Platform SDK clients (retell, vapi, bland, telnyx, livekit)
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>│   ├── engine/          # Execution engine
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│   │   ├── conversation.py    # ConversationEngine: advance(), graph traversal
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│   │   ├── equations.py       # Deterministic equation evaluation
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>│   │   ├── modules.py         # DSPy modules for state execution
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>│   │   ├── session.py         # ConversationRunner for simulated tests
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>│   │   └── livekit_llm.py     # LiveKit real-time integration
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>│   ├── simulator/       # User simulation
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>│   ├── judges/          # Evaluation judges (metric, rule, diagnosis)
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>│   ├── storage/         # DuckDB persistence layer
-<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>│   └── tui/             # TUI and shell
-<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>├── claude-plugin/       # Claude Code plugin (commands + skills)
-<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>│   ├── commands/        # Slash commands (/voicetest-run, etc.)
-<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>│   └── skills/          # Auto-activating skill + references
-<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>├── web/                 # Frontend (Bun + Svelte + Vite)
-<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>│   ├── src/
-<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>│   │   ├── components/  # Svelte components
-<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>│   │   └── lib/         # API client, stores, types
-<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>│   └── dist/            # Built assets (bundled in package)
-<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>├── tests/
-<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>│   ├── unit/            # Unit tests
-<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>│   └── integration/     # Integration tests (Ollama)
-<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>└── docs/
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>├── voicetest/                    # Python package
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│   ├── cli.py                    # CLI (40+ commands)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│   ├── container.py              # Dependency injection (Punq) — composition root
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│   ├── config.py                 # Path resolution for .voicetest/ data dirs
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│   ├── settings.py               # Pydantic Settings model + TOML loading
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>│   ├── exceptions.py             # Shared domain exceptions
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>│   ├── runner.py                 # Shared CLI/TUI run orchestration over AppServices
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>│   ├── web/                      # FastAPI + WebSocket + SPA serving
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>│   │   ├── rest.py               # REST endpoints + lifespan
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>│   │   ├── broadcast.py          # BroadcastBus + SessionRegistry (WS pub/sub)
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>│   │   ├── coordinator.py        # RunCoordinator: per-run cancel + orphan claim
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>│   │   ├── calls.py              # CallManager: live LiveKit voice calls
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>│   │   └── chat.py               # ChatManager: text chat sessions
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│   ├── livecall/                 # Live-call agent runtime
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│   │   ├── agent_worker.py       # `python -m voicetest.livecall.agent_worker` subprocess
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>│   │   └── livekit_adapter.py    # LiveKit llm.LLM adapter wrapping ConversationEngine
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>│   ├── engine/                   # Conversation engine
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>│   │   ├── conversation.py       # ConversationEngine: advance(), graph traversal
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>│   │   ├── equations.py          # Deterministic equation evaluation
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>│   │   ├── modules.py            # DSPy modules for state execution
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>│   │   └── session.py            # ConversationRunner for simulated tests
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>│   ├── services/                 # Service layer (agents, diagnosis, evaluation, runs, etc.)
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>│   │   └── run_runner.py         # Background test-run orchestrator (scheduled by REST)
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>│   ├── simulator/                # User simulation (LLM-driven + scripted replay)
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>│   ├── judges/                   # Evaluation judges (metric, rule, diagnosis)
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>│   ├── llm/                      # LLM client + retry infrastructure
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>│   ├── models/                   # Pydantic models (agent, test_case, results, decompose, etc.)
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>│   ├── importers/                # Source importers (retell, vapi, bland, telnyx, livekit, xlsform, custom)
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>│   ├── exporters/                # Format exporters (mermaid, livekit, retell, vapi, bland, telnyx, voicetest_ir)
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>│   ├── platforms/                # Platform SDK clients (retell, vapi, bland, telnyx, livekit)
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>│   ├── storage/                  # SQLAlchemy + DuckDB persistence layer
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>│   ├── tui/                      # TUI and shell
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>│   ├── util/                     # Pure helpers (audio, cache, formatting, retry, templating, etc.)
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>│   ├── compose/                  # Packaged resource: docker-compose.yml shipped in the wheel,
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>│   │                             # loaded via importlib.resources by `voicetest up`
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>│   └── demo/                     # Packaged resource: bundled demo agent + tests JSON,
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>│                                 # loaded via importlib.resources by `voicetest demo`
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>├── claude-plugin/                # Claude Code plugin (commands + skills)
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a>├── web/                          # Frontend (Bun + Svelte + Vite)
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a>│   └── dist/                     # Built assets (bundled in package)
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>├── tests/
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>│   ├── unit/                     # Unit tests
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>│   ├── integration/              # Integration tests (Ollama)
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>│   └── fixtures/                 # Sample agent/test JSON for tests
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>└── docs/
 </code></pre></div>
+<p><code>compose/</code> and <code>demo/</code> live inside the Python package on purpose — they're loaded via <code>importlib.resources</code> so they ship with the wheel and work for pip-installed users. The root-level <code>docker-compose.dev.yml</code> is a separate dev-only file that <em>includes</em> <code>voicetest/compose/docker-compose.yml</code>.</p>
 
 
 
