@@ -999,6 +999,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#retry-and-idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry and idempotency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#retell-terminal-tool-conversion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1217,6 +1228,17 @@
     <span class="md-ellipsis">
       
         DSPy signatures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-and-idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry and idempotency
       
     </span>
   </a>
@@ -1445,6 +1467,10 @@
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">valid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&quot;True/False judgment&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>The type annotations (<code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>, <code>list[str]</code>) guide the LLM's output format. The <code>desc</code> should clarify semantics, not just repeat the type.</p>
+<h3 id="retry-and-idempotency">Retry and idempotency<a class="headerlink" href="#retry-and-idempotency" title="Permanent link">&para;</a></h3>
+<p><code>voicetest.util.retry.with_retry</code> wraps the LLM call path (<code>voicetest.llm.base.call_llm</code>) with exponential backoff. Retries fire on the exceptions listed in <code>RETRYABLE_EXCEPTIONS</code>: <code>litellm.RateLimitError</code>, <code>litellm.Timeout</code>, <code>litellm.APIConnectionError</code>, <code>openai.APITimeoutError</code>, and <code>AdapterParseError</code>.</p>
+<p>LLM-provider classes are responsible for translating transient upstream failures into one of these exception types so the retry layer catches them — e.g. <code>voicetest.llm.claudecode.ClaudeCodeLM</code> maps 5xx → <code>APIConnectionError</code>, 429 → <code>RateLimitError</code>, 408/504/524 → <code>Timeout</code>. Non-transient errors (4xx other than the rate-limit/timeout codes, malformed responses, quota exhausted) stay as <code>RuntimeError</code> or <code>QuotaExhaustedError</code> so they fail fast instead of burning the retry budget.</p>
+<p><strong>Idempotency contract.</strong> The retry layer assumes the wrapped function is idempotent. Today every caller is an LLM completion, where duplicate generations on the upstream side are accepted: the worst case is an extra billed token chunk that never reaches us. If a future caller performs side effects (tool execution, DB write, external API mutation), that call MUST NOT be retried by <code>with_retry</code>. Wrap it in explicit error handling, or guard the side effect with an idempotency key on the receiving side. Extending <code>RETRYABLE_EXCEPTIONS</code> or adding new <code>with_retry</code> call sites without checking this contract will silently re-trigger side effects on transient failure.</p>
 <h3 id="retell-terminal-tool-conversion">Retell terminal-tool conversion<a class="headerlink" href="#retell-terminal-tool-conversion" title="Permanent link">&para;</a></h3>
 <p>When importing Retell LLM-format agents, terminal tools (<code>end_call</code>, <code>transfer_call</code>) are converted to proper CF node types during export rather than remaining as tools in the tools array:</p>
 <ul>
