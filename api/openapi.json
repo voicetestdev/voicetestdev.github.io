@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.46"
+    "version": "0.47"
   },
   "paths": {
     "/api/health": {
@@ -3029,7 +3029,7 @@
           "source_type"
         ],
         "title": "AgentGraph",
-        "description": "Complete agent workflow graph.\n\nThis is the unified internal representation (IR) that all importers\nconvert to. It captures the full structure of an agent's conversation\nflow including nodes, transitions, and metadata."
+        "description": "Complete agent workflow graph."
       },
       "AgentNode": {
         "properties": {
@@ -3042,8 +3042,7 @@
             "title": "State Prompt"
           },
           "node_type": {
-            "$ref": "#/components/schemas/NodeType",
-            "default": "conversation"
+            "$ref": "#/components/schemas/NodeType"
           },
           "tools": {
             "items": {
@@ -3085,10 +3084,11 @@
         "type": "object",
         "required": [
           "id",
-          "state_prompt"
+          "state_prompt",
+          "node_type"
         ],
         "title": "AgentNode",
-        "description": "Single node (state) in the agent workflow graph.\n\nEach node represents a distinct conversational state with its own\nstate-specific prompt, available tools, and possible transitions.\nThe general_prompt is stored separately in AgentGraph.source_metadata."
+        "description": "Single node (state) in the agent workflow graph."
       },
       "ApplySnippetsRequest": {
         "properties": {
@@ -3633,7 +3633,7 @@
           "criteria"
         ],
         "title": "GlobalMetric",
-        "description": "A metric that runs on all tests for an agent.\n\nGlobal metrics are evaluated against every test transcript,\nuseful for compliance checks that should always pass."
+        "description": "A metric that runs on all tests for an agent."
       },
       "GlobalNodeSetting": {
         "properties": {
@@ -3654,7 +3654,7 @@
           "condition"
         ],
         "title": "GlobalNodeSetting",
-        "description": "Settings for a global node reachable from any conversation node.\n\nGlobal nodes can be entered from any conversation node when\ntheir condition matches. Go-back conditions allow returning\nto the originating node."
+        "description": "Settings for a global node reachable from any conversation node."
       },
       "GoBackCondition": {
         "properties": {
@@ -4029,7 +4029,8 @@
           "logic",
           "extract",
           "end",
-          "transfer"
+          "transfer",
+          "function"
         ],
         "title": "NodeType",
         "description": "Type of node in the agent workflow graph."
@@ -4187,7 +4188,7 @@
         },
         "type": "object",
         "title": "RunOptions",
-        "description": "Options for test execution.\n\nLLM model strings use LiteLLM format: \"provider/model\"\nExamples: \"groq/llama-3.1-8b-instant\", \"openai/gpt-4o-mini\"\n\nModel fields are Optional - None means not configured (will use defaults)."
+        "description": "Options for test execution."
       },
       "RunSettings": {
         "properties": {
@@ -4619,7 +4620,7 @@
           "user_prompt"
         ],
         "title": "TestCase",
-        "description": "Single test case definition.\n\nTwo test types are supported:\n\n1. LLM tests (type=\"llm\"): Use an LLM judge to evaluate semantic metrics.\n   {\n       \"name\": \"Billing inquiry\",\n       \"user_prompt\": \"Ask about a charge on your bill...\",\n       \"metrics\": [\"Agent was helpful and professional\"],\n       \"type\": \"llm\"\n   }\n\n2. Rule tests (type=\"rule\"): Use deterministic pattern matching.\n   {\n       \"name\": \"Greeting check\",\n       \"user_prompt\": \"Say hello\",\n       \"includes\": [\"welcome\", \"help\"],\n       \"excludes\": [\"goodbye\"],\n       \"patterns\": [\"REF-[A-Z0-9]+\"],\n       \"type\": \"rule\"\n   }\n\nLegacy type values \"simulation\" and \"unit\" are mapped to \"llm\" and \"rule\"."
+        "description": "Single test case definition."
       },
       "TestResult": {
         "properties": {
@@ -4936,7 +4937,7 @@
           "value"
         ],
         "title": "TransitionCondition",
-        "description": "Condition that triggers a transition between nodes.\n\nSupports multiple condition types:\n- llm_prompt: LLM evaluates a natural language condition\n- equation: Deterministic evaluation of a formula (e.g., {{age}} > 18)\n- tool_call: Transition triggered by specific tool invocation\n- always: Unconditional transition"
+        "description": "Condition that triggers a transition between nodes."
       },
       "UpdateAgentRequest": {
         "properties": {
