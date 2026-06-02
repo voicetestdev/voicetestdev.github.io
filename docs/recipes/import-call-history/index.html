@@ -1185,13 +1185,13 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Yesterday&#39;s calls in one file</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.retellai.com/v2/list-calls<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.retellai.com/v3/list-calls<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$RETELL_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;filter_criteria&quot;: {&quot;start_timestamp&quot;: {&quot;after&quot;: 1714780800000}}, &quot;limit&quot;: 1000}&#39;</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>&gt;<span class="w"> </span>prod-calls.json
 </code></pre></div>
-<p>Voicetest accepts both the single-call shape and the post-call webhook envelope, as a single object or an array.</p>
+<p>Voicetest accepts the single-call shape, the post-call webhook envelope, and the v3 <code>{items, pagination_key, has_more}</code> list envelope — as a single object or an array.</p>
 </div>
 </div>
 </div>
