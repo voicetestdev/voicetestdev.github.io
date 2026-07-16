@@ -1419,6 +1419,7 @@
 <th>Run kind</th>
 <th>How it's created</th>
 <th>Result <code>status</code> values</th>
+<th><code>source_kind</code></th>
 </tr>
 </thead>
 <tbody>
@@ -1426,24 +1427,35 @@
 <td>Simulated</td>
 <td><code>voicetest run --all</code> or "Run" in the Web UI</td>
 <td><code>pass</code>, <code>fail</code>, <code>error</code></td>
+<td><code>simulated</code></td>
+</tr>
+<tr>
+<td>Live</td>
+<td>A test case run as a live audio call (<code>voicetest up</code>)</td>
+<td><code>pass</code>, <code>fail</code></td>
+<td><code>live</code></td>
 </tr>
 <tr>
 <td>Imported</td>
 <td><code>voicetest import-call --transcript ...</code></td>
+<td><code>imported</code></td>
 <td><code>imported</code></td>
 </tr>
 <tr>
 <td>Replay</td>
 <td><code>voicetest replay &lt;run-id&gt;</code></td>
 <td><code>pass</code> (passive capture)</td>
+<td><code>simulated</code></td>
 </tr>
 </tbody>
 </table>
+<p><code>source_kind</code> is a separate discriminator from <code>status</code>: it records <em>where a Result came from</em> (a simulated harness run, a live audio call, or an imported transcript), independent of pass/fail. A live call is saved as a one-Result Run with <code>call_id</code> set, judged against the test case's own metrics (and the agent's <a href="../features/#global-metrics">global metrics</a>); a call with no test case is named "Live Call" and scored on global metrics only. See <a href="../features/#live-audio-testing">Live audio testing</a>.</p>
 <p>Each Result captures:</p>
 <ul>
-<li><strong><code>transcript</code></strong> — list of user/assistant/tool messages</li>
+<li><strong><code>transcript</code></strong> — list of user/assistant/tool messages. On a live audio call, each message also carries <code>metadata.audio.heard</code> — the observer's STT transcription of the audio actually heard on the wire, distinct from <code>content</code> (the intended text). See <a href="../features/#live-audio-testing">Live audio testing</a>.</li>
+<li><strong><code>source_kind</code></strong> — <code>simulated</code>, <code>live</code>, or <code>imported</code>; where the Result came from, independent of <code>status</code></li>
 <li><strong><code>metric_results</code></strong> — score and reasoning per LLM metric</li>
-<li><strong><code>audio_metric_results</code></strong> — same shape, evaluated against the TTS/STT round-tripped transcript</li>
+<li><strong><code>audio_metric_results</code></strong> — same shape, evaluated against the <code>heard</code> text (on a live call) or the TTS/STT round-tripped transcript (audio evaluation)</li>
 <li><strong><code>nodes_visited</code></strong> and <strong><code>tools_called</code></strong> — the path through the graph and any tool invocations</li>
 <li><strong><code>turn_count</code></strong>, <strong><code>duration_ms</code></strong>, <strong><code>end_reason</code></strong> — call metadata</li>
 <li><strong><code>error_message</code></strong> — populated when <code>status="error"</code></li>

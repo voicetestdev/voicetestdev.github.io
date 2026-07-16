@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Format conversion, platform integration, snippets, global metrics, diagnosis, audio evaluation, decomposition, caching, and transcript replay.">
+        <meta name="description" content="Format conversion, platform integration, snippets, global metrics, diagnosis, audio evaluation, live audio testing, decomposition, caching, and transcript replay.">
       
       
       
@@ -993,6 +993,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#live-audio-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live audio testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#agent-decomposition" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1216,6 +1227,17 @@
     <span class="md-ellipsis">
       
         Audio evaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#live-audio-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live audio testing
       
     </span>
   </a>
@@ -1526,6 +1548,20 @@
 </tr>
 </tbody>
 </table>
+<h2 id="live-audio-testing">Live audio testing<a class="headerlink" href="#live-audio-testing" title="Permanent link">&para;</a></h2>
+<p><a href="#audio-evaluation">Audio evaluation</a> round-trips a <em>simulated text</em> transcript through TTS/STT after the fact. Live audio testing runs the <strong>whole test case over real WebRTC audio</strong> instead: the agent runs its graph while a simulated caller — the same <code>UserSimulator</code> that drives text runs — plays the user over TTS/STT, so the conversation exercises the real STT → LLM → TTS pipeline with <strong>no human on the line</strong>.</p>
+<p>An <strong>observer</strong> on each side transcribes what was actually <em>heard on the wire</em>, so every turn carries two texts:</p>
+<ul>
+<li><strong><code>content</code></strong> — the intended text (the agent's LLM output, or the caller simulator's line).</li>
+<li><strong><code>heard</code></strong> — the observer's STT transcription of the audio the other side actually received.</li>
+</ul>
+<p>The pair is stored together with a word-level diff — surfacing the same class of defect audio evaluation catches (e.g. "415-555-1234" spoken as "four hundred fifteen…"), but from a genuine call rather than a reconstruction. Heard segments stream in as the call runs, each correlated to its turn regardless of how STT chunks the audio.</p>
+<p>The completed call is saved as a <code>source_kind="live"</code> Result (see <a href="../concepts/#runs-and-results">Concepts: Runs and results</a>), judged against the <strong>test case's own metrics</strong> on the transcript and against the <strong>heard</strong> text as audio metrics, plus the agent's <a href="#global-metrics">global metrics</a>. It renders in the runs UI alongside simulated and imported runs.</p>
+<p>Start one from a test case via the API — <code>POST /agents/{id}/calls/start</code> with a <code>test_id</code>. Omitting <code>test_id</code> starts a call for a <strong>human</strong> caller to join from the browser instead. Live audio testing uses the same LiveKit, Whisper, and Kokoro services as audio evaluation, started by <code>voicetest up</code> (see the <a href="../cli/">CLI reference</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Cascade today, speech-to-speech next</p>
+<p>Observation derives <code>heard</code> from published audio independent of <em>how</em> either side produced it, so it already records the wire transcript for the cascade (STT → LLM → TTS) pipeline that ships today; a native speech-to-speech agent — one with no separable text "brain" — would need no observer change. Time-based audio metrics (latency-to-first-audio, dead-air, barge-in) and native speech-to-speech backends are designed-for but not yet built.</p>
+</div>
 <h2 id="agent-decomposition">Agent decomposition<a class="headerlink" href="#agent-decomposition" title="Permanent link">&para;</a></h2>
 <p>Split a large agent into smaller, focused sub-agents:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>voicetest<span class="w"> </span>decompose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-o<span class="w"> </span>output/<span class="w"> </span><span class="o">[</span>--num-agents<span class="w"> </span>N<span class="o">]</span><span class="w"> </span><span class="o">[</span>--model<span class="w"> </span>ID<span class="o">]</span>
