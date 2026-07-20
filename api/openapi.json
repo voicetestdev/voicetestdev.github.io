@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.49"
+    "version": "0.50"
   },
   "paths": {
     "/api/health": {
@@ -4340,6 +4340,28 @@
             "type": "object",
             "title": "Dynamic Variables",
             "default": {}
+          },
+          "test_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Test Id"
+          },
+          "max_turns": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Turns"
           }
         },
         "type": "object",
@@ -4361,7 +4383,14 @@
             "title": "Livekit Url"
           },
           "token": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Token"
           }
         },
@@ -4369,8 +4398,7 @@
         "required": [
           "call_id",
           "room_name",
-          "livekit_url",
-          "token"
+          "livekit_url"
         ],
         "title": "StartCallResponse",
         "description": "Response from starting a call."
@@ -4649,6 +4677,16 @@
               "cancelled"
             ],
             "title": "Status"
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "simulated",
+              "live",
+              "imported"
+            ],
+            "title": "Source Kind",
+            "default": "simulated"
           },
           "transcript": {
             "items": {
