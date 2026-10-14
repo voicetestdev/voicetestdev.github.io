@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.51"
+    "version": "0.52"
   },
   "paths": {
     "/api/health": {
@@ -3439,11 +3439,32 @@
       "EvaluateRequest": {
         "properties": {
           "transcript": {
-            "items": {
-              "$ref": "#/components/schemas/Message"
-            },
-            "type": "array",
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Message"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Transcript"
+          },
+          "events": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/JudgeEvent-Input"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Events"
           },
           "metrics": {
             "items": {
@@ -3455,11 +3476,10 @@
         },
         "type": "object",
         "required": [
-          "transcript",
           "metrics"
         ],
         "title": "EvaluateRequest",
-        "description": "Request to evaluate a transcript."
+        "description": "Request to evaluate a transcript or a structured event timeline."
       },
       "ExportFormatInfo": {
         "properties": {
@@ -3758,6 +3778,90 @@
         ],
         "title": "ImporterInfo",
         "description": "Importer information for API response."
+      },
+      "JudgeEvent-Input": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "speech",
+              "keypad_input",
+              "tool_call",
+              "tool_result",
+              "transition"
+            ],
+            "title": "Kind",
+            "description": "Event kind, independent of speaker"
+          },
+          "speaker": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Speaker"
+          },
+          "start_offset_ms": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Offset Ms",
+            "description": "Offset from conversation start"
+          },
+          "end_offset_ms": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Offset Ms",
+            "description": "Offset from conversation start, when available"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content"
+          },
+          "payload": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Payload"
+          },
+          "metadata": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "title": "JudgeEvent",
+        "description": "A provider-neutral event in the conversation timeline."
+      },
+      "JudgeEvent-Output": {
+        "additionalProperties": true,
+        "type": "object"
       },
       "LinkTestFileRequest": {
         "properties": {
@@ -4152,6 +4256,15 @@
             "title": "Pattern Engine",
             "default": "fnmatch"
           },
+          "judge_input": {
+            "type": "string",
+            "enum": [
+              "transcript",
+              "events"
+            ],
+            "title": "Judge Input",
+            "default": "transcript"
+          },
           "agent_model": {
             "anyOf": [
               {
@@ -4239,6 +4352,16 @@
             "title": "Pattern Engine",
             "description": "Pattern engine: 'fnmatch' (wildcards) or 're2' (regex)",
             "default": "fnmatch"
+          },
+          "judge_input": {
+            "type": "string",
+            "enum": [
+              "transcript",
+              "events"
+            ],
+            "title": "Judge Input",
+            "description": "Metric judge input: 'transcript' (role-prefixed text) or 'events'",
+            "default": "transcript"
           }
         },
         "type": "object",
@@ -4772,6 +4895,22 @@
             },
             "type": "array",
             "title": "Model Overrides"
+          },
+          "judge_input": {
+            "type": "string",
+            "enum": [
+              "transcript",
+              "events"
+            ],
+            "title": "Judge Input",
+            "default": "transcript"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/JudgeEvent-Output"
+            },
+            "type": "array",
+            "title": "Events"
           }
         },
         "type": "object",
