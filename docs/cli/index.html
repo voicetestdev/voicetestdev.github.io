@@ -1247,12 +1247,15 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Evaluate a transcript against metrics (no simulation)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>voicetest<span class="w"> </span>evaluate<span class="w"> </span>-t<span class="w"> </span>transcript.json<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Agent was polite"</span><span class="w"> </span>-m<span class="w"> </span><span class="s2">"Agent resolved the issue"</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Diagnose test failures and suggest fixes</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>voicetest<span class="w"> </span>diagnose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-t<span class="w"> </span>tests.json
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>voicetest<span class="w"> </span>diagnose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-t<span class="w"> </span>tests.json<span class="w"> </span>--auto-fix<span class="w"> </span>--save<span class="w"> </span>fixed_agent.json
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Decompose an agent into sub-agents</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>voicetest<span class="w"> </span>decompose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-o<span class="w"> </span>output/<span class="w"> </span><span class="o">[</span>--num-agents<span class="w"> </span>N<span class="o">]</span><span class="w"> </span><span class="o">[</span>--model<span class="w"> </span>ID<span class="o">]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Evaluate a structured event timeline (speech, keypad, tool, transition events)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>voicetest<span class="w"> </span>evaluate<span class="w"> </span>-e<span class="w"> </span>events.json<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Caller pressed 1 for billing"</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Diagnose test failures and suggest fixes</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>voicetest<span class="w"> </span>diagnose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-t<span class="w"> </span>tests.json
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>voicetest<span class="w"> </span>diagnose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-t<span class="w"> </span>tests.json<span class="w"> </span>--auto-fix<span class="w"> </span>--save<span class="w"> </span>fixed_agent.json
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Decompose an agent into sub-agents</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>voicetest<span class="w"> </span>decompose<span class="w"> </span>-a<span class="w"> </span>agent.json<span class="w"> </span>-o<span class="w"> </span>output/<span class="w"> </span><span class="o">[</span>--num-agents<span class="w"> </span>N<span class="o">]</span><span class="w"> </span><span class="o">[</span>--model<span class="w"> </span>ID<span class="o">]</span>
 </code></pre></div>
 <h2 id="agent-management">Agent management<a class="headerlink" href="#agent-management" title="Permanent link">&para;</a></h2>
 <table>

@@ -907,6 +907,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Run options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#judge-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Judge input
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1105,6 +1122,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Run options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#judge-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Judge input
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1239,8 +1273,55 @@
 <td><code>fnmatch</code></td>
 <td>Pattern matching engine: <code>fnmatch</code> or <code>re2</code></td>
 </tr>
+<tr>
+<td><code>judge_input</code></td>
+<td><code>transcript</code></td>
+<td>Metric judge input: <code>transcript</code> or <code>events</code> (see below)</td>
+</tr>
 </tbody>
 </table>
+<h3 id="judge-input">Judge input<a class="headerlink" href="#judge-input" title="Permanent link">&para;</a></h3>
+<p><code>transcript</code> gives the metric judge role-prefixed text (<code>USER: ...</code>). Tool messages, timestamps, and metadata are dropped.</p>
+<p><code>events</code> gives the judge a chronological list of structured events, so it can tell speech apart from keypad input, tool activity, and node transitions, and cite timing when it is known. Each stored result records the <code>judge_input</code> it was judged with, the voicetest version that judged it, and, under <code>events</code>, the events themselves. The voicetest version identifies the judge prompt. DSPy, which formats the prompt, is pinned to a minor version (3.4.x); its patch releases are not expected to change prompt formatting.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>kind</code></td>
+<td><code>speech</code>, <code>keypad_input</code>, <code>tool_call</code>, <code>tool_result</code>, or <code>transition</code></td>
+</tr>
+<tr>
+<td><code>speaker</code></td>
+<td>Who produced the event, when applicable (<code>user</code>, <code>assistant</code>)</td>
+</tr>
+<tr>
+<td><code>start_offset_ms</code></td>
+<td>Milliseconds from conversation start; omitted when the source has no timing</td>
+</tr>
+<tr>
+<td><code>end_offset_ms</code></td>
+<td>Milliseconds from conversation start; omitted for point events</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>Text, such as an utterance</td>
+</tr>
+<tr>
+<td><code>payload</code></td>
+<td>Structured event data, such as <code>{"digits": "1"}</code> or a tool name and result</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td>Source details that are not evidence in themselves</td>
+</tr>
+</tbody>
+</table>
+<p>Events are judged in start-offset order. Events with equal offsets keep their input order, and an event without an offset stays after the event before it. Missing timing is never filled in. Producers that bring in calls from another platform normalize them into these kinds before handing them to voicetest, either with <code>voicetest evaluate --events</code> or as <code>events</code> in <code>POST /api/evaluate</code>.</p>
 <h2 id="settings-file">Settings file<a class="headerlink" href="#settings-file" title="Permanent link">&para;</a></h2>
 <p>Settings are stored in <code>.voicetest/settings.toml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[models]</span>
