@@ -911,6 +911,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#who-speaks-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who speaks first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#judge-input" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1126,6 +1137,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#who-speaks-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who speaks first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#judge-input" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1278,8 +1300,22 @@
 <td><code>transcript</code></td>
 <td>Metric judge input: <code>transcript</code> or <code>events</code> (see below)</td>
 </tr>
+<tr>
+<td><code>start_speaker</code></td>
+<td>unset</td>
+<td>Fallback opener: <code>agent</code> or <code>user</code> (see below)</td>
+</tr>
 </tbody>
 </table>
+<h3 id="who-speaks-first">Who speaks first<a class="headerlink" href="#who-speaks-first" title="Permanent link">&para;</a></h3>
+<p>A simulation opens with the first of these that is set:</p>
+<ol>
+<li>The agent's override, set from "Speaks first" in the web UI's agent view and stored in the app database.</li>
+<li>The agent template: Retell <code>start_speaker</code>, or VAPI <code>firstMessageMode</code> (<code>assistant-waits-for-user</code> means the user speaks first).</li>
+<li>The global <code>start_speaker</code> run setting.</li>
+<li><code>agent</code>.</li>
+</ol>
+<p>Replays of imported calls follow the recorded transcript's order instead.</p>
 <h3 id="judge-input">Judge input<a class="headerlink" href="#judge-input" title="Permanent link">&para;</a></h3>
 <p><code>transcript</code> gives the metric judge role-prefixed text (<code>USER: ...</code>). Tool messages, timestamps, and metadata are dropped.</p>
 <p><code>events</code> gives the judge a chronological list of structured events, so it can tell speech apart from keypad input, tool activity, and node transitions, and cite timing when it is known. Each stored result records the <code>judge_input</code> it was judged with, the voicetest version that judged it, and, under <code>events</code>, the events themselves. The voicetest version identifies the judge prompt. DSPy, which formats the prompt, is pinned to a minor version (3.4.x); its patch releases are not expected to change prompt formatting.</p>
@@ -1401,6 +1437,10 @@
 <tr>
 <td><code>VOICETEST_DB_PATH</code></td>
 <td>Override DuckDB storage location (default <code>.voicetest/data.duckdb</code>)</td>
+</tr>
+<tr>
+<td><code>VOICETEST_SETTINGS_PATH</code></td>
+<td>Override settings file location (default <code>.voicetest/settings.toml</code>)</td>
 </tr>
 <tr>
 <td><code>RETELL_API_KEY</code></td>
