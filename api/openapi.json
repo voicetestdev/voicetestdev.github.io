@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.52"
+    "version": "0.53"
   },
   "paths": {
     "/api/health": {
@@ -1415,6 +1415,100 @@
                   "type": "object",
                   "additionalProperties": true,
                   "title": "Response Update Metrics Config Api Agents  Agent Id  Metrics Config Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/model": {
+      "get": {
+        "summary": "Get Agent Model",
+        "description": "Get the model an agent's responses will use, and where that choice comes from.",
+        "operationId": "get_agent_model_api_agents__agent_id__model_get",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Get Agent Model Api Agents  Agent Id  Model Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/start-speaker": {
+      "put": {
+        "summary": "Update Start Speaker",
+        "description": "Set or clear an agent's start speaker override.",
+        "operationId": "update_start_speaker_api_agents__agent_id__start_speaker_put",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStartSpeakerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Update Start Speaker Api Agents  Agent Id  Start Speaker Put"
                 }
               }
             }
@@ -4265,6 +4359,36 @@
             "title": "Judge Input",
             "default": "transcript"
           },
+          "start_speaker": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "agent",
+                  "user"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Speaker"
+          },
+          "default_start_speaker": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "agent",
+                  "user"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Default Start Speaker"
+          },
           "agent_model": {
             "anyOf": [
               {
@@ -4362,6 +4486,22 @@
             "title": "Judge Input",
             "description": "Metric judge input: 'transcript' (role-prefixed text) or 'events'",
             "default": "transcript"
+          },
+          "start_speaker": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "agent",
+                  "user"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Speaker",
+            "description": "Fallback opener for simulations when neither the agent override nor the agent template sets one: 'agent' or 'user'"
           }
         },
         "type": "object",
@@ -5263,6 +5403,28 @@
         ],
         "title": "UpdateSnippetRequest",
         "description": "Request to create or update a single snippet."
+      },
+      "UpdateStartSpeakerRequest": {
+        "properties": {
+          "start_speaker": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "agent",
+                  "user"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Speaker"
+          }
+        },
+        "type": "object",
+        "title": "UpdateStartSpeakerRequest",
+        "description": "Request to set an agent's start speaker override; None defers to the template."
       },
       "ValidationError": {
         "properties": {
