@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.53"
+    "version": "0.54"
   },
   "paths": {
     "/api/health": {
@@ -1915,7 +1915,7 @@
     "/api/agents/{agent_id}/runs": {
       "get": {
         "summary": "List Runs For Agent",
-        "description": "List all runs for an agent.",
+        "description": "List an agent's runs, newest first, one page at a time.",
         "operationId": "list_runs_for_agent_api_agents__agent_id__runs_get",
         "parameters": [
           {
@@ -1933,8 +1933,21 @@
             "required": false,
             "schema": {
               "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
               "default": 50,
               "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
             }
           }
         ],
@@ -2000,6 +2013,48 @@
                   "type": "object",
                   "additionalProperties": true,
                   "title": "Response Start Run Api Agents  Agent Id  Runs Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/agents/{agent_id}/runs/count": {
+      "get": {
+        "summary": "Count Runs For Agent",
+        "description": "Count all of an agent's runs.",
+        "operationId": "count_runs_for_agent_api_agents__agent_id__runs_count_get",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Count Runs For Agent Api Agents  Agent Id  Runs Count Get"
                 }
               }
             }
