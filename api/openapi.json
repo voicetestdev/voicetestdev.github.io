@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.54"
+    "version": "0.55"
   },
   "paths": {
     "/api/health": {
@@ -4524,6 +4524,12 @@
             "type": "boolean",
             "title": "Audio Eval",
             "description": "Auto-run TTS\u2192STT audio evaluation on every test",
+            "default": false
+          },
+          "no_cache": {
+            "type": "boolean",
+            "title": "No Cache",
+            "description": "Bypass the LLM response cache",
             "default": false
           },
           "pattern_engine": {
