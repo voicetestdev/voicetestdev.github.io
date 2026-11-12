@@ -2,6 +2,7 @@
 title: "Using Claude Code as a Free LLM Backend for Voice Agent Testing"
 description: "Route voicetest LLM calls through your Claude Pro or Max subscription instead of paying per-token API costs. No API keys, no proxy — just the claude CLI."
 date: 2026-02-16
+image: /assets/blog/2026-02-16/cover.png
 ---
 
 Running a voice agent test suite means making a lot of LLM calls. Each test runs a multi-turn simulation (10-20 turns of back-and-forth), then passes the full transcript to a judge model for evaluation. A suite of 20 tests can easily hit 200+ LLM calls. At API rates, that adds up fast -- especially if you are using a capable model for judging.

@@ -2,6 +2,7 @@
 title: "Replay Production Call Transcripts Against Your Voice Agent's Current Graph"
 description: "Import Retell call transcripts as voicetest runs, replay them against the agent's current configuration, and surface behavioral drift before it ships to production."
 date: 2026-05-12
+image: /assets/blog/2026-05-12/cover.png
 ---
 
 The hardest regressions to catch in voice agents are the ones that pass every synthetic test and only break on the actual conversations real users have. You ship a prompt change, the LLM judges still score everything green, and a week later support tickets pile up because the agent now confirms the wrong appointment type or skips the identity check on a path nobody wrote a test for.

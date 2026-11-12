@@ -2,6 +2,7 @@
 title: "Voice Agent Evaluation with LLM Judges: How It Works"
 description: "How voicetest uses a three-model architecture to simulate conversations and evaluate voice agents with LLM-as-judge scoring."
 date: 2026-02-18
+image: /assets/blog/2026-02-18/cover.png
 ---
 
 You can write unit tests for a REST API. You can snapshot-test a React component. But how do you test a voice agent that holds free-form conversations?

@@ -2,6 +2,7 @@
 title: "Testing Voice Agents Across 4 Platforms With a Single Tool"
 description: "Import from Retell, VAPI, Bland, or LiveKit. Write one test suite. Run it against any agent format. Voicetest's AgentGraph IR normalizes platform differences."
 date: 2026-03-15
+image: /assets/blog/2026-03-15/cover.png
 ---
 
 If you've built voice agents on more than one platform, you know the problem: each one has its own config format, its own mental model, and its own way of defining agent behavior. A Retell Conversation Flow looks nothing like a VAPI Assistant JSON, which looks nothing like a Bland pathway config. Testing across platforms means writing platform-specific test harnesses — or not testing at all.

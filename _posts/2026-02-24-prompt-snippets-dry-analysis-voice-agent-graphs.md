@@ -2,6 +2,7 @@
 title: "Prompt Snippets and Auto-DRY Analysis for Voice Agent Graphs"
 description: "How voicetest detects duplicated prompt text across agent nodes and extracts reusable snippets to keep your configs maintainable and your tests consistent."
 date: 2026-02-24
+image: /assets/blog/2026-02-24/cover.png
 ---
 {% raw %}
 Voice agent configs accumulate duplicated text fast. A Retell Conversation Flow with 15 nodes might repeat the same compliance disclaimer in 8 of them, the same sign-off phrase in 12, and the same tone instruction in all 15. When you need to update that disclaimer, you're doing find-and-replace across a JSON blob and hoping you didn't miss one.

@@ -2,6 +2,7 @@
 title: "Five Node Types and Global Interrupts: How Voicetest Models Real Agent Graphs"
 description: "Logic, extract, end, transfer, and conversation nodes — plus global interrupts with go-back semantics. The voicetest IR now models the full structure of platform-specific agent graphs without losing fidelity."
 date: 2026-05-08
+image: /assets/blog/2026-05-08/cover.png
 ---
 {% raw %}
 A voice agent graph is more than a list of conversational states with prompts. Real agents extract variables from what the caller said and branch on them. They evaluate deterministic equations to route by account type or balance. They end the call cleanly or transfer to a human. And they need ways to handle interrupts — "speak to a manager," "I want to start over," "this is an emergency" — from anywhere in the flow without an explicit edge from every node.

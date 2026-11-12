@@ -2,6 +2,7 @@
 title: "How to Test a Retell Agent in CI with GitHub Actions"
 description: "Set up automated voice agent testing for your Retell Conversation Flow. Import your agent, write test cases, and run them on every push with GitHub Actions."
 date: 2026-02-08
+image: /assets/blog/2026-02-08/cover.png
 ---
 
 Manual testing of voice agents does not scale. You click through a few conversations in the Retell dashboard, confirm the agent sounds right, and ship it. Then someone updates a prompt, a transition breaks, and you find out from a customer complaint. The feedback loop is days, not minutes.

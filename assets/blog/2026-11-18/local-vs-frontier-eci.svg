@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" width="760" height="460" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+<rect width="760" height="460" rx="12" fill="#0a0a0a"/>
+<text x="24" y="38" fill="#fafafa" font-size="17" font-weight="600">What fits on one consumer GPU today matched the frontier a year ago</text>
+<text x="24" y="60" fill="#888" font-size="12.5">Epoch Capabilities Index (ECI) of the best model released to date, 2023 to Nov 2026</text>
+<rect x="24" y="76" width="14" height="3" rx="1.5" fill="#D9622E"/>
+<text x="44" y="81" fill="#888" font-size="12">Best closed model</text>
+<rect x="170" y="76" width="14" height="3" rx="1.5" fill="#0FA3C4"/>
+<text x="190" y="81" fill="#888" font-size="12">Best open-weight model of 40B parameters or fewer</text>
+<line x1="64" y1="368.0" x2="556" y2="368.0" stroke="#262626" stroke-width="1"/>
+<text x="56" y="372.0" text-anchor="end" fill="#888" font-size="11">100</text>
+<line x1="64" y1="304.0" x2="556" y2="304.0" stroke="#262626" stroke-width="1"/>
+<text x="56" y="308.0" text-anchor="end" fill="#888" font-size="11">120</text>
+<line x1="64" y1="240.0" x2="556" y2="240.0" stroke="#262626" stroke-width="1"/>
+<text x="56" y="244.0" text-anchor="end" fill="#888" font-size="11">140</text>
+<line x1="64" y1="176.0" x2="556" y2="176.0" stroke="#262626" stroke-width="1"/>
+<text x="56" y="180.0" text-anchor="end" fill="#888" font-size="11">160</text>
+<line x1="64" y1="112.0" x2="556" y2="112.0" stroke="#262626" stroke-width="1"/>
+<text x="56" y="116.0" text-anchor="end" fill="#888" font-size="11">180</text>
+<line x1="64.0" y1="384" x2="64.0" y2="389" stroke="#888" stroke-width="1"/>
+<text x="68.0" y="402" fill="#888" font-size="11">2023</text>
+<line x1="189.6" y1="384" x2="189.6" y2="389" stroke="#888" stroke-width="1"/>
+<text x="193.6" y="402" fill="#888" font-size="11">2024</text>
+<line x1="315.5" y1="384" x2="315.5" y2="389" stroke="#888" stroke-width="1"/>
+<text x="319.5" y="402" fill="#888" font-size="11">2025</text>
+<line x1="441.1" y1="384" x2="441.1" y2="389" stroke="#888" stroke-width="1"/>
+<text x="445.1" y="402" fill="#888" font-size="11">2026</text>
+<line x1="64" y1="384" x2="556" y2="384" stroke="#888" stroke-width="1"/>
+<line x1="390.5" y1="208.0" x2="518.5" y2="208.0" stroke="#888" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="424.9" y="224.0" text-anchor="middle" fill="#888" font-size="11">a year later</text>
+<path d="M88.8,298.0 H197.8 V288.5 H209.9 V286.2 H223.6 V285.2 H235.3 V277.8 H248.4 V272.0 H277.3 V254.8 H310.3 V236.3 H346.1 V227.5 H351.6 V217.6 H370.6 V216.2 H390.5 V208.0 H411.5 V204.3 H425.9 V198.8 H433.9 V184.9 H462.8 V175.5 H479.6 V167.2 H495.8 V162.4 H511.3 V161.7 H524.7 V153.5 H525.4 V146.7 H548.4 V130.4 H548.8" fill="none" stroke="#D9622E" stroke-width="2" stroke-linejoin="round"/>
+<path d="M82.6,376.9 H155.5 V360.8 H156.6 V357.5 H207.1 V356.4 H226.7 V337.4 H228.5 V315.1 H249.8 V308.3 H279.4 V307.9 H308.6 V274.8 H337.2 V251.1 H356.1 V249.7 H387.8 V245.1 H459.7 V227.3 H472.4 V226.4 H479.3 V218.5 H518.5 V199.4 H548.8" fill="none" stroke="#0FA3C4" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="390.5" cy="208.0" r="4" fill="#D9622E" stroke="#0a0a0a" stroke-width="2"/>
+<text x="382.5" y="198.0" text-anchor="end" fill="#fafafa" font-size="11.5">GPT-5 · 150</text>
+<circle cx="156.6" cy="357.5" r="4" fill="#0FA3C4" stroke="#0a0a0a" stroke-width="2"/>
+<text x="148.6" y="347.5" text-anchor="end" fill="#fafafa" font-size="11.5">Mistral 7B · 103</text>
+<circle cx="88.8" cy="298.0" r="4" fill="#D9622E" stroke="#0a0a0a" stroke-width="2"/>
+<text x="88.8" y="286.0" text-anchor="start" fill="#fafafa" font-size="11.5">GPT-4 · 122</text>
+<circle cx="518.5" cy="199.4" r="4" fill="#0FA3C4" stroke="#0a0a0a" stroke-width="2"/>
+<text x="556.8" y="134.4" fill="#fafafa" font-size="12">Claude Fable 5.2 · 174</text>
+<text x="556.8" y="203.4" fill="#fafafa" font-size="12">Qwen 3.8 27B · 153</text>
+<text x="24" y="424" fill="#888" font-size="10.5">Data: Epoch AI, Epoch Capabilities Index, Nov 2026 snapshot, CC-BY 4.0. Closed includes Pro variants.</text>
+<text x="24" y="440" fill="#888" font-size="10.5">40B parameters or fewer fits on one 32 GB consumer GPU at 4-bit.</text>
+</svg>

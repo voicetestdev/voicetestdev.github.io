@@ -2,6 +2,7 @@
 title: "Designing Voice Agents Like Chips: Coverage Closure for Agent FSMs"
 description: "Voice agent graphs are finite state machines. The chip industry has forty years of methodology for verifying FSMs too large to enumerate — structural coverage, functional covergroups, coverage closure. This post maps that methodology onto voice agent testing and shows what voicetest already supports, what's missing, and why the framing matters."
 date: 2026-05-15
+image: /assets/blog/2026-05-15/cover.png
 ---
 {% raw %}
 A voice agent and a SoC differ entirely at the substrate level — one is a graph of prompts driving an LLM, the other is millions of gates etched into silicon. One level of abstraction up, the structures align: both are finite state machines whose interesting behavior lives in transitions and interactions between states, both have an authoring language that is compiled by something downstream (a synthesis toolchain in one case, the inference loop in the other), and both fail in long-tail conditions outside the test set.
