@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -1026,6 +1026,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#parallel-test-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel test execution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#transcript-import-replay" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1260,6 +1271,17 @@
     <span class="md-ellipsis">
       
         LLM response cache
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-test-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel test execution
       
     </span>
   </a>
@@ -1583,6 +1605,14 @@
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">s3_region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"us-east-1"</span>
 </code></pre></div>
 <p>Disable caching for a run with <code>no_cache = true</code> in run options or <code>--no-cache</code> on the CLI.</p>
+<h2 id="parallel-test-execution">Parallel test execution<a class="headerlink" href="#parallel-test-execution" title="Permanent link">&para;</a></h2>
+<p>Tests in a run execute one at a time by default. Set <code>concurrency</code> in the run options to run up to 16 at once:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/api/agents/&lt;agent-id&gt;/runs<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"options": {"concurrency": 4}}'</span>
+</code></pre></div>
+<p>The response's <code>concurrency</code> is the number actually used: never more than the run has tests. <code>POST /api/runs/{id}/replay</code> accepts the same <code>options</code>. Results keep their test order however they finish.</p>
+<p>Parallel runs are bounded by your provider's rate limits, which are usually set per organization or project rather than per API key. Throttled calls retry with backoff, and if a provider reports its quota exhausted, queued tests are cancelled while the ones already running record their own error. Local models (MLX, or a local STT for audio evaluation) share one machine, so parallel tests mostly queue on the hardware.</p>
 <h2 id="transcript-import-replay">Transcript import &amp; replay<a class="headerlink" href="#transcript-import-replay" title="Permanent link">&para;</a></h2>
 <p>Voicetest can ingest real production call transcripts as Runs, alongside the simulated runs the harness generates. Imported transcripts share the same storage and UI surfaces as simulated runs, and can be <strong>replayed</strong> against the agent's current graph to detect behavioral drift.</p>
 <table>
@@ -1614,16 +1644,16 @@
 </table>
 <h3 id="supported-formats">Supported formats<a class="headerlink" href="#supported-formats" title="Permanent link">&para;</a></h3>
 <p><strong>Retell</strong> — accepts the call object as returned by <code>GET /v2/get-call/{call_id}</code>, the post-call webhook envelope (<code>{"event": ..., "call": {...}}</code>), or arrays of either:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"call_abc123"</span><span class="p">,</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">"transcript_object"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, how can I help?"</span><span class="p">},</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I need to cancel my order."</span><span class="p">}</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1700000000000</span><span class="p">,</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span><span class="nt">"end_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1700000060000</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"call_abc123"</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">"transcript_object"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, how can I help?"</span><span class="p">},</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I need to cancel my order."</span><span class="p">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">"duration_ms"</span><span class="p">:</span><span class="w"> </span><span class="mi">60000</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1700000000000</span><span class="p">,</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nt">"end_timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1700000060000</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
 </code></pre></div>
 <p>The adapter maps Retell's <code>role: "agent"</code> → <code>role: "assistant"</code> (voicetest convention) and ignores word-level timing details.</p>
 <p>Other platforms (VAPI, LiveKit, Telnyx, Bland) are <strong>not yet supported</strong> — <code>--format</code> is parameterized so adapters can be added without breaking changes.</p>
