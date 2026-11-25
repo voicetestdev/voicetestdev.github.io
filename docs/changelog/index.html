@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/favicon.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -339,6 +339,17 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#v056-live-and-parallel-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.56 — Live and parallel runs
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#v054-full-run-history" class="md-nav__link">
@@ -1272,6 +1283,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v056-live-and-parallel-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.56 — Live and parallel runs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v054-full-run-history" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1568,6 +1590,16 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <p>User-facing changes by release. For the full commit log, see the <a href="https://github.com/voicetestdev/voicetest/releases">GitHub releases</a>.</p>
+<h2 id="v056-live-and-parallel-runs">v0.56 — Live and parallel runs<a class="headerlink" href="#v056-live-and-parallel-runs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>The Runs tab updates live.</strong> Runs started from the API, the CLI or another tab appear without a reload, along with their status changes and elapsed times.</li>
+<li><strong>The back button steps through the app.</strong> Each view, run and result you open adds a browser history entry, so Back returns to where you were. Starting a run adds a single entry. Links to a deleted agent or run fall back to the import page or the runs list.</li>
+<li>Run dates no longer show as "now" in time zones behind UTC.</li>
+<li>REST: WebSocket <code>/api/agents/{id}/runs/ws</code> pushes <code>run_updated</code> and <code>run_deleted</code> events.</li>
+<li><strong>Run tests in parallel.</strong> Set <code>options.concurrency</code> (1–16) when starting a run or a replay through the API. See <a href="../features/#parallel-test-execution">Features: Parallel test execution</a>.</li>
+<li>LLM calls are now async rather than holding a thread each, so parallel tests aren't limited by the machine's thread pool.</li>
+<li><strong>One-time cache reset.</strong> Async calls use different cache keys, so completions cached by earlier versions are fetched from the provider again once after upgrading. This includes shared S3 caches. Claude Code (<code>claudecode/...</code>) caches are unaffected.</li>
+</ul>
 <h2 id="v054-full-run-history">v0.54 — Full run history<a class="headerlink" href="#v054-full-run-history" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>All runs are reachable.</strong> The Runs tab badge shows the agent's total run count instead of stopping at 50, and <strong>Show older runs</strong> at the bottom of the list loads the next 50 in place.</li>

@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.54"
+    "version": "0.57"
   },
   "paths": {
     "/api/health": {
@@ -2170,6 +2170,23 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/ReplayRunRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Request"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -4358,6 +4375,23 @@
         "title": "RemoteAgentInfo",
         "description": "Information about a remote agent on a platform."
       },
+      "ReplayRunRequest": {
+        "properties": {
+          "options": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RunOptions"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "ReplayRunRequest",
+        "description": "Request to replay a run."
+      },
       "RunOptions": {
         "properties": {
           "max_turns": {
@@ -4369,6 +4403,14 @@
             "type": "number",
             "title": "Turn Timeout Seconds",
             "default": 60.0
+          },
+          "concurrency": {
+            "type": "integer",
+            "maximum": 16.0,
+            "minimum": 1.0,
+            "title": "Concurrency",
+            "description": "Number of tests to run at once",
+            "default": 1
           },
           "verbose": {
             "type": "boolean",
@@ -4524,6 +4566,12 @@
             "type": "boolean",
             "title": "Audio Eval",
             "description": "Auto-run TTS\u2192STT audio evaluation on every test",
+            "default": false
+          },
+          "no_cache": {
+            "type": "boolean",
+            "title": "No Cache",
+            "description": "Bypass the LLM response cache",
             "default": false
           },
           "pattern_engine": {
