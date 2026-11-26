@@ -3,7 +3,7 @@
   "info": {
     "title": "voicetest",
     "description": "Voice agent test harness API",
-    "version": "0.57"
+    "version": "0.58"
   },
   "paths": {
     "/api/health": {
@@ -3280,18 +3280,31 @@
         "properties": {
           "tts_url": {
             "type": "string",
-            "title": "Tts Url",
-            "default": "http://localhost:8002/v1"
+            "title": "Tts Url"
           },
           "stt_url": {
             "type": "string",
-            "title": "Stt Url",
-            "default": "http://localhost:8001/v1"
+            "title": "Stt Url"
+          },
+          "tts_model": {
+            "type": "string",
+            "title": "Tts Model",
+            "default": "kokoro"
+          },
+          "stt_model": {
+            "type": "string",
+            "title": "Stt Model",
+            "default": "Systran/faster-whisper-base.en"
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "default": "af_heart"
           }
         },
         "type": "object",
         "title": "AudioSettings",
-        "description": "TTS/STT service configuration for audio evaluation."
+        "description": "TTS/STT service configuration for audio evaluation and live calls."
       },
       "Body_create_agent_from_file_api_agents_upload_post": {
         "properties": {
