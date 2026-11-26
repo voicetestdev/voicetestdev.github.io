@@ -1373,9 +1373,12 @@
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">[audio]</span>
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">tts_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://localhost:8002/v1"</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">stt_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://localhost:8001/v1"</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">[cache]</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">cache_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"disk"</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">tts_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"kokoro"</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">stt_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Systran/faster-whisper-base.en"</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">voice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"af_heart"</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="k">[cache]</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="n">cache_backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"disk"</span>
 </code></pre></div>
 <table>
 <thead>
@@ -1398,8 +1401,8 @@
 </tr>
 <tr>
 <td><code>[audio]</code></td>
-<td><code>tts_url</code>, <code>stt_url</code></td>
-<td>Set when audio eval is enabled</td>
+<td><code>tts_url</code>, <code>stt_url</code>, <code>tts_model</code>, <code>stt_model</code>, <code>voice</code></td>
+<td>Used by audio eval and live calls (local backend)</td>
 </tr>
 <tr>
 <td><code>[cache]</code></td>
@@ -1461,6 +1464,10 @@
 <tr>
 <td><code>LIVEKIT_API_KEY</code> + <code>LIVEKIT_API_SECRET</code></td>
 <td>LiveKit platform integration</td>
+</tr>
+<tr>
+<td><code>KOKORO_URL</code> / <code>WHISPER_URL</code></td>
+<td>Default <code>[audio]</code> <code>tts_url</code> / <code>stt_url</code> when not set in settings</td>
 </tr>
 </tbody>
 </table>

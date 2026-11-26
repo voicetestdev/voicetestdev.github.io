@@ -341,6 +341,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v058-parallel-runs-in-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.58 — Parallel runs in the UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v057-dynamic-variables-everywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.57 — Dynamic variables everywhere
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v056-live-and-parallel-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1283,6 +1305,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#v058-parallel-runs-in-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.58 — Parallel runs in the UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v057-dynamic-variables-everywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v0.57 — Dynamic variables everywhere
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#v056-live-and-parallel-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1590,6 +1634,25 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <p>User-facing changes by release. For the full commit log, see the <a href="https://github.com/voicetestdev/voicetest/releases">GitHub releases</a>.</p>
+<h2 id="v058-parallel-runs-in-the-ui">v0.58 — Parallel runs in the UI<a class="headerlink" href="#v058-parallel-runs-in-the-ui" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Choose how many tests run at once from the Tests tab.</strong> The <strong>Parallel</strong> selector next to <strong>Run All</strong> sets concurrency (1, 2, 4, 8 or 16) for Run All, Run Selected and Re-run, and is remembered per agent in your browser. While a parallel run is in progress the Runs tab shows how many tests are running at a time. See <a href="../features/#parallel-test-execution">Features: Parallel test execution</a>.</li>
+<li><strong>Run a single test from its row.</strong> Each test has its own <strong>Run</strong> button. Run as call, Edit and Delete moved into a <strong>⋯</strong> menu, and clicking a test's name opens it for editing.</li>
+<li>The Tests tab header, with the run buttons, stays in view while you scroll the test list.</li>
+<li>Sorting the test list by a column is remembered across page reloads.</li>
+<li>Long test prompts are clamped to two lines, with the full prompt on hover.</li>
+<li><strong>Live calls use your <code>[audio]</code> settings.</strong> The STT and TTS URLs in settings now apply to live calls as well as audio eval. Previously live calls read only the <code>WHISPER_URL</code> and <code>KOKORO_URL</code> environment variables. See <a href="../configuration/">Configuration</a>.</li>
+<li>New <code>[audio]</code> keys: <code>stt_model</code>, <code>tts_model</code> and <code>voice</code>. When <code>tts_url</code> and <code>stt_url</code> aren't set, they default from <code>KOKORO_URL</code> and <code>WHISPER_URL</code>, so those variables now apply to audio eval too.</li>
+<li><strong>Audio eval transcribes with <code>Systran/faster-whisper-base.en</code></strong>, matching live calls and the bundled whisper service. It previously used <code>faster-whisper-small</code>. Set <code>stt_model</code> to keep the old model.</li>
+<li>The live-call workers take their audio configuration as <code>--audio-settings</code> JSON, replacing <code>--whisper-url</code> and <code>--kokoro-url</code>.</li>
+</ul>
+<h2 id="v057-dynamic-variables-everywhere">v0.57 — Dynamic variables everywhere<a class="headerlink" href="#v057-dynamic-variables-everywhere" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Dynamic variables resolve in every prompt the model sees.</strong> <code>{{var}}</code> placeholders and <code>{%snippet%}</code> references are now filled in extraction field descriptions, transition conditions and descriptions, global node conditions and go-back conditions, not just node and general prompts.</li>
+<li>Values pulled out by an extract node apply to later prompts in the same conversation, and no longer leak into other runs of the same test case.</li>
+<li><strong>Expanded export resolves snippets in all of those fields.</strong> Previously snippet references outside the node and general prompts were exported unresolved, with the snippet definitions removed.</li>
+<li>The variable picker shown before a chat or call lists variables used anywhere in the agent, including inside extraction descriptions, transition conditions and snippets.</li>
+</ul>
 <h2 id="v056-live-and-parallel-runs">v0.56 — Live and parallel runs<a class="headerlink" href="#v056-live-and-parallel-runs" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>The Runs tab updates live.</strong> Runs started from the API, the CLI or another tab appear without a reload, along with their status changes and elapsed times.</li>

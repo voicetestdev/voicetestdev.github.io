@@ -1606,7 +1606,7 @@
 </code></pre></div>
 <p>Disable caching for a run with <code>no_cache = true</code> in run options or <code>--no-cache</code> on the CLI.</p>
 <h2 id="parallel-test-execution">Parallel test execution<a class="headerlink" href="#parallel-test-execution" title="Permanent link">&para;</a></h2>
-<p>Tests in a run execute one at a time by default. Set <code>concurrency</code> in the run options to run up to 16 at once:</p>
+<p>Tests in a run execute one at a time by default. In the web UI, pick a level from the <strong>Parallel</strong> selector next to <strong>Run All</strong> on the Tests tab; it applies to Run All, Run Selected and Re-run, and is remembered per agent. Through the API, set <code>concurrency</code> in the run options to run up to 16 at once:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/api/agents/&lt;agent-id&gt;/runs<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"options": {"concurrency": 4}}'</span>
